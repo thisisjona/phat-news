@@ -5,26 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet"> 
     <title>Phat News</title>
 </head>
 <body>
     <header>
-        <center><h1>Welcome to Phat news!</h1></center>
+        <img src=* alt="header image"></image>
+        <center><h1>Welcome to Phat News!</h1></center>
+        <nav>
+            <a class=navigat href="">Temp1</a>
+            <a class=navigat href="">Temp2</a>
+            <a class=navigat href="">Temp3</a>
+        </nav>
     </header>
 
     <div class=call_to_action>
-        <h2>Phat News</h2>
-        <p>What futbol news would you like to read?</p>
-        <div class="form-group">
-            <label for="futbol_team">Futbol team</label>
-            <input type="text" class="form-control" id="futbol_team" placeholder="chelsea, manchester..." autocomplete="off" />
-        </div>
+        <center>
+        <form class="gather">
+            <h2>Phat News</h2>
+            <p>What futbol news would you like to read?</p>
+            <div class="form-group">
+                <label for="futbol_team">Futbol team</label>
+                <input type="text" class="form-control" id="futbol_team" placeholder="chelsea, manchester..." autocomplete="off" />
+                <button class="submit">Submit</button>
+            </div>
+        </form>
+        
         <section class="current-news">
             <card class="current-story">Story 1</card>
             <card class="current-story">Story 2</card>
             <card class="current-story">Story 3</card>
         </section>
-        
+        </center>
     </div>
     
     <script src="./assets/js/script.js"></script>
