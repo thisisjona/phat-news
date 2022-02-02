@@ -1,0 +1,25 @@
+
+
+header{
+    background-color: aqua;
+}
+
+nav{
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+.navigat{
+    margin-right: 20px;
+}
+
+.current-news{
+    margin-top: 30px;
+}
+
+.current-story{
+    margin:  30px;
+    padding: 20px;
+    background-color: brown;
+}
