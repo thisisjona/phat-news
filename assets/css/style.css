@@ -1,3 +1,10 @@
+html,
+body,
+.wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 
 header{
@@ -23,3 +30,6 @@ nav{
     padding: 20px;
     background-color: brown;
 }
+
+
+
