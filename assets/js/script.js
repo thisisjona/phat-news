@@ -13,6 +13,7 @@ var formSubmitHandler = function(event) {
     getSportNews(country);
 
     // clear old content
+    userFormEl.textContent = "";
     nameInputEl.value = "";
   } else {
     alert("Please enter a country");
