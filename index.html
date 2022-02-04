@@ -25,18 +25,33 @@
     <!-- CTA user enters name and selects country to view recent news -->
     <div id="modal-cta" class="modal is-active">
         <div class="container-fluid box">
-        <h1 class="">Phat News</h1>
-        <p>Please enter your name, age and country!</p>
-        <form>
-            <label for="userName"></label>
-            <input class="input is-rounded"type="text" id="userName" placeholder="Enter username">
-            <div class="dropdown is-active">
-                <div class="dropdown-trigger">
-                    <button class="button"></button>
+            <h1 class="">Phat News</h1>
+            <p>Please enter your name, age and country!</p>
+            <form>
+                <!-- start field for user name -->
+                <label for="userName"></label>
+                <input class="input is-rounded"type="text" id="userName" placeholder="Enter username">
+                <!-- start dropdown for country -->
+                <div class="dropdown is-active">
+                    <div class="dropdown-trigger">
+                        <button class="button" id="countryBtn" aria-haspopup="true" aria-controls="dropdown-menu">
+                            <span>Select Country</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="false"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <!-- start dropdown menu for countries -->
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            <a class="dropdown-item">United States</a>
+                            <a class="dropdown-item">Germany</a>
+                            <a class="dropdown-item">Canada</a>
+                            <a class="dropdown-item">Mexico</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form> 
     </div>
 
     <div>
