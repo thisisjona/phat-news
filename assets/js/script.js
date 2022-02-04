@@ -1,6 +1,5 @@
 var userFormEl = document.querySelector("#user-form");
-var nameInputEl = document.querySelector("#username");//country 
-var repoContainerEl = document.querySelector("#repos-container");
+var nameInputEl = document.querySelector("#futbol_team");//futbol team 
 
 //get form data
 var formSubmitHandler = function(event) {
@@ -8,66 +7,87 @@ var formSubmitHandler = function(event) {
   event.preventDefault();
 
   // get value from input element
-  var username = nameInputEl.value.trim();
+  var country = nameInputEl.value.trim();
      
-  if (username) {
-    getUserRepos(username);
+  if (country) {
+    getSportNews(country);
 
     // clear old content
-    repoContainerEl.textContent = "";
     nameInputEl.value = "";
   } else {
-    alert("Please enter a GitHub username");
+    alert("Please enter a country");
   }
 };
 
-//Sports new API
-var getUserRepos = function(user) {
-    // format the github api url
-    var apiUrl = "https://newsapi.org/v2/top-headlines?&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
-  
-    // make a get request to url
-    fetch(apiUrl)
-      .then(function(response) {
-        // request was successful
-        if (response.ok) {
-          console.log(response);
-          response.json().then(function(data) {
-            console.log(data);
-            displayRepos(data, user);
-          });
-        } else {
-          alert("Error: " + response.statusText);
-        }
-      })
-      .catch(function(error) {
-        alert("Unable to connect to GitHub");
-      });
-  };
+// https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606
+// https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
+let sportsArr=[];
 
-  //2nd API fetch
-  var getSportsWeather = function(user) {
+//Sports new API
+var getSportNews = function() {
     // format the github api url
-    var apiUrl = "";
-  
+    var apiUrl = "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
     // make a get request to url
     fetch(apiUrl)
       .then(function(response) {
-        // request was successful
-        if (response.ok) {
-          console.log(response);
-          response.json().then(function(data) {
-            console.log(data);
-            displayRepos(data, user);
-          });
-        } else {
-          alert("Error: " + response.statusText);
-        }
+        response.json().then(function(data) {
+        console.log(data);
+        })
       })
-      .catch(function(error) {
-        alert("Unable to connect to GitHub");
-      });
   };
+  getSportNews();
+
+  var getOtherNews = function() {
+    // format the github api url
+    var apiUrl = "https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606";
+    // make a get request to url
+    fetch(apiUrl)
+      .then(function(response) {
+        response.json().then(function(data) {
+        console.log(data);
+        })
+      })
+  };
+  getOtherNews();
+
+   //   console.log(response)
+      //   // request was successful
+      //   if (response.ok) {
+      //     console.log(response);
+      //     response.json().then(function(data) {
+      //       console.log(data);
+      //       displayRepos(data, country);
+      //     });
+      //   } else {
+      //     alert("Error: " + response.statusText);
+      //   }
+      // })
+      // .catch(function(error) {
+      //   alert("Unable to connect to GitHub");
+      // });
+  // //2nd API fetch
+  // var getSportsWeather = function(user) {
+  //   // format the github api url
+  //   var apiUrl = "";
+  
+  //   // make a get request to url
+  //   fetch(apiUrl)
+  //     .then(function(response) {
+  //       // request was successful
+  //       if (response.ok) {
+  //         console.log(response);
+  //         response.json().then(function(data) {
+  //           console.log(data);
+  //           displayRepos(data, user);
+  //         });
+  //       } else {
+  //         alert("Error: " + response.statusText);
+  //       }
+  //     })
+  //     .catch(function(error) {
+  //       alert("Unable to connect to GitHub");
+  //     });
+  // };
 
 // get news
   var getFeaturedRepos = function(language) {
@@ -134,3 +154,4 @@ var getUserRepos = function(user) {
 
   // add event listeners to forms
 userFormEl.addEventListener("submit", formSubmitHandler);
+
