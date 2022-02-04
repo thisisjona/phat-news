@@ -7,23 +7,41 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Phat News</title>
     <!-- ade84378e67548e5b4ed1e45d4c09606 -->
 </head>
 <body>
-    <header>
-        <img src=/ alt="header image"></image>
+    <header class="container">
+        <img class="" src=/ alt="header image"></image>
         <center><h1>Welcome to Phat News!</h1></center>
-        <nav>
+        <nav class="navbar level-right">
             <a class=navigat href="">Temp1</a>
             <a class=navigat href="">Temp2</a>
             <a class=navigat href="">Temp3</a>
         </nav>
     </header>
 
-    <div class=call_to_action>
-        <center>
-        <form class="gather">
+    <!-- CTA user enters name and selects country to view recent news -->
+    <div id="modal-cta" class="modal is-active">
+        <div class="container-fluid box">
+        <h1 class="">Phat News</h1>
+        <p>Please enter your name, age and country!</p>
+        <form>
+            <label for="userName"></label>
+            <input class="input is-rounded"type="text" id="userName" placeholder="Enter username">
+            <div class="dropdown is-active">
+                <div class="dropdown-trigger">
+                    <button class="button"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <div>
+        <main class="container">
+        <form class="">
             <h2>Phat News</h2>
             <p>What futbol news would you like to read?</p>
             <div class="form-group">
@@ -31,25 +49,25 @@
                 <input type="text" class="form-control" id="futbol_league" placeholder="premier" autocomplete="off" />
                 <label for="futbol_team">Futbol Team</label>
                 <input type="text" class="form-control" id="futbol_team" placeholder="chelsea, manchester..." autocomplete="off" />
-                <button class="submit">Submit</button>
+                <button class="button is-primary is-outlined">Submit</button>
             </div>
         </form>
         
-        <div class="card">
+        <div class="container">
             <h3 class="card-header text-uppercase">Search By User</h3>
             <form id="user-form" class="card-body">
               <label class="form-label" for="username">Username</label>
               <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-              <button type="submit" class="btn">Get User</button>
+              <button type="submit" class="button is-primary is-outlined">Get User</button>
             </form>
         </div>
         
-        <section class="current-news">
+        <section class="current-news container">
             <card class="current-story">Story 1</card>
             <card class="current-story">Story 2</card>
             <card class="current-story">Story 3</card>
         </section>
-        </center>
+    </main>
     </div>
     
     <script src="./assets/js/script.js"></script>
