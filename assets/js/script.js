@@ -39,7 +39,7 @@ var getSportNews = function() {
 
   var getOtherNews = function() {
     // format the github api url
-    var apiUrl = "https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606";
+    var apiUrl = "https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c";
     // make a get request to url
     fetch(apiUrl)
       .then(function(response) {
