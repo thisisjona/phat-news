@@ -204,5 +204,5 @@ innerDiv.innerText = data[0].Content;
 
 
   // add event listeners to forms
-userFormEl.addEventListener("submit", formSubmitHandler);
+// userFormEl.addEventListener("submit", formSubmitHandler);
 
