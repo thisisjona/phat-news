@@ -38,29 +38,28 @@ let sportsArr=[];
 //   };
 //   getSportNews();
 
-fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-.then(res=> res.json())
-.then(data => console.log(data));
+// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+// .then(res=> res.json())
+// .then(data => console.log(data));
 
 const body = document.querySelector('body');
 const h3 = document.querySelector('body h3');
 fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 .then(res => res.json())
 .then(data => {
-h3.innerHTML = data[0].Team;
+h3.innerText = data[0].Team;
 
 const div = document.createElement('div');
-div.id = 'card';
-div.classname = 'card';
+div.id = 'card-title';
+div.classname = 'card-title';
 document.getElementsByTagName('h3')[0].appendChild(div);
-
-div.innerHTML = data[0].Title;
+div.innerText = data[0].Title;
 
 const innerDiv = document.createElement('div');
-innerDiv.id = 'card-2'
-innerDiv.classname = 'card-2';
+innerDiv.id = 'card-content'
+innerDiv.classname = 'card-content';
 div.appendChild(innerDiv);
-innerDiv.innerHTML = data[0].Content;
+innerDiv.innerText = data[0].Content;
 
 });
 

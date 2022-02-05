@@ -4,6 +4,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: cornflowerblue;
 }
 
 
@@ -31,11 +32,22 @@ nav{
     background-color: lightcyan;
 }
 
-#card {
+h3 {
+    color: black;
+    background-color: white;
+    margin: 2rem;
+    padding: 1rem;
+    width: 12rem;
+    word-wrap: break-word;
+    border-radius: 1rem;
+}
+
+
+#card-title{
     color: blueviolet;
 }
 
-#card-2 {
+#card-content {
     color: black;
 }
 
