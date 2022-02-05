@@ -66,6 +66,8 @@ innerDiv.innerText = data[0].Content;
 
 });
 
+
+
   // var getOtherNews = function() {
   //   // format the github api url
   //   var apiUrl = "https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c";
