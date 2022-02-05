@@ -1,42 +1,54 @@
 var userFormEl = document.querySelector("#user-form");
-var nameInputEl = document.querySelector("#futbol_team");//futbol team 
+var countryInputEl = document.querySelector("#country");//country 
 let sportsArr=[];
+let countryArr=[{name:"America", id:"us"}]
 
 //get form data
 var formSubmitHandler = function(event) {
   // prevent page from refreshing
   event.preventDefault();
   // get value from input element
-  var country = nameInputEl.value.trim();
+  var country = countryInputEl.value.trim();
   if (country) {
-    getUserRepos(country);
+    getSportNews(country);
     // clear old content
-    nameInputEl.value = "";
+    countryInputEl.value = "";
   } else {
     alert("Please enter a country");
   }
 }
 
 //Sports new API
-var getSportNews = function() {
-    // format the github api url
-    var apiUrl = "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
-    // make a get request to url
-    fetch(apiUrl)
-      .then(function(response) {
-        //request was successful
-        if(response.ok){
-          response.json().then(function(data) {
-          sportsArr=data.articles;
-          console.log("sports array ", sportsArr)     
-         });
-        }else {
-          alert("Error: " + response.statusText);
-        }
-      })
-      .catch(function(error) {
-        alert("Unable to connect to server");
-      });
+var getSportNews = function(country) {
+    var countryId;
+    for(var i=0;i<countryArr.length;i++){
+      if(country=countryArr[i].name){
+        countryId=countryArr[i].id;
+      };
+    }
+    if(!countryId){
+      console.log("no country found")
+    }
+    else{
+      // format the github api url
+      var apiUrl = "https://newsapi.org/v2/top-headlines?country="+countryId+"&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
+      // make a get request to url
+      fetch(apiUrl)
+        .then(function(response) {
+          //request was successful
+          if(response.ok){
+            response.json().then(function(data) {
+            sportsArr=data.articles;
+            console.log("sports array ", sportsArr)     
+          });
+          }else {
+            alert("Error: " + response.statusText);
+          }
+        })
+        .catch(function(error) {
+          alert("Unable to connect to server");
+        });
+    }
   };
   getSportNews();
 
