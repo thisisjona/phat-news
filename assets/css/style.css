@@ -4,6 +4,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: cornflowerblue;
 }
 
 
@@ -28,8 +29,28 @@ nav{
 .current-story{
     margin:  30px;
     padding: 20px;
-    background-color: brown;
+    background-color: lightcyan;
+}
+
+.container {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    background-color: white;
+    margin: 2rem;
+    padding: 1rem;
+    width: 12rem;
+    word-wrap: break-word;
+    border-radius: 1rem;
 }
 
 
+#card-title{
+    color: blueviolet;
+}
+
+#card-content {
+    color: black;
+}
 
