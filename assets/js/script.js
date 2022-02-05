@@ -66,17 +66,18 @@ var getSportNews = function(country) {
       for(var i=0; i<sportsArr.length;i++){
         var newsTitle = sportsArr[i].title;
         //news link creation
-        var newsEl = document.createElement("a");
-        newsEl.classList = "list-item flex-row justify-space-between align-center";
+        var newsEl = document.createElement("div");
+        var newsTitleEl = document.createElement("a");
+        newsTitleEl.classList = "list-item flex-row justify-space-between align-center news-story";
         //set url
-        newsEl.setAttribute("href", sportsArr[i].url);
+        newsTitleEl.setAttribute("href", sportsArr[i].url);
 
-        var newsTitleEl = document.createElement("span");
-        newsTitleEl.classList = "flex-row align-center";
+        
+        // newsTitleEl.classList = "flex-row align-center";
 
         if(newsTitle){
           newsTitleEl.innerHTML =
-          "<i class='fas fa-times status-icon icon-danger'></i>" + newsTitle;
+          "*** News title ***" + newsTitle;
         }else {
           statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
         }
