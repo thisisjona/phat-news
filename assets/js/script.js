@@ -20,10 +20,12 @@ var formSubmitHandler = function(event) {
 
 //Sports new API
 var getSportNews = function(country) {
-    var countryId;
+    console.log(country)
+    var countryId="";
     for(var i=0;i<countryArr.length;i++){
-      if(country=countryArr[i].name){
+      if(country===countryArr[i].name){
         countryId=countryArr[i].id;
+        console.log("this is the countryId:"+countryId)
       };
     }
     if(!countryId){
@@ -50,22 +52,10 @@ var getSportNews = function(country) {
         });
     }
   };
-  getSportNews();
+  
 
 
-// get news
-  var getFeaturedRepos = function(language) {
-    var apiUrl = "https://api.github.com/search/repositories?q=" + language + "+is:featured&sort=help-wanted-issues";
-  
-    fetch(apiUrl).then(function(response) {
-      if (response.ok) {
-        console.log(response);
-      } else {
-        alert('Error: GitHub User Not Found');
-      }
-    });
-  };
-  
+
   //Display news
   var displayRepos = function(repos, searchTerm) {
     // check if api returned any repos
