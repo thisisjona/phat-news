@@ -43,16 +43,17 @@ let sportsArr=[];
 // .then(data => console.log(data));
 
 const body = document.querySelector('body');
-const h3 = document.querySelector('body h3');
+const section = document.querySelector('body section');
+const aside1 = document.querySelector('body section aside');
 fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 .then(res => res.json())
 .then(data => {
-h3.innerText = data[0].Team;
+aside1.innerText = data[0].Team;
 
 const div = document.createElement('div');
 div.id = 'card-title';
 div.classname = 'card-title';
-document.getElementsByTagName('h3')[0].appendChild(div);
+document.getElementsByTagName('aside')[0].appendChild(div);
 div.innerText = data[0].Title;
 
 const innerDiv = document.createElement('div');

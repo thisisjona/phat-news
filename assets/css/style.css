@@ -32,7 +32,10 @@ nav{
     background-color: lightcyan;
 }
 
-h3 {
+.container {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
     color: black;
     background-color: white;
     margin: 2rem;
