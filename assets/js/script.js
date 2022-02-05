@@ -38,31 +38,53 @@ let sportsArr=[];
 //   };
 //   getSportNews();
 
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res=> res.json())
-// .then(data => console.log(data));
+fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+.then(res=> res.json())
+.then(data => console.log(data));
 
-const body = document.querySelector('body');
-const section = document.querySelector('body section');
+const body1 = document.querySelector('body');
+const section1 = document.querySelector('body section');
 const aside1 = document.querySelector('body section aside');
 fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 .then(res => res.json())
 .then(data => {
 aside1.innerText = data[0].Team;
 
-const div = document.createElement('div');
-div.id = 'card-title';
-div.classname = 'card-title';
-document.getElementsByTagName('aside')[0].appendChild(div);
-div.innerText = data[0].Title;
+const div1 = document.createElement('div');
+div1.id = 'card-title';
+div1.classname = 'card-title';
+document.getElementsByTagName('aside')[0].appendChild(div1);
+div1.innerText = data[0].Title;
 
 const innerDiv = document.createElement('div');
 innerDiv.id = 'card-content'
 innerDiv.classname = 'card-content';
-div.appendChild(innerDiv);
+div1.appendChild(innerDiv);
 innerDiv.innerText = data[0].Content;
 
 });
+
+// const body2 = document.querySelector('body');
+// const section2 = document.querySelector('body section');
+// const aside2 = document.querySelector('body section aside aside');
+// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+// .then(res => res.json())
+// .then(data => {
+// aside2.innerText = data[1].Team;
+
+// const div2 = document.createElement('div');
+// div2.id = 'card-title';
+// div2.classname = 'card-title';
+// document.getElementsByTagName('aside')[1].appendChild(div2);
+// div2.innerText = data[1].Title;
+
+// const innerDiv = document.createElement('div');
+// innerDiv.id = 'card-content'
+// innerDiv.classname = 'card-content';
+// div2.appendChild(innerDiv);
+// innerDiv.innerText = data[1].Content;
+
+// });
 
   // var getOtherNews = function() {
   //   // format the github api url
