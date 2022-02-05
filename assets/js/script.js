@@ -23,40 +23,30 @@ var formSubmitHandler = function(event) {
 // https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
 
 
-//Sports new API
-// var getSportNews = function() {
-//     // format the github api url
-//     var apiUrl = "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
-//     // make a get request to url
-//     fetch(apiUrl)
-//       .then(function(response) {
-//         response.json().then(function(data) {
-//         console.log(data);
-//         })
-//       })
-//   };
-//   getSportNews();
+// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+// .then(res=> res.json())
+// .then(data => console.log(data));
 
 
-
-fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-.then(res=> res.json())
-.then(data => console.log(data));
-
+// declares variables linked to HTML
 const body = document.querySelector('body');
 const section = document.querySelector('body section');
 const aside1 = document.querySelector('body section aside');
+
+// get data from server-side API and assign location 
 fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 .then(res => res.json())
 .then(data => {
 aside1.innerText = data[0].Team;
 
+// create dynamic element and assign data from API to it
 const div = document.createElement('div');
 div.id = 'card-title';
 div.classname = 'card-title';
 document.getElementsByTagName('aside')[0].appendChild(div);
 div.innerText = data[0].Title;
 
+// create dynamic element and assign data from API to it
 const innerDiv = document.createElement('div');
 innerDiv.id = 'card-content'
 innerDiv.classname = 'card-content';
@@ -64,64 +54,6 @@ div.appendChild(innerDiv);
 innerDiv.innerText = data[0].Content;
 
 });
-
-
-
-  // var getOtherNews = function() {
-  //   // format the github api url
-  //   var apiUrl = "https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c";
-  //   // make a get request to url
-  //   fetch(apiUrl)
-  //     .then(function(response) {
-  //       response.json().then(function(data) {
-  //       console.log(data);
-  //       })
-  //     })
-  // };
-  // getOtherNews();
-
-  
-
-  
-
-   //   console.log(response)
-      //   // request was successful
-      //   if (response.ok) {
-      //     console.log(response);
-      //     response.json().then(function(data) {
-      //       console.log(data);
-      //       displayRepos(data, country);
-      //     });
-      //   } else {
-      //     alert("Error: " + response.statusText);
-      //   }
-      // })
-      // .catch(function(error) {
-      //   alert("Unable to connect to GitHub");
-      // });
-  // //2nd API fetch
-  // var getSportsWeather = function(user) {
-  //   // format the github api url
-  //   var apiUrl = "";
-  
-  //   // make a get request to url
-  //   fetch(apiUrl)
-  //     .then(function(response) {
-  //       // request was successful
-  //       if (response.ok) {
-  //         console.log(response);
-  //         response.json().then(function(data) {
-  //           console.log(data);
-  //           displayRepos(data, user);
-  //         });
-  //       } else {
-  //         alert("Error: " + response.statusText);
-  //       }
-  //     })
-  //     .catch(function(error) {
-  //       alert("Unable to connect to GitHub");
-  //     });
-  // };
 
 // get news
   var getFeaturedRepos = function(language) {
