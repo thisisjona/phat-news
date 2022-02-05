@@ -1,5 +1,6 @@
 var userFormEl = document.querySelector("#user-form");
-var countryInputEl = document.querySelector("#country");//country 
+var countryInputEl = document.querySelector("#country");//country
+var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
 let sportsArr=[];
 let countryArr=[{name:"America", id:"us"}]
 
@@ -42,6 +43,7 @@ var getSportNews = function(country) {
             response.json().then(function(data) {
             sportsArr=data.articles;
             console.log("sports array ", sportsArr)     
+            displayNews();
           });
           }else {
             alert("Error: " + response.statusText);
@@ -53,18 +55,41 @@ var getSportNews = function(country) {
     }
   };
   
+  var displayNews = function() {
+    console.log("displayNews function run")
+    
+    if (sportsArr.length === 0) {
+      newsFeedEl.textContent = "no news found";
+      return;
+    }else{
+      console.log("else statement ran")
+      for(var i=0; i<sportsArr.length;i++){
+        var newsTitle = sportsArr[i].title;
+        //news link creation
+        var newsEl = document.createElement("a");
+        newsEl.classList = "list-item flex-row justify-space-between align-center";
+        //set url
+        newsEl.setAttribute("href", sportsArr[i].url);
 
+        var newsTitleEl = document.createElement("span");
+        newsTitleEl.classList = "flex-row align-center";
 
-
+        if(newsTitle){
+          newsTitleEl.innerHTML =
+          "<i class='fas fa-times status-icon icon-danger'></i>" + newsTitle;
+        }else {
+          statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
+        }
+        // append container to the dom
+        newsEl.appendChild(newsTitleEl)
+        newsFeedEl.appendChild(newsEl);
+      }
+    }
+  }
+  
   //Display news
   var displayRepos = function(repos, searchTerm) {
-    // check if api returned any repos
-    if (repos.length === 0) {
-      repoContainerEl.textContent = "No repositories found.";
-      return;
-    }
-    repoSearchTerm.textContent = searchTerm;
-    
+
     // loop over repos
     for (var i = 0; i < repos.length; i++) {
       // format repo name
