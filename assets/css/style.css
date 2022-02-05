@@ -51,6 +51,9 @@ nav{
     border-radius: 1rem;
 }
 
+.news-story{
+    margin: 10px 10px;
+}
 
 #card-title{
     color: blueviolet;

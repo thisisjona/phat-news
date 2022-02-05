@@ -1,5 +1,6 @@
 var userFormEl = document.querySelector("#user-form");
-var countryInputEl = document.querySelector("#country");//country 
+var countryInputEl = document.querySelector("#country");//country
+var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
 let sportsArr=[];
 let countryArr=[{name:"America", id:"us"}]
 
@@ -16,6 +17,123 @@ var formSubmitHandler = function(event) {
   } else {
     alert("Please enter a country");
   }
+};
+
+// https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606
+// https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
+
+
+//Sports new API
+// var getSportNews = function() {
+//     // format the github api url
+//     var apiUrl = "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
+//     // make a get request to url
+//     fetch(apiUrl)
+//       .then(function(response) {
+//         response.json().then(function(data) {
+//         console.log(data);
+//         })
+//       })
+//   };
+//   getSportNews();
+
+
+
+fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+.then(res=> res.json())
+.then(data => console.log(data));
+
+const body = document.querySelector('body');
+const section = document.querySelector('body section');
+const aside1 = document.querySelector('body section aside');
+fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+.then(res => res.json())
+.then(data => {
+aside1.innerText = data[0].Team;
+
+const div = document.createElement('div');
+div.id = 'card-title';
+div.classname = 'card-title';
+document.getElementsByTagName('aside')[0].appendChild(div);
+div.innerText = data[0].Title;
+
+const innerDiv = document.createElement('div');
+innerDiv.id = 'card-content'
+innerDiv.classname = 'card-content';
+div.appendChild(innerDiv);
+innerDiv.innerText = data[0].Content;
+
+});
+
+
+
+  // var getOtherNews = function() {
+  //   // format the github api url
+  //   var apiUrl = "https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c";
+  //   // make a get request to url
+  //   fetch(apiUrl)
+  //     .then(function(response) {
+  //       response.json().then(function(data) {
+  //       console.log(data);
+  //       })
+  //     })
+  // };
+  // getOtherNews();
+
+  
+
+  
+
+   //   console.log(response)
+      //   // request was successful
+      //   if (response.ok) {
+      //     console.log(response);
+      //     response.json().then(function(data) {
+      //       console.log(data);
+      //       displayRepos(data, country);
+      //     });
+      //   } else {
+      //     alert("Error: " + response.statusText);
+      //   }
+      // })
+      // .catch(function(error) {
+      //   alert("Unable to connect to GitHub");
+      // });
+  // //2nd API fetch
+  // var getSportsWeather = function(user) {
+  //   // format the github api url
+  //   var apiUrl = "";
+  
+  //   // make a get request to url
+  //   fetch(apiUrl)
+  //     .then(function(response) {
+  //       // request was successful
+  //       if (response.ok) {
+  //         console.log(response);
+  //         response.json().then(function(data) {
+  //           console.log(data);
+  //           displayRepos(data, user);
+  //         });
+  //       } else {
+  //         alert("Error: " + response.statusText);
+  //       }
+  //     })
+  //     .catch(function(error) {
+  //       alert("Unable to connect to GitHub");
+  //     });
+  // };
+
+// get news
+  var getFeaturedRepos = function(language) {
+    var apiUrl = "https://api.github.com/search/repositories?q=" + language + "+is:featured&sort=help-wanted-issues";
+  
+    fetch(apiUrl).then(function(response) {
+      if (response.ok) {
+        console.log(response);
+      } else {
+        alert('Error: GitHub User Not Found');
+      }
+    });
 }
 
 //Sports new API
@@ -42,6 +160,7 @@ var getSportNews = function(country) {
             response.json().then(function(data) {
             sportsArr=data.articles;
             console.log("sports array ", sportsArr)     
+            displayNews();
           });
           }else {
             alert("Error: " + response.statusText);
@@ -53,18 +172,42 @@ var getSportNews = function(country) {
     }
   };
   
+  var displayNews = function() {
+    console.log("displayNews function run")
+    
+    if (sportsArr.length === 0) {
+      newsFeedEl.textContent = "no news found";
+      return;
+    }else{
+      console.log("else statement ran")
+      for(var i=0; i<sportsArr.length;i++){
+        var newsTitle = sportsArr[i].title;
+        //news link creation
+        var newsEl = document.createElement("div");
+        var newsTitleEl = document.createElement("a");
+        newsTitleEl.classList = "list-item flex-row justify-space-between align-center news-story";
+        //set url
+        newsTitleEl.setAttribute("href", sportsArr[i].url);
 
+        
+        // newsTitleEl.classList = "flex-row align-center";
 
-
+        if(newsTitle){
+          newsTitleEl.innerHTML =
+          "*** News title ***" + newsTitle;
+        }else {
+          statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
+        }
+        // append container to the dom
+        newsEl.appendChild(newsTitleEl)
+        newsFeedEl.appendChild(newsEl);
+      }
+    }
+  }
+  
   //Display news
   var displayRepos = function(repos, searchTerm) {
-    // check if api returned any repos
-    if (repos.length === 0) {
-      repoContainerEl.textContent = "No repositories found.";
-      return;
-    }
-    repoSearchTerm.textContent = searchTerm;
-    
+
     // loop over repos
     for (var i = 0; i < repos.length; i++) {
       // format repo name
@@ -101,6 +244,9 @@ var getSportNews = function(country) {
       // append container to the dom
       repoContainerEl.appendChild(repoEl);
     }
+
+
+    
   };
 
 
