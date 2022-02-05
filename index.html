@@ -12,28 +12,23 @@
 </head>
 <body>
     <header>
-        <img src=/ alt="header image"></image>
+        <img class="headimg" src=./assets/images/news_feed_bitmap.png alt="header image"></image>
         <center><h1>Welcome to Phat News!</h1></center>
         <nav>
-            <a class=navigat href="">Temp1</a>
-            <a class=navigat href="">Temp2</a>
-            <a class=navigat href="">Temp3</a>
+            <a class=navigat href="">Home</a>
+
         </nav>
     </header>
 
-    <div class=call_to_action>
-        <center>
-        <form class="gather">
-            <h2>Phat News</h2>
-            <p>What futbol news would you like to read?</p>
-            <div class="form-group">
-                <label for="futbol_team">Futbol League</label>
-                <input type="text" class="form-control" id="futbol_league" placeholder="premier" autocomplete="off" />
-                <label for="futbol_team">Futbol Team</label>
-                <input type="text" class="form-control" id="futbol_team" placeholder="chelsea, manchester..." autocomplete="off" />
-                <button class="submit">Submit</button>
-            </div>
-        </form>
+    <center>
+    <div class="cta">
+        <h3 class="cta-header">Search for a team</h3>
+        <p>From what country's sports news would you like to read?</p>
+        <form id="user-form" class="form-group">
+              <label for="country">Enter a country:</label>
+              <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
+              <button class="submit">Submit</button>
+        </form>    
 
         
         <!-- <div class="card">
@@ -52,9 +47,10 @@
     
     <section class="container">
 
-    <aside>something</aside>
+        <aside>List possible countries here.</aside>
+        
+        <container id="newsFeed">News container</container>
     
-
     </section>
 <!-- 
     <section class="current-news">
