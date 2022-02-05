@@ -37,7 +37,7 @@ var formSubmitHandler = function(event) {
 //   };
 //   getSportNews();
 
-let sportsArr=[];
+
 
 fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 .then(res=> res.json())
