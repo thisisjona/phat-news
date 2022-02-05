@@ -63,3 +63,7 @@ nav{
     color: black;
 }
 
+ #holder {
+     display: flex;
+     flex-wrap: wrap;
+ }
