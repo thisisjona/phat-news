@@ -25,31 +25,56 @@ var formSubmitHandler = function(event) {
 let sportsArr=[];
 
 //Sports new API
-var getSportNews = function() {
-    // format the github api url
-    var apiUrl = "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
-    // make a get request to url
-    fetch(apiUrl)
-      .then(function(response) {
-        response.json().then(function(data) {
-        console.log(data);
-        })
-      })
-  };
-  getSportNews();
+// var getSportNews = function() {
+//     // format the github api url
+//     var apiUrl = "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
+//     // make a get request to url
+//     fetch(apiUrl)
+//       .then(function(response) {
+//         response.json().then(function(data) {
+//         console.log(data);
+//         })
+//       })
+//   };
+//   getSportNews();
 
-  var getOtherNews = function() {
-    // format the github api url
-    var apiUrl = "https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c";
-    // make a get request to url
-    fetch(apiUrl)
-      .then(function(response) {
-        response.json().then(function(data) {
-        console.log(data);
-        })
-      })
-  };
-  getOtherNews();
+fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+.then(res=> res.json())
+.then(data => console.log(data));
+
+const body = document.querySelector('body');
+const h3 = document.querySelector('body h3');
+fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+.then(res => res.json())
+.then(data => {
+h3.innerHTML = data[0].Title;
+
+const div = document.createElement('div');
+div.id = 'block';
+div.classname = 'block';
+document.getElementsByTagName('h3')[0].appendChild(div);
+
+div.innerHTML = data[0].Content;
+
+// h3.appendChild(div);
+// div = data[0].Content;
+
+});
+
+  // var getOtherNews = function() {
+  //   // format the github api url
+  //   var apiUrl = "https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c";
+  //   // make a get request to url
+  //   fetch(apiUrl)
+  //     .then(function(response) {
+  //       response.json().then(function(data) {
+  //       console.log(data);
+  //       })
+  //     })
+  // };
+  // getOtherNews();
+
+  
 
    //   console.log(response)
       //   // request was successful
