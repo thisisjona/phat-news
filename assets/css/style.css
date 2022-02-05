@@ -11,7 +11,7 @@ body,
 header{
     background-color: aqua;    
     display:flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
 }
 .headimg{
     display:flex;
