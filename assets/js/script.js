@@ -47,17 +47,20 @@ const h3 = document.querySelector('body h3');
 fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 .then(res => res.json())
 .then(data => {
-h3.innerHTML = data[0].Title;
+h3.innerHTML = data[0].Team;
 
 const div = document.createElement('div');
-div.id = 'block';
-div.classname = 'block';
+div.id = 'card';
+div.classname = 'card';
 document.getElementsByTagName('h3')[0].appendChild(div);
 
-div.innerHTML = data[0].Content;
+div.innerHTML = data[0].Title;
 
-// h3.appendChild(div);
-// div = data[0].Content;
+const innerDiv = document.createElement('div');
+innerDiv.id = 'card-2'
+innerDiv.classname = 'card-2';
+div.appendChild(innerDiv);
+innerDiv.innerHTML = data[0].Content;
 
 });
 
