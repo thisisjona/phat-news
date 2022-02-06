@@ -35,7 +35,7 @@ var formSubmitHandler = function(event) {
 // const section = document.querySelector('body div section');
 
 
-var NFLNews = function(){
+// var NFLNews = function(){
 // get data from server-side API and assign location 
 
 // const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
