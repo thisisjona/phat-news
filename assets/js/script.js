@@ -36,11 +36,11 @@ var formSubmitHandler = function(event) {
 
 // get data from server-side API and assign location 
 
-const articleArray = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
+const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
 async function getNflNews() {
-  const response = await fetch(articleArray);
-  const data = await response.json();
-  console.log(data);
+  const response = await fetch(NflApiUrl);
+  const NFLdata = await response.json();
+  console.log(NFLdata);
 }
 
 getNflNews();
