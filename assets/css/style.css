@@ -1,17 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
 html,
 body,
 .wrapper {
-  height: 100%;
-  margin: 0;
-  padding: 0;
   background-color: cornflowerblue;
 }
 
 
 header{
-    background-color: aqua;    
+    background-color: rgb(0, 255, 179);    
     display:flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
 }
 .headimg{
     display:flex;
@@ -39,14 +42,15 @@ nav{
 }
 
 .container {
+
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
     color: black;
     background-color: white;
-    margin: 2rem;
+    margin: 1rem;
     padding: 1rem;
-    width: 12rem;
+    width: 28rem;
     word-wrap: break-word;
     border-radius: 1rem;
 }
@@ -55,11 +59,30 @@ nav{
     margin: 10px 10px;
 }
 
+#card-team {
+    color: black;
+    padding: 0 0 30px 0;
+    font-size: 3rem;
+}
+
 #card-title{
     color: blueviolet;
+    padding: 30px 0 30px 0;
+    font-size: 2rem;
 }
 
 #card-content {
     color: black;
+    padding: 30px 0 0 0;
+    font-size: 1.1rem;
 }
 
+ #holder {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+
+.hide{
+    display:none;
+}
