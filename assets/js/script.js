@@ -36,42 +36,42 @@ var formSubmitHandler = function(event) {
 
 // get data from server-side API and assign location 
 
-const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
-async function getNflNews() {
-  const response = await fetch(NflApiUrl);
-  const NFLdata = await response.json();
-  console.log(NFLdata);
+// const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
+// async function getNflNews() {
+//   const response = await fetch(NflApiUrl);
+//   const NFLdata = await response.json();
+//   console.log(NFLdata);
   
-}
+// }
 
-getNflNews();
-
-
-
-// const article1 = document.querySelector('article');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article1.innerText = data[0].Team;
-// article1.id = 'card-team';
-// article1.class = 'card-team';
+// getNflNews();
 
 
-// // create dynamic element and assign data from API to it
-// const div = document.createElement('div');
-// div.id = 'card-title';
-// div.classname = 'card-title';
-// document.getElementsByTagName('article')[0].appendChild(div);
-// div.innerText = data[0].Title;
+
+const article1 = document.querySelector('article');
+fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+.then(res => res.json())
+.then(data => {
+article1.innerText = data[0].Team;
+article1.id = 'card-team';
+article1.class = 'card-team';
 
 
-// // create dynamic element and assign data from API to it
-// const innerDiv = document.createElement('div');
-// innerDiv.id = 'card-content'
-// innerDiv.classname = 'card-content';
-// div.appendChild(innerDiv);
-// innerDiv.innerText = data[0].Content;
-// });
+// create dynamic element and assign data from API to it
+const div = document.createElement('div');
+div.id = 'card-title';
+div.classname = 'card-title';
+document.getElementsByTagName('article')[0].appendChild(div);
+div.innerText = data[0].Title;
+
+
+// create dynamic element and assign data from API to it
+const innerDiv = document.createElement('div');
+innerDiv.id = 'card-content'
+innerDiv.classname = 'card-content';
+div.appendChild(innerDiv);
+innerDiv.innerText = data[0].Content;
+});
 
 
 
