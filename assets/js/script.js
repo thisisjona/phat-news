@@ -41,6 +41,7 @@ async function getNflNews() {
   const response = await fetch(NflApiUrl);
   const NFLdata = await response.json();
   console.log(NFLdata);
+  
 }
 
 getNflNews();
