@@ -1,8 +1,9 @@
 var userFormEl = document.querySelector("#user-form");
 var countryInputEl = document.querySelector("#country");//country
+var NFLinputEl = document.querySelector("nflNews")
 var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
 let sportsArr=[];
-let countryArr=[{name:"America", id:"us"}]
+let countryArr=[{name:"America", id:"us"},{}]
 
 
 //get form data
@@ -34,6 +35,7 @@ var formSubmitHandler = function(event) {
 // const section = document.querySelector('body div section');
 
 
+var NFLNews = function(){
 // get data from server-side API and assign location 
 
 // const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
@@ -150,9 +152,11 @@ var getSportNews = function(country) {
         //news link creation
         var newsEl = document.createElement("div");
         var newsTitleEl = document.createElement("a");
-        newsTitleEl.classList = "list-item flex-row justify-space-between align-center news-story";
+        newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
         //set url
         newsTitleEl.setAttribute("href", sportsArr[i].url);
+        var newsImg = document.createElement("div")
+        newsImg.innerHTML = "<img src="+sportsArr[i].urlToImage+" alt='sports image' />"
 
         
         // newsTitleEl.classList = "flex-row align-center";
@@ -164,6 +168,7 @@ var getSportNews = function(country) {
           statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
         }
         // append container to the dom
+        newsEl.appendChild(newsImg)
         newsEl.appendChild(newsTitleEl)
         newsFeedEl.appendChild(newsEl);
       }
@@ -220,3 +225,4 @@ var getSportNews = function(country) {
 // add event listeners to forms
 userFormEl.addEventListener("submit", formSubmitHandler);
 
+// userFormEl.addEventListener("submit2",  NFLNews);
