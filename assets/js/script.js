@@ -1,4 +1,5 @@
-var userFormEl = document.querySelector("#user-form");
+var countryFormEl = document.querySelector("#country-form");
+var nflFormEl = document.querySelector("#nfl-form");
 var countryInputEl = document.querySelector("#country");//country
 var NFLinputEl = document.querySelector("nflNews")
 var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
@@ -7,6 +8,7 @@ let countryArr=[{name:"America", id:"us"},{}]
 
 //get form data
 var formSubmitHandler = function(event) {
+
   // prevent page from refreshing
   event.preventDefault();
   // get value from input element
@@ -15,7 +17,8 @@ var formSubmitHandler = function(event) {
     getSportNews(country);
     // clear old content
     countryInputEl.value = "";
-  } else {
+  } 
+  else {
     alert("Please enter a country");
   }
 };
@@ -34,7 +37,11 @@ const body = document.querySelector('body');
 const section = document.querySelector('body section');
 const aside1 = document.querySelector('body section aside');
 
-var NFLNews = function(){
+var NFLNews = function(event){
+// prevent page from refreshing
+event.preventDefault();
+nflFormEl.classList.add('hide');
+console.log("nfl news ran")
 // get data from server-side API and assign location 
 fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 .then(res => res.json())
@@ -83,8 +90,9 @@ var getSportNews = function(country) {
             sportsArr=data.articles;
             console.log("sports array ", sportsArr)     
             displayNews();
-          });
-          }else {
+            });
+          }
+          else {
             alert("Error: " + response.statusText);
           }
         })
@@ -92,15 +100,16 @@ var getSportNews = function(country) {
           alert("Unable to connect to server");
         });
     }
-  };
+};
   
-  var displayNews = function() {
+var displayNews = function() {
     console.log("displayNews function run")
-    
+    countryFormEl.classList.add('hide');
     if (sportsArr.length === 0) {
       newsFeedEl.textContent = "no news found";
       return;
-    }else{
+    }
+    else{
       console.log("else statement ran")
       for(var i=0; i<sportsArr.length;i++){
         var newsTitle = sportsArr[i].title;
@@ -115,11 +124,11 @@ var getSportNews = function(country) {
 
         
         // newsTitleEl.classList = "flex-row align-center";
-
         if(newsTitle){
           newsTitleEl.innerHTML =
           "*** News title ***" + newsTitle;
-        }else {
+        }
+        else {
           statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
         }
         // append container to the dom
@@ -131,10 +140,10 @@ var getSportNews = function(country) {
   }
   
   //Display news
-  var displayRepos = function(repos, searchTerm) {
-
-    // loop over repos
-    for (var i = 0; i < repos.length; i++) {
+var displayRepos = function(repos, searchTerm) {
+  
+  // loop over repos
+  for (var i = 0; i < repos.length; i++) {
       // format repo name
       var repoName = repos[i].owner.login + "/" + repos[i].name;
   
@@ -145,7 +154,7 @@ var getSportNews = function(country) {
       repoEl.setAttribute("href", "./countrynews.html?repo=" + repoName);
   
       // create a span element to hold repository name
-      var titleEl = document.createElement("span");
+      var titleEl = document.createElement("div");
       titleEl.textContent = repoName;
   
       // append to container
@@ -159,7 +168,8 @@ var getSportNews = function(country) {
       if (repos[i].open_issues_count > 0) {
         statusEl.innerHTML =
           "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-      } else {
+      } 
+      else {
         statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
       }
   
@@ -168,16 +178,16 @@ var getSportNews = function(country) {
   
       // append container to the dom
       repoContainerEl.appendChild(repoEl);
-    }
+  }
 
 
     
-  };
+};
 
 
 
 
 // add event listeners to forms
-userFormEl.addEventListener("submit", formSubmitHandler);
+countryFormEl.addEventListener("submit", formSubmitHandler);
 
-// userFormEl.addEventListener("submit2",  NFLNews);
+nflFormEl.addEventListener("submit",  NFLNews);
