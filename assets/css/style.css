@@ -11,7 +11,7 @@ body,
 header{
     background-color: aqua;    
     display:flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
 }
 .headimg{
     display:flex;
@@ -39,24 +39,43 @@ nav{
 }
 
 .container {
+
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
     color: black;
     background-color: white;
-    margin: 2rem;
+    margin: 1rem;
     padding: 1rem;
-    width: 12rem;
+    width: 28rem;
     word-wrap: break-word;
     border-radius: 1rem;
 }
 
+.news-story{
+    margin: 10px 10px;
+}
+
+#card-team {
+    color: black;
+    padding: 0 0 30px 0;
+    font-size: 3rem;
+}
 
 #card-title{
     color: blueviolet;
+    padding: 30px 0 30px 0;
+    font-size: 2rem;
 }
 
 #card-content {
     color: black;
+    padding: 30px 0 0 0;
+    font-size: 1.1rem;
 }
 
+ #holder {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
