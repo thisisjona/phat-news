@@ -4,6 +4,7 @@ var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
 let sportsArr=[];
 let countryArr=[{name:"America", id:"us"}]
 
+
 //get form data
 var formSubmitHandler = function(event) {
   // prevent page from refreshing
@@ -22,41 +23,54 @@ var formSubmitHandler = function(event) {
 // https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606
 // https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
 
-fetch('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606')
-fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-.then(res=> res.json())
-.then(data => console.log(data));
+// fetch('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606')
+// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+// .then(res=> res.json())
+// .then(data => console.log(data));
 
 
 // declares variables linked to HTML
 // const body = document.querySelector('body div');
 // const section = document.querySelector('body div section');
-const article1 = document.querySelector('article');
+
 
 // get data from server-side API and assign location 
-fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-.then(res => res.json())
-.then(data => {
-article1.innerText = data[0].Team;
-article1.id = 'card-team';
-article1.class = 'card-team';
+
+const articleArray = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
+async function getNflNews() {
+  const response = await fetch(articleArray);
+  const data = await response.json();
+  console.log(data);
+}
+
+getNflNews();
 
 
-// create dynamic element and assign data from API to it
-const div = document.createElement('div');
-div.id = 'card-title';
-div.classname = 'card-title';
-document.getElementsByTagName('article')[0].appendChild(div);
-div.innerText = data[0].Title;
+
+// const article1 = document.querySelector('article');
+// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+// .then(res => res.json())
+// .then(data => {
+// article1.innerText = data[0].Team;
+// article1.id = 'card-team';
+// article1.class = 'card-team';
 
 
-// create dynamic element and assign data from API to it
-const innerDiv = document.createElement('div');
-innerDiv.id = 'card-content'
-innerDiv.classname = 'card-content';
-div.appendChild(innerDiv);
-innerDiv.innerText = data[0].Content;
+// // create dynamic element and assign data from API to it
+// const div = document.createElement('div');
+// div.id = 'card-title';
+// div.classname = 'card-title';
+// document.getElementsByTagName('article')[0].appendChild(div);
+// div.innerText = data[0].Title;
 
+
+// // create dynamic element and assign data from API to it
+// const innerDiv = document.createElement('div');
+// innerDiv.id = 'card-content'
+// innerDiv.classname = 'card-content';
+// div.appendChild(innerDiv);
+// innerDiv.innerText = data[0].Content;
+// });
 
 
 
@@ -71,7 +85,7 @@ innerDiv.innerText = data[0].Content;
 
 
 
-});
+
 
 // get news
   var getFeaturedRepos = function(language) {
