@@ -7,12 +7,15 @@
 html,
 body,
 .wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   background-color: cornflowerblue;
 }
 
 
 header{
-    background-color: rgb(0, 255, 179);    
+    background-color: aqua;    
     display:flex;
     flex-wrap: wrap-reverse;
 }
@@ -67,7 +70,7 @@ nav{
 
 #card-title{
     color: blueviolet;
-    padding: 30px 0 0 0;
+    padding: 30px 0 30px 0;
     font-size: 2rem;
 }
 
@@ -77,36 +80,8 @@ nav{
     font-size: 1.1rem;
 }
 
-#card-source{
-    color: black;
-    font-size: 1.1rem;
-}
-
-#card-button {
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px 2px black;
-    background-color: #90D7FF;
-    padding: 5px 10px;
-    margin: 10px;
-    text-decoration: none;
-    color: red;
-    font-size: large;
-    width: 20%;
-}
-
-#card-button:hover {
-    cursor: pointer;
-    transition: transform 150ms;
-    transform: scale(1.07);
-}
-
  #holder {
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
  }
-
-.hide{
-    display:none;
-}
