@@ -1,136 +1,48 @@
-var userFormEl = document.querySelector("#user-form");
-var nameInputEl = document.querySelector("#username");//country 
-var repoContainerEl = document.querySelector("#repos-container");
 
-//get form data
-var formSubmitHandler = function(event) {
-  // prevent page from refreshing
-  event.preventDefault();
-
-  // get value from input element
-  var username = nameInputEl.value.trim();
-     
-  if (username) {
-    getUserRepos(username);
-
-    // clear old content
-    userFormEl.textContent = "";
-    nameInputEl.value = "";
-  } else {
-    alert("Please enter a GitHub username");
-  }
-};
-
-//Sports new API
-var getUserRepos = function(user) {
-    // format the github api url
-    var apiUrl = "https://newsapi.org/v2/top-headlines?&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
-  
-    // make a get request to url
-    fetch(apiUrl)
-      .then(function(response) {
-        // request was successful
-        if (response.ok) {
-          console.log(response);
-          response.json().then(function(data) {
-            console.log(data);
-            displayRepos(data, user);
-          });
-        } else {
-          alert("Error: " + response.statusText);
-        }
-      })
-      .catch(function(error) {
-        alert("Unable to connect to GitHub");
-      });
-  };
-
-  //2nd API fetch
-  var getSportsWeather = function(user) {
-    // format the github api url
-    var apiUrl = "";
-  
-    // make a get request to url
-    fetch(apiUrl)
-      .then(function(response) {
-        // request was successful
-        if (response.ok) {
-          console.log(response);
-          response.json().then(function(data) {
-            console.log(data);
-            displayRepos(data, user);
-          });
-        } else {
-          alert("Error: " + response.statusText);
-        }
-      })
-      .catch(function(error) {
-        alert("Unable to connect to GitHub");
-      });
-  };
-
-// get news
-  var getFeaturedRepos = function(language) {
-    var apiUrl = "https://api.github.com/search/repositories?q=" + language + "+is:featured&sort=help-wanted-issues";
-  
-    fetch(apiUrl).then(function(response) {
-      if (response.ok) {
-        console.log(response);
-      } else {
-        alert('Error: GitHub User Not Found');
-      }
-    });
-  };
-  
-  //Display news
-  var displayRepos = function(repos, searchTerm) {
-    // check if api returned any repos
-    if (repos.length === 0) {
-      repoContainerEl.textContent = "No repositories found.";
-      return;
+// gets country info and flag images
+$(function (){
+  $.ajax({
+    type: 'GET',
+    url: 'https://restcountries.com/v3.1/all',
+    success: function(data) {
+      console.log('success', data);
     }
+  });
+});
+
+
+
+// const countryData = 'https://restcountries.com/v3.1'
+
+// $.getJSON(countryData, function(name) {
+//   $.each(name, );
+// });
+
+// // submit user info
+// let userInfo ="";
+
+// // let submitUserInfo = function(){
+//   $('#loginBtn').click(function(){
+//     let user = $('#userName').val('text');
+//     return user;
+//   })
+//  console.log(userName);
   
-    repoSearchTerm.textContent = searchTerm;
-  
-    // loop over repos
-    for (var i = 0; i < repos.length; i++) {
-      // format repo name
-      var repoName = repos[i].owner.login + "/" + repos[i].name;
-  
-      // create a link for each repo
-      var repoEl = document.createElement("a");
-      repoEl.classList = "list-item flex-row justify-space-between align-center";
-      repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
-  
-      // create a span element to hold repository name
-      var titleEl = document.createElement("span");
-      titleEl.textContent = repoName;
-  
-      // append to container
-      repoEl.appendChild(titleEl);
-  
-      // create a status element
-      var statusEl = document.createElement("span");
-      statusEl.classList = "flex-row align-center";
-  
-      // check if current repo has issues or not
-      if (repos[i].open_issues_count > 0) {
-        statusEl.innerHTML =
-          "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-      } else {
-        statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-      }
-  
-      // append to container
-      repoEl.appendChild(statusEl);
-  
-      // append container to the dom
-      repoContainerEl.appendChild(repoEl);
-    }
-  };
 
 
 
 
-  // add event listeners to forms
-userFormEl.addEventListener("submit", formSubmitHandler);
+// let loginBtn = $('loginBtn');
+
+// $('dropdown-menu').hide();
+
+
+// // function that allows a user to save their name and country to display on page
+// function signIn(){
+// // listens for event to toggle modal for page
+// $('countries').selectMenu();
+
+// }
+// $('loginBtn').click(function(){
+//   $('#modal-cta').removeClass('is-active');
+// });
