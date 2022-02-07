@@ -3,6 +3,7 @@ var countryInputEl = document.querySelector("#country");//country
 var NFLinputEl = document.querySelector("nflNews")
 var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
 let sportsArr=[];
+let NflArray = [];
 let countryArr=[{name:"America", id:"us"},{}]
 
 
@@ -24,11 +25,23 @@ var formSubmitHandler = function(event) {
 // https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606
 // https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
 
-// fetch('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606')  <---- do not delete
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')                   <---- do not delete
-// .then(res=> res.json())                                                                                           <---- do not delete
-// .then(data => console.log(data));                                                                                 <---- do not delete
+// fetch('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606')
+// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+// .then(res=> res.json())
+// .then(data => console.log(data));
 
+
+
+
+const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
+async function getNflNews() {
+  const response = await fetch(NflApiUrl);
+  const NflData = await response.json();
+  NflArray = NflData;
+  console.log(NflArray);
+}
+
+getNflNews();
 
 // first card
 // initial setup to attach the code to the article with id: first
@@ -159,7 +172,6 @@ newerInnerDiv.classname = 'card-button';
 newInnerDiv.appendChild(newerInnerDiv);
 newerInnerDiv.innerHTML = '' + linkText.link(linkURL);
 });
-
 
 // get news
   var getFeaturedRepos = function(language) {
