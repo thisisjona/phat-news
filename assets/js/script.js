@@ -54,6 +54,15 @@ var formSubmitHandler = function(event) {
 
 
 
+const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
+async function getNflNews() {
+  const response = await fetch(NflApiUrl);
+  const NFLdata = await response.json();
+  console.log(NFLdata);
+  
+}
+
+
 const article1 = document.querySelector('#first');
 fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 .then(res => res.json())
