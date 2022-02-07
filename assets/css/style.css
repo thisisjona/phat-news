@@ -1,22 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
 html,
 body,
 .wrapper {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  background-color: cornflowerblue;
 }
 
 
 header{
-    background-color: aqua;
+    background-color: rgb(0, 255, 179);    
+    display:flex;
+    flex-wrap: wrap-reverse;
 }
+.headimg{
+    display:flex;
+    justify-content: left;
+    width: 300px;
 
+
+}
 nav{
-    display: flex;
     justify-content: right;
     margin-right: 10px;
 }
-
 .navigat{
     margin-right: 20px;
 }
@@ -28,8 +38,76 @@ nav{
 .current-story{
     margin:  30px;
     padding: 20px;
-    background-color: brown;
+    background-color: lightcyan;
 }
 
+.container {
 
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    background-color: white;
+    box-shadow: 0 2px 6px 2px black;
+    margin: 1rem;
+    padding: 1rem;
+    width: 28rem;
+    word-wrap: break-word;
+    border-radius: 1rem;
+}
 
+.news-story{
+    margin: 10px 10px;
+}
+
+#card-team {
+    color: black;
+    padding: 0 0 30px 0;
+    font-size: 3rem;
+}
+
+#card-title{
+    color: blueviolet;
+    padding: 30px 0 0 0;
+    font-size: 2rem;
+}
+
+#card-content {
+    color: black;
+    padding: 30px 0 0 0;
+    font-size: 1.1rem;
+}
+
+#card-source{
+    color: black;
+    font-size: 1.1rem;
+}
+
+#card-button {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px 2px black;
+    background-color: #90D7FF;
+    padding: 5px 10px;
+    margin: 10px;
+    text-decoration: none;
+    color: red;
+    font-size: large;
+    width: 20%;
+}
+
+#card-button:hover {
+    cursor: pointer;
+    transition: transform 150ms;
+    transform: scale(1.07);
+}
+
+ #holder {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+
+.hide{
+    display:none;
+}
