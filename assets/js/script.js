@@ -1,11 +1,23 @@
+let countryBtn = $('#countryBtn');
 
+countryBtn.empty();
+
+
+
+countryBtn.append('<option selected="true" disabled>Choose Country</option>');
+countryBtn.prop('selectedIndex', 0);
 // gets country info and flag images
 $(function (){
+
+  const $countryName = $('#countryName');
   $.ajax({
     type: 'GET',
     url: 'https://restcountries.com/v3.1/all',
-    success: function(data) {
-      console.log('success', data);
+    success: function(country) {
+  
+      $.each(country, function(i, country){
+        $countryName.append('<option>' + country.name.common + country.flag +'</option>');
+      });
     }
   });
 });

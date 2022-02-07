@@ -27,26 +27,20 @@
     <div id="modal-cta" class="modal is-large is-active">
         <div class="container-fluid box">
             <h1 class="">Welcome to Phat News</h1>
-            <form class="field">
+            <form class="field" name="userInfo">
+
                 <!-- start field for user name -->
                 <div class="field">
                     <label class="label" for="userName">Enter your username!</label>
                     <input class="input is-rounded" type="text" id="userName" placeholder="Enter username">
                 </div>
+
                 <!-- start dropdown for country -->
                 <div class="field">
-                    <div class="dropdown-trigger">
-                        <select class="button" id="countryBtn" aria-haspopup="true" aria-controls="dropdown-menu" placeholder="Select Country">
-                            <span>Select Country</span>
-                            <span class="icon is-">
-                                <i class="fas fa-angle-down" aria-hidden="false"></i>
-                            </span>
-                        </select>
-                    </div>
-                    <div class=""><!-- start dropdown menu for countries -->
-                        <select name="countries" id="countries">Countries</select>
-                    </div>
+                    <label for="countryName">Please choose a Country!</label>
+                    <select name="countryName" id="countryName"></select>
                 </div>
+
                 <input id="loginBtn" type="submit" class="button is-primary is-outlined">
             </form> 
         </div>
