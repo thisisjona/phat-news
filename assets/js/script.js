@@ -4,6 +4,7 @@ var countryInputEl = document.querySelector("#country");//country
 var NFLinputEl = document.querySelector("nflNews")
 var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
 let sportsArr=[];
+let NflArray = [];
 let countryArr=[{name:"America", id:"us"},{}]
 
 
@@ -28,6 +29,7 @@ var formSubmitHandler = function(event) {
 // https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
 
 // fetch('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606')
+
 // fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 // .then(res=> res.json())
 // .then(data => console.log(data));
@@ -44,6 +46,21 @@ nflFormEl.classList.add('hide');
 console.log("nfl news ran")
 // get data from server-side API and assign location 
 
+ ApiToArray
+
+
+// const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
+// async function getNflNews() {
+//   const response = await fetch(NflApiUrl);
+//   var NflData = await response.json();
+//   console.log(NflData);
+
+// }
+
+// getNflNews(NflApiUrl);
+
+
+
 const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
 async function getNflNews() {
   const response = await fetch(NflApiUrl);
@@ -52,7 +69,8 @@ async function getNflNews() {
   
 }
 
-const article1 = document.querySelector('article');
+
+const article1 = document.querySelector('#first');
 fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 .then(res => res.json())
 .then(data => {
@@ -71,13 +89,36 @@ div.innerText = data[0].Title;
 
 // create dynamic element and assign data from API to it
 const innerDiv = document.createElement('div');
-innerDiv.id = 'card-content'
+innerDiv.id = 'card-content';
 innerDiv.classname = 'card-content';
 div.appendChild(innerDiv);
 innerDiv.innerText = data[0].Content;
+
+const newInnerDiv = document.createElement('p');
+newInnerDiv.id = 'card-source';
+newInnerDiv.classname = 'card-source';
+innerDiv.appendChild(newInnerDiv);
+newInnerDiv.innerHTML = '<br>';
+
+let linkText = 'Link to Source';
+let linkURL = data[0].OriginalSourceUrl
+
+const newerInnerDiv = document.createElement('button');
+newerInnerDiv.id = 'card-button';
+newerInnerDiv.classname = 'card-button';
+newInnerDiv.appendChild(newerInnerDiv);
+newerInnerDiv.innerHTML = '' + linkText.link(linkURL);
 });
 
+
+// ------------------------------------------------
+
+
+
+
+
 }
+
 
 
 
@@ -87,6 +128,14 @@ innerDiv.innerText = data[0].Content;
 // a.title = "Link to Source";
 // a.href = data[0].OriginalSourceUrl;
 // document.article1.appendChild(a);
+
+
+
+
+
+
+
+
 
 
 //Sports new API
