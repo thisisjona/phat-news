@@ -23,9 +23,24 @@ header{
     display:flex;
     justify-content: left;
     width: 300px;
+}
 
+.cta p {
+    display: flex;
+    flex-wrap: auto;
+    justify-content: center;
+    text-align: center;
+    width: 66rem;
+    height: 5rem;
+    border: solid;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: xx-large;
+    background-color: white;
+    
 
 }
+
 nav{
     justify-content: right;
     margin-right: 10px;
