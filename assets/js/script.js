@@ -1,3 +1,46 @@
+
+let countryBtn = $('#countryBtn');
+
+countryBtn.empty();
+
+countryBtn.append('<option selected="true" disabled>Choose Country</option>');
+countryBtn.prop('selectedIndex', 0);
+// gets country info and flag images
+$(function (){
+
+  const $countryName = $('#countryName');
+  $.ajax({
+    type: 'GET',
+    url: 'https://restcountries.com/v3.1/all',
+    success: function(country) {
+      console.log(country);
+      $.each(country, function(i, country){
+        $countryName.append('<option>' + country.name.common + country.flag +'</option>');
+      });
+    }
+  });
+});
+
+
+
+
+// const countryData = 'https://restcountries.com/v3.1'
+
+// $.getJSON(countryData, function(name) {
+//   $.each(name, );
+// });
+
+// // submit user info
+// let userInfo ="";
+
+// // let submitUserInfo = function(){
+//   $('#loginBtn').click(function(){
+//     let user = $('#userName').val('text');
+//     return user;
+//   })
+//  console.log(userName);
+  
+
 var userFormEl = document.querySelector("#user-form");
 var countryInputEl = document.querySelector("#country");//country
 var NFLinputEl = document.querySelector("nflNews")
@@ -296,7 +339,25 @@ var getSportNews = function(country) {
 
 
 
+
+
+// let loginBtn = $('loginBtn');
+
+// $('dropdown-menu').hide();
+
+
+// // function that allows a user to save their name and country to display on page
+// function signIn(){
+// // listens for event to toggle modal for page
+// $('countries').selectMenu();
+
+// }
+// $('loginBtn').click(function(){
+//   $('#modal-cta').removeClass('is-active');
+// });
+
 // add event listeners to forms
 userFormEl.addEventListener("submit", formSubmitHandler);
 
 // userFormEl.addEventListener("submit2",  NFLNews);
+
