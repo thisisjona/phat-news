@@ -13,15 +13,18 @@
     <!-- ade84378e67548e5b4ed1e45d4c09606 -->
 </head>
 <body>
-    <header class="container">
-        <img class="" src=/ alt="header image"></image>
+
+    <header>
+       
+        <img class="headimg" src=./assets/images/news_feed_bitmap.png alt="header image"></image>
         <center><h1>Welcome to Phat News!</h1></center>
-        <nav class="navbar level-right">
-            <a class=navigat href="">Temp1</a>
-            <a class=navigat href="">Temp2</a>
-            <a class=navigat href="">Temp3</a>
+       
+        <nav>
+            <a class=navigat href="">Home</a>
         </nav>
+  
     </header>
+
 
     <!-- CTA user enters name and selects country to view recent news -->
     <div id="modal-cta" class="modal is-large is-active">
@@ -58,15 +61,43 @@
                 <input type="text" class="form-control" id="futbol_team" placeholder="chelsea, manchester..." autocomplete="off" />
                 <button class="button is-primary is-outlined">Submit</button>
             </div>
+
+    <center>
+    <div class="cta">
+        <br><br>
+        <p>From what country's sports news would you like to read?</p><br>
+        <form id="user-form" class="form-group">
+            <section>
+              <h3 class="cta-header">Search for a Country you would like to see news from</h3><br>
+              <label for="country">Enter a country:</label>
+              <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
+              <button class="submit">Submit</button><br><br>
+            </section><br>
+
         </form>
+
+            <!-- <section>
+              <h3 class="cta-header">Search for an NFL team</h3><br>
+              <label for="NFL">Enter an NFL team:</label>
+              <input name="country" type="text"  id="nflNews" class="form-input" autofocus="true" placeholder="NFL Team"/>
+              <button class="submit2">Submit</button>
+            </section> -->
+
+ 
+
         
+
         <div class="container">
+
+        <!-- <div class="card">
+
             <h3 class="card-header text-uppercase">Search By User</h3>
             <form id="user-form" class="card-body">
               <label class="form-label" for="username">Username</label>
               <input name="username" id="username" type="text" autofocus="true" class="form-input" />
               <button type="submit" class="button is-primary is-outlined">Get User</button>
             </form>
+
         </div>
         
         <section class="current-news container">
@@ -79,6 +110,77 @@
         <select name="countries" id="countries">Countries</select>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        </div> -->
+        </center>
+
+
+        <br><br><br>
+    </div>
+
+<div id="holder">
+
+
+
+    <center>
+    <div>    
+        <h2>
+        Sports Around The Globe
+        </h2>
+    <section id="newsFeed" class="container">News container</section>
+    
+
+    </div>
+    </center>    
+
+    <center>
+        <div id="holder">
+            <div>
+    
+                <h2> 
+                Daily Dose of NFL
+                </h2>
+    
+                <section class="container">
+                  <div>
+                  <article id="first"></article> 
+                  </div>
+                </section>
+    
+                  <section class="container">
+                  <div>
+                  <article id="second"></article>  
+                  </div> 
+                </section>
+    
+                <section class="container">
+                  <div>
+                  <article id="third"></article>  
+                  </div>              
+                </section>
+    
+            </div>
+       </center>
+
+</div>
+<!-- 
+    
+    <section class="current-news">
+
+
+        <card class="current-story">Story 1</card> -->
+        
+
+
+        <!-- <card class="current-story">Story 2</card>
+
+
+        <card class="current-story">Story 3</card> -->
+
+
+    
+    
     <script src="./assets/js/script.js"></script>
+
 </body>
 </html>
