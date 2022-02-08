@@ -1,10 +1,53 @@
+
+// let countryBtn = $('#countryBtn');
+
+// countryBtn.empty();
+
+// countryBtn.append('<option selected="true" disabled>Choose Country</option>');
+// countryBtn.prop('selectedIndex', 0);
+// // gets country info and flag images
+// $(function (){
+
+//   const $countryName = $('#countryName');
+//   $.ajax({
+//     type: 'GET',
+//     url: 'https://restcountries.com/v3.1/all',
+//     success: function(countryF) {
+//       console.log(countryF);
+//       $.each(countryF, function(i, countryF){
+//         $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
+//       });
+//     }
+//   });
+// });
+
+
+
+
+// const countryData = 'https://restcountries.com/v3.1'
+
+// $.getJSON(countryData, function(name) {
+//   $.each(name, );
+// });
+
+// // submit user info
+// let userInfo ="";
+
+// // let submitUserInfo = function(){
+//   $('#loginBtn').click(function(){
+//     let user = $('#userName').val('text');
+//     return user;
+//   })
+//  console.log(userName);
+  
+
 var userFormEl = document.querySelector("#user-form");
 var countryInputEl = document.querySelector("#country");//country
 var NFLinputEl = document.querySelector("nflNews")
 var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
 let sportsArr=[];
 let NflArray = [];
-let countryArr=[{name:"America", id:"us"},{}]
+let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"australia ", id:"au"},{name:"austria", id:"at"},{name:"belgium", id:"be"},{name:"brazil", id:"br"},{name:"bulgaria", id:"bg"},{name:"canada", id:"ca"},{name:"china", id:"cn"},{name:"columbia", id:"co"},{name:"cuba", id:"cu"},{name:"czech republic", id:"cz"},{name:"egypt", id:"eg"},{name:"france", id:"fr"},{name:"germany", id:"de"},{name:"greece", id:"gr"},{name:"hong kong", id:"hk"},{name:"hungary", id:"hu"},{name:"india", id:"in"},{name:"indonesia", id:"id"},{name:"ireland", id:"ie"},{name:"israel", id:"il"},{name:"italy", id:"it"},{name:"japan", id:"jp"},{name:"latvia", id:"lv"},{name:"lithuania", id:"lt"},{name:"malaysia", id:"my"},{name:"mexico", id:"mx"},{name:"morocco", id:"ma"},{name:"netherlands", id:"nl"},{name:"new zealand", id:"nz"},{name:"nigeria", id:"ng"},{name:"norway", id:"no"},{name:"philippines", id:"ph"},{name:"poland", id:"pl"},{name:"portugal", id:"pt"},{name:"romania", id:"ro"},{name:"russia", id:"ru"},{name:"saudi arabia", id:"sa"},{name:"serbia", id:"rs"},{name:"singapore", id:"sg"},{name:"slovakia", id:"sk"},{name:"slovenia", id:"si"},{name:"south africa", id:"za"},{name:"south korea", id:"kr"},{name:"sweden", id:"se"},{name:"switzerland", id:"ch"},{name:"taiwan", id:"tw"},{name:"thailand", id:"th"},{name:"turkey", id:"tr"},{name:"uae", id:"ae"},{name:"ukraine", id:"ua"},{name:"united kingdom", id:"gb"},{name:"united states", id:"us"},{name:"venezuela", id:"ve"}]
 
 
 
@@ -39,42 +82,10 @@ var formSubmitHandler = function(event) {
 //   const response = await fetch(NflApiUrl);
 //   const NflData = await response.json();
 //   NflArray = NflData;
-//   console.log(NflArray);
+//   // console.log(NflArray);
 // }
 
 // getNflNews();
-
-let NFLNEWS = [];
-
-fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c', {
-  method: "GET",
-  data: NFLNEWS,
-  dataType: 'json',
-  ContentType: 'application/json'
-})
-.then((resp) => {
-  return resp.json();
-})
-.then((user) => {
-  console.log(user);
-})
-.catch((err) => {
-  console.log(err)
-})
-
-console.log(NFLNEWS);
-
-
-
-
-
-
-
-
-
-
-
-
 
 // first card
 // initial setup to attach the code to the article with id: first
@@ -206,32 +217,24 @@ console.log(NFLNEWS);
 // newerInnerDiv.innerHTML = '' + linkText.link(linkURL);
 // });
 
-// get news
-  var getFeaturedRepos = function(language) {
-    var apiUrl = "https://api.github.com/search/repositories?q=" + language + "+is:featured&sort=help-wanted-issues";
-  
-    fetch(apiUrl).then(function(response) {
-      if (response.ok) {
-        console.log(response);
-      } else {
-        alert('Error: GitHub User Not Found');
-      }
-    });
-}
 
 //Sports new API
 var getSportNews = function(country) {
     console.log(country)
     var countryId="";
+    // for loop populates stories from API
     for(var i=0;i<countryArr.length;i++){
-      if(country===countryArr[i].name){
+      if(country.toLowerCase()===countryArr[i].name){
         countryId=countryArr[i].id;
         console.log("this is the countryId:"+countryId)
       };
     }
+    // error handling if no countryId
     if(!countryId){
       console.log("no country found")
+      window.alert("Country is not found")
     }
+    // API call 
     else{
       // format the github api url
       var apiUrl = "https://newsapi.org/v2/top-headlines?country="+countryId+"&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
@@ -242,8 +245,10 @@ var getSportNews = function(country) {
           if(response.ok){
             response.json().then(function(data) {
             sportsArr=data.articles;
-            console.log("sports array ", sportsArr)     
+            console.log("sports array ", sportsArr)
+            userFormEl.classList.add('hide');   
             displayNews();
+
           });
           }else {
             alert("Error: " + response.statusText);
@@ -265,18 +270,17 @@ var getSportNews = function(country) {
       console.log("else statement ran")
       for(var i=0; i<sportsArr.length;i++){
         var newsTitle = sportsArr[i].title;
-        //news link creation
-        var newsEl = document.createElement("div");
-        var newsTitleEl = document.createElement("a");
+        //news Card creation
+        var newsEl = document.createElement("card");
         newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
         //set url
+        var newsTitleEl = document.createElement("a");
         newsTitleEl.setAttribute("href", sportsArr[i].url);
         var newsImg = document.createElement("div")
-        newsImg.innerHTML = "<img src="+sportsArr[i].urlToImage+" alt='sports image' />"
+        newsImg.innerHTML = "<img src="+sportsArr[i].urlToImage+" class='countryImg' alt='sports image' />"
+        
 
         
-        // newsTitleEl.classList = "flex-row align-center";
-
         if(newsTitle){
           newsTitleEl.innerHTML =
           "*** News title ***" + newsTitle;
@@ -338,7 +342,25 @@ var getSportNews = function(country) {
 
 
 
+
+
+// let loginBtn = $('loginBtn');
+
+// $('dropdown-menu').hide();
+
+
+// // function that allows a user to save their name and country to display on page
+// function signIn(){
+// // listens for event to toggle modal for page
+// $('countries').selectMenu();
+
+// }
+// $('loginBtn').click(function(){
+//   $('#modal-cta').removeClass('is-active');
+// });
+
 // add event listeners to forms
 userFormEl.addEventListener("submit", formSubmitHandler);
 
 // userFormEl.addEventListener("submit2",  NFLNews);
+

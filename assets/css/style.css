@@ -129,3 +129,8 @@ nav{
  .hide {
      display: none;
  }
+
+ .countryImg {
+     width:100%;
+ }
+
