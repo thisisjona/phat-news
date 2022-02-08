@@ -44,7 +44,8 @@
 var userFormEl = document.querySelector("#user-form");
 var countryInputEl = document.querySelector("#country");//country
 var NFLinputEl = document.querySelector("nflNews")
-var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
+var newsFeedEl = document.querySelector("#newsFeed"); //news feed cards container
+var newsContainEl = document.querySelector("#newsContainer")//news feed container
 let sportsArr=[];
 let NflArray = [];
 let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"australia ", id:"au"},{name:"austria", id:"at"},{name:"belgium", id:"be"},{name:"brazil", id:"br"},{name:"bulgaria", id:"bg"},{name:"canada", id:"ca"},{name:"china", id:"cn"},{name:"columbia", id:"co"},{name:"cuba", id:"cu"},{name:"czech republic", id:"cz"},{name:"egypt", id:"eg"},{name:"france", id:"fr"},{name:"germany", id:"de"},{name:"greece", id:"gr"},{name:"hong kong", id:"hk"},{name:"hungary", id:"hu"},{name:"india", id:"in"},{name:"indonesia", id:"id"},{name:"ireland", id:"ie"},{name:"israel", id:"il"},{name:"italy", id:"it"},{name:"japan", id:"jp"},{name:"latvia", id:"lv"},{name:"lithuania", id:"lt"},{name:"malaysia", id:"my"},{name:"mexico", id:"mx"},{name:"morocco", id:"ma"},{name:"netherlands", id:"nl"},{name:"new zealand", id:"nz"},{name:"nigeria", id:"ng"},{name:"norway", id:"no"},{name:"philippines", id:"ph"},{name:"poland", id:"pl"},{name:"portugal", id:"pt"},{name:"romania", id:"ro"},{name:"russia", id:"ru"},{name:"saudi arabia", id:"sa"},{name:"serbia", id:"rs"},{name:"singapore", id:"sg"},{name:"slovakia", id:"sk"},{name:"slovenia", id:"si"},{name:"south africa", id:"za"},{name:"south korea", id:"kr"},{name:"sweden", id:"se"},{name:"switzerland", id:"ch"},{name:"taiwan", id:"tw"},{name:"thailand", id:"th"},{name:"turkey", id:"tr"},{name:"uae", id:"ae"},{name:"ukraine", id:"ua"},{name:"united kingdom", id:"gb"},{name:"united states", id:"us"},{name:"venezuela", id:"ve"}]
@@ -415,7 +416,8 @@ var getSportNews = function(country) {
             response.json().then(function(data) {
             sportsArr=data.articles;
             console.log("sports array ", sportsArr)
-            userFormEl.classList.add('hide');   
+            userFormEl.classList.add('hide');
+            newsContainEl.classList.remove('hide');
             displayNews();
 
           });
@@ -444,21 +446,21 @@ var getSportNews = function(country) {
         newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
         //set url
         var newsTitleEl = document.createElement("a");
+        newsTitleEl.classList = "title is-5";
         newsTitleEl.setAttribute("href", sportsArr[i].url);
         var newsImg = document.createElement("div")
-        newsImg.innerHTML = "<img src="+sportsArr[i].urlToImage+" class='countryImg' alt='sports image' />"
+        newsImg.innerHTML = "<a href='"+sportsArr[i].url+"'><img src='"+sportsArr[i].urlToImage+"' class='countryImg' alt='sports image' /></a>"
         
 
         
         if(newsTitle){
-          newsTitleEl.innerHTML =
-          "*** News title ***" + newsTitle;
+          newsTitleEl.innerHTML = newsTitle;
         }else {
           statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
         }
         // append container to the dom
-        newsEl.appendChild(newsImg)
         newsEl.appendChild(newsTitleEl)
+        newsEl.appendChild(newsImg)
         newsFeedEl.appendChild(newsEl);
       }
     }
