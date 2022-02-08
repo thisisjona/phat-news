@@ -4,7 +4,7 @@ var NFLinputEl = document.querySelector("nflNews")
 var newsFeedEl = document.querySelector("#newsFeed"); //news feed container
 let sportsArr=[];
 let NflArray = [];
-let countryArr=[{name:"America", id:"us"},{}]
+let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"australia ", id:"au"},{name:"austria", id:"at"},{name:"belgium", id:"be"},{name:"brazil", id:"br"},{name:"bulgaria", id:"bg"},{name:"canada", id:"ca"},{name:"china", id:"cn"},{name:"columbia", id:"co"},{name:"cuba", id:"cu"},{name:"czech republic", id:"cz"},{name:"egypt", id:"eg"},{name:"france", id:"fr"},{name:"germany", id:"de"},{name:"greece", id:"gr"},{name:"hong kong", id:"hk"},{name:"hungary", id:"hu"},{name:"india", id:"in"},{name:"indonesia", id:"id"},{name:"ireland", id:"ie"},{name:"israel", id:"il"},{name:"italy", id:"it"},{name:"japan", id:"jp"},{name:"latvia", id:"lv"},{name:"lithuania", id:"lt"},{name:"malaysia", id:"my"},{name:"mexico", id:"mx"},{name:"morocco", id:"ma"},{name:"netherlands", id:"nl"},{name:"new zealand", id:"nz"},{name:"nigeria", id:"ng"},{name:"norway", id:"no"},{name:"philippines", id:"ph"},{name:"poland", id:"pl"},{name:"portugal", id:"pt"},{name:"romania", id:"ro"},{name:"russia", id:"ru"},{name:"saudi arabia", id:"sa"},{name:"serbia", id:"rs"},{name:"singapore", id:"sg"},{name:"slovakia", id:"sk"},{name:"slovenia", id:"si"},{name:"south africa", id:"za"},{name:"south korea", id:"kr"},{name:"sweden", id:"se"},{name:"switzerland", id:"ch"},{name:"taiwan", id:"tw"},{name:"thailand", id:"th"},{name:"turkey", id:"tr"},{name:"uae", id:"ae"},{name:"ukraine", id:"ua"},{name:"united kingdom", id:"gb"},{name:"united states", id:"us"},{name:"venezuela", id:"ve"}]
 
 
 //get form data
@@ -178,15 +178,19 @@ newerInnerDiv.innerHTML = '' + linkText.link(linkURL);
 var getSportNews = function(country) {
     console.log(country)
     var countryId="";
+    // for loop populates stories from API
     for(var i=0;i<countryArr.length;i++){
-      if(country===countryArr[i].name){
+      if(country.toLowerCase()===countryArr[i].name){
         countryId=countryArr[i].id;
         console.log("this is the countryId:"+countryId)
       };
     }
+    // error handling if no countryId
     if(!countryId){
       console.log("no country found")
+      window.alert("Country is not found")
     }
+    // API call 
     else{
       // format the github api url
       var apiUrl = "https://newsapi.org/v2/top-headlines?country="+countryId+"&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
@@ -222,19 +226,17 @@ var getSportNews = function(country) {
       console.log("else statement ran")
       for(var i=0; i<sportsArr.length;i++){
         var newsTitle = sportsArr[i].title;
-        //news link creation
+        //news Card creation
         var newsEl = document.createElement("card");
-        var newsTitleEl = document.createElement("a");
         newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
         //set url
+        var newsTitleEl = document.createElement("a");
         newsTitleEl.setAttribute("href", sportsArr[i].url);
         var newsImg = document.createElement("div")
         newsImg.innerHTML = "<img src="+sportsArr[i].urlToImage+" class='countryImg' alt='sports image' />"
         
 
         
-        // newsTitleEl.classList = "flex-row align-center";
-
         if(newsTitle){
           newsTitleEl.innerHTML =
           "*** News title ***" + newsTitle;
