@@ -197,8 +197,10 @@ var getSportNews = function(country) {
           if(response.ok){
             response.json().then(function(data) {
             sportsArr=data.articles;
-            console.log("sports array ", sportsArr)     
+            console.log("sports array ", sportsArr)
+            userFormEl.classList.add('hide');   
             displayNews();
+
           });
           }else {
             alert("Error: " + response.statusText);
