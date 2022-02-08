@@ -173,18 +173,6 @@ newInnerDiv.appendChild(newerInnerDiv);
 newerInnerDiv.innerHTML = '' + linkText.link(linkURL);
 });
 
-// get news
-  var getFeaturedRepos = function(language) {
-    var apiUrl = "https://api.github.com/search/repositories?q=" + language + "+is:featured&sort=help-wanted-issues";
-  
-    fetch(apiUrl).then(function(response) {
-      if (response.ok) {
-        console.log(response);
-      } else {
-        alert('Error: GitHub User Not Found');
-      }
-    });
-}
 
 //Sports new API
 var getSportNews = function(country) {
@@ -233,13 +221,14 @@ var getSportNews = function(country) {
       for(var i=0; i<sportsArr.length;i++){
         var newsTitle = sportsArr[i].title;
         //news link creation
-        var newsEl = document.createElement("div");
+        var newsEl = document.createElement("card");
         var newsTitleEl = document.createElement("a");
         newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
         //set url
         newsTitleEl.setAttribute("href", sportsArr[i].url);
         var newsImg = document.createElement("div")
-        newsImg.innerHTML = "<img src="+sportsArr[i].urlToImage+" alt='sports image' />"
+        newsImg.innerHTML = "<img src="+sportsArr[i].urlToImage+" class='countryImg' alt='sports image' />"
+        
 
         
         // newsTitleEl.classList = "flex-row align-center";
