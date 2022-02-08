@@ -76,7 +76,7 @@ function getNFLnews(){
   fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
   .then(res=> res.json())
   .then(data =>{
-    // console.log(data)
+    console.log(data)
     let article1 = document.querySelector('#NFLNewsList');
     let HTMLcode ="";
     for (let i = 0; i < [13]; i++) {
@@ -84,7 +84,7 @@ function getNFLnews(){
     }
     article1.innerHTML = HTMLcode; 
     
-    
+
   });
   
   }
