@@ -18,11 +18,22 @@ header{
     background-color: aqua;    
     display:flex;
     flex-wrap: wrap-reverse;
+    background-image: url("../images/colorfulsports.jpg");
+    background-size:contain;
+    height: 200px;
+    top:0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .headimg{
     display:flex;
     justify-content: left;
     width: 300px;
+}
+
+h1{
+    text
 }
 
 .cta p {
@@ -42,11 +53,12 @@ header{
 }
 
 nav{
-    justify-content: right;
-    margin-right: 10px;
+    margin-left: 30px;
+    
 }
 .navigat{
     margin-right: 20px;
+    text-decoration:30px;
 }
 
 .current-news{
@@ -73,6 +85,7 @@ nav{
     word-wrap: break-word;
     border-radius: 1rem;
 }
+
 
 .news-story{
     margin: 10px 10px;
