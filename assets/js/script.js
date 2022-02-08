@@ -276,9 +276,10 @@ var getSportNews = function(country) {
         newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
         //set url
         var newsTitleEl = document.createElement("a");
+        newsTitleEl.classList = "title is-5";
         newsTitleEl.setAttribute("href", sportsArr[i].url);
         var newsImg = document.createElement("div")
-        newsImg.innerHTML = "<img src="+sportsArr[i].urlToImage+" class='countryImg' alt='sports image' />"
+        newsImg.innerHTML = "<a href='"+sportsArr[i].url+"'><img src='"+sportsArr[i].urlToImage+"' class='countryImg' alt='sports image' /></a>"
         
 
         
