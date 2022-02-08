@@ -7,6 +7,7 @@ let NflArray = [];
 let countryArr=[{name:"America", id:"us"},{}]
 
 
+
 //get form data
 var formSubmitHandler = function(event) {
   // prevent page from refreshing
