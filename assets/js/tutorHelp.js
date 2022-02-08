@@ -73,23 +73,23 @@ var formSubmitHandler = function(event) {
 // fetch('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606')
 
 function getNFLnews(){
-  fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-  .then(res=> res.json())
-  .then(data =>{
-    console.log(data)
-    let article1 = document.querySelector('#NFLNewsList');
-    let HTMLcode ="";
-    for (let i = 0; i<data.length; i++) {
-      HTMLcode += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
-    }
-    article1.innerHTML = HTMLcode; 
-    
-    
-  });
-  
+fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
+.then(res=> res.json())
+.then(data =>{
+  console.log(data)
+  let article1 = document.querySelector('#NFLNewsList');
+  let HTMLcode ="";
+  for (let i = 0; i<data.length; i++) {
+    HTMLcode += `<li><a href="${data[i].OriginalSourceUrl}" target="_blank">${data[i].Title}</a></li>`
   }
+  article1.innerHTML = HTMLcode; 
   
-  getNFLnews()
+  
+});
+
+}
+
+getNFLnews()
 
 
 // const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
@@ -105,7 +105,7 @@ function getNFLnews(){
 // NflPic.src = "./assets/images/NFL.png"
 // first blurb
 // initial setup to attach the code to the article with id: first
-// =====================================================================
+// =====================================================================================================
 // let article1 = document.querySelector('#first');
 // fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
 // .then(res => res.json())
@@ -286,7 +286,7 @@ function getNFLnews(){
 // div.innerHTML = linkTitle.link(linkURL);
 // });
 
-// =====================================================
+// -----------------------------------------------------------------------------------------------------------------------
 
 // let linkTitle = data[0].Title
 // let linkURL = data[0].OriginalSourceUrl
