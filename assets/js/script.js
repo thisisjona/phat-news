@@ -1,25 +1,25 @@
 
-let countryBtn = $('#countryBtn');
+// let countryBtn = $('#countryBtn');
 
-countryBtn.empty();
+// countryBtn.empty();
 
-countryBtn.append('<option selected="true" disabled>Choose Country</option>');
-countryBtn.prop('selectedIndex', 0);
-// gets country info and flag images
-$(function (){
+// countryBtn.append('<option selected="true" disabled>Choose Country</option>');
+// countryBtn.prop('selectedIndex', 0);
+// // gets country info and flag images
+// $(function (){
 
-  const $countryName = $('#countryName');
-  $.ajax({
-    type: 'GET',
-    url: 'https://restcountries.com/v3.1/all',
-    success: function(country) {
-      console.log(country);
-      $.each(country, function(i, country){
-        $countryName.append('<option>' + country.name.common + country.flag +'</option>');
-      });
-    }
-  });
-});
+//   const $countryName = $('#countryName');
+//   $.ajax({
+//     type: 'GET',
+//     url: 'https://restcountries.com/v3.1/all',
+//     success: function(countryF) {
+//       console.log(countryF);
+//       $.each(countryF, function(i, countryF){
+//         $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
+//       });
+//     }
+//   });
+// });
 
 
 
@@ -76,15 +76,15 @@ var formSubmitHandler = function(event) {
 
 
 
-const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
-async function getNflNews() {
-  const response = await fetch(NflApiUrl);
-  const NflData = await response.json();
-  NflArray = NflData;
-  console.log(NflArray);
-}
+// const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
+// async function getNflNews() {
+//   const response = await fetch(NflApiUrl);
+//   const NflData = await response.json();
+//   NflArray = NflData;
+//   // console.log(NflArray);
+// }
 
-getNflNews();
+// getNflNews();
 
 // first card
 // initial setup to attach the code to the article with id: first
