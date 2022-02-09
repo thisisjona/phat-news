@@ -113,6 +113,8 @@ function getNFLnews(){
   
     getMLBnews();
 
+    // NBA news card
+
 
     function getNBAnews(){
       fetch('https://api.sportsdata.io/v3/nba/scores/json/News?key=0a630893821f48b795048de75b6ae458')
@@ -129,6 +131,8 @@ function getNFLnews(){
       });
     
       }
+
+      // NHL news card
     
       getNBAnews();
 
@@ -149,6 +153,8 @@ function getNFLnews(){
         }
       
         getNHLnews()
+
+        // end of news cards
 
 //Sports new API
 var getSportNews = function(country) {
