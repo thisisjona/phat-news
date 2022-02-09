@@ -110,7 +110,7 @@ var formSubmitHandler = function(event) {
     // clear old content
     countryInputEl.value = "";
   } else {
-    alert("Please enter a country");
+    // alert("Please enter a country");
   }
 };
 
