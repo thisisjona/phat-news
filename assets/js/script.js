@@ -249,7 +249,7 @@ var getSportNews = function(country) {
       return;
     }else{
       console.log("else statement ran")
-      for(var i=0; i<sportsArr.length;i++){
+      for(var i=0; i < [5];i++){
         var newsTitle = sportsArr[i].title;
         //news Card creation
         var newsEl = document.createElement("card");
