@@ -205,14 +205,15 @@ var getSportNews = function(country) {
         var newsTitle = sportsArr[i].title;
         //news Card creation
         var newsEl = document.createElement("card");
-        newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
+        newsEl.classList = "container";
+        
         //set url
         var newsTitleEl = document.createElement("a");
-        newsTitleEl.classList = "title is-5";
+        newsTitleEl.classList = "title is-5 news-header";
         newsTitleEl.setAttribute("href", sportsArr[i].url);
         var newsImg = document.createElement("div")
         newsImg.innerHTML = "<a href='"+sportsArr[i].url+"'><img src='"+sportsArr[i].urlToImage+"' class='countryImg' alt='sports image' /></a>"
-        
+        newsImg.classList = "sportsImg";
 
         
         if(newsTitle){
@@ -224,76 +225,13 @@ var getSportNews = function(country) {
         newsEl.appendChild(newsTitleEl)
         newsEl.appendChild(newsImg)
         newsFeedEl.appendChild(newsEl);
+        newsFeedEl.classList.remove('hide');
       }
     }
-  }
-  
-  //Display news
-  var displayRepos = function(repos, searchTerm) {
-
-    // loop over repos
-    for (var i = 0; i < repos.length; i++) {
-      // format repo name
-      var repoName = repos[i].owner.login + "/" + repos[i].name;
-  
-      // create a link for each repo
-      var repoEl = document.createElement("a");
-      repoEl.classList = "list-item flex-row justify-space-between align-center";
-      //figure this part out
-      repoEl.setAttribute("href", "./countrynews.html?repo=" + repoName);
-  
-      // create a span element to hold repository name
-      var titleEl = document.createElement("span");
-      titleEl.textContent = repoName;
-  
-      // append to container
-      repoEl.appendChild(titleEl);
-  
-      // create a status element
-      var statusEl = document.createElement("span");
-      statusEl.classList = "flex-row align-center";
-  
-      // check if current repo has issues or not
-      if (repos[i].open_issues_count > 0) {
-        statusEl.innerHTML =
-          "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-      } else {
-        statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-      }
-  
-      // append to container
-      repoEl.appendChild(statusEl);
-  
-      // append container to the dom
-      repoContainerEl.appendChild(repoEl);
-    }
-
-
-    
   };
+  
 
-
-
-
-
-
-// let loginBtn = $('loginBtn');
-
-// $('dropdown-menu').hide();
-
-
-// // function that allows a user to save their name and country to display on page
-// function signIn(){
-// // listens for event to toggle modal for page
-// $('countries').selectMenu();
-
-// }
-// $('loginBtn').click(function(){
-//   $('#modal-cta').removeClass('is-active');
-// });
-
-// add event listeners to forms
 userFormEl.addEventListener("submit", formSubmitHandler);
 
-// userFormEl.addEventListener("submit2",  NFLNews);
+
 
