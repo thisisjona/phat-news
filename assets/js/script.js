@@ -1,25 +1,70 @@
 
-// let countryBtn = $('#countryBtn');
 
-// countryBtn.empty();
+ let countryBtn = $('#countryBtn');
 
-// countryBtn.append('<option selected="true" disabled>Choose Country</option>');
-// countryBtn.prop('selectedIndex', 0);
-// // gets country info and flag images
-// $(function (){
+ countryBtn.empty();
 
-//   const $countryName = $('#countryName');
-//   $.ajax({
-//     type: 'GET',
-//     url: 'https://restcountries.com/v3.1/all',
-//     success: function(countryF) {
-//       console.log(countryF);
-//       $.each(countryF, function(i, countryF){
-//         $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
-//       });
-//     }
-//   });
-// });
+ countryBtn.append('<option selected="true" disabled>Choose Country</option>');
+ countryBtn.prop('selectedIndex', 0);
+ // gets country info and flag images
+$(function (){
+
+   const $countryName = $('#countryName');
+   $.ajax({
+     type: 'GET',
+     url: 'https://restcountries.com/v3.1/all',
+     success: function(countryF) {
+       console.log(countryF);
+       $.each(countryF, function(i, countryF){
+         $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
+       });
+     }
+   });
+ });
+
+ //Jonathan's Work
+ var ctaForm = $("#cta-form");
+ var ctaModal = $("#modal-cta");
+ var loginBtn = $("#loginBtn");
+ ctaForm.on("submit", nameSubmit)
+
+function nameSubmit (event){
+  event.preventDefault();
+  var duplicateBoolean = false;
+  var localUsers = JSON.parse(window.localStorage.getItem("users")) || [];
+  var userName = $(this).find("#userName").val().trim();
+  var countryName = $(this).find("#countryName").val();
+  //ensure there are no duplicate users and create local storage user info
+  localUsers.map(function(users){
+    if(userName === users.name && countryName === users.country){
+      duplicateBoolean = true;
+      return false;
+    };
+  })
+  // once a username is unique, create object for user info
+  if(!duplicateBoolean){
+    var newUserObj = {
+      name: userName,
+      country: countryName,
+    };
+    localUsers.push(newUserObj);
+    window.localStorage.setItem("users", JSON.stringify(localUsers));
+    //append users.name and users.country  to header  
+    let userCard = $("#user-card");   
+    userCard.append("<p> Welcome " + userName + ", we're glad you're visting from " + countryName + "!</p>");
+    ctaModal.removeClass("is-active");
+    // after data appended, show div containing user info
+    //on submit, close modal  
+    };
+}
+  
+  
+
+
+
+
+
+
 
 
 
