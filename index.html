@@ -1,18 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-        <title>Phat News</title>
-    </head>
-<body>
-=======
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +12,6 @@
     <title>Phat News</title>
 </head>
 <body class="has-navbar-fixed-top">
->>>>>>> feature/navbar
 
 <!-- start make header with nav to jarod sport cards -->
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
@@ -103,7 +89,7 @@
     <div id="modal-cta" class="modal is-active">
         <div class="modal-background"></div>
         <div class="modal-content notification is-paddingless has-text-centered is-marginless">
-            <h1 class="title is-size-1">Phat News</h1>
+            <h1 class="title is-size-1">Welcome to Phat News</h1>
             <form class="field" name="userInfo" id="cta-form"> 
 
                 <!--start field for user name -->
@@ -115,11 +101,10 @@
                 </div> 
 
                 <!-- start dropdown for country -->
-                <div class="dropdown" id="country-field">
-
-                    <p class="" for="countryName">Select your Country!</p>
-                    <div class="dropdown">
-                        <select class="" name="countryName" id="countryName"></select>
+                <div class="field" id="country-field">
+                    <label class="label" for="countryName">Please choose a Country!</label>
+                    <div class="control">
+                        <select name="countryName" id="countryName"></select>
                     </div>
 
                 </div> 
@@ -131,23 +116,28 @@
 
     <!-- country news search function -->
 
-    <div id="user-card" class="card box has-text-centered is-medium"></div>
+        <div id="user-card" class="card box is-large"></div>
+        <nav class="navigation">
+            <a class="title is-2" href="./index.html">Home</a>
 
-    <h1 class="is-size-1 has-text-centered">Phat News!</h1>
+        <h1 class="is-size-1 has-text-centered">Welcome to Phat News!</h1>
        
-    <p id="currentDay" class="lead"></p>
+        <nav class="is-size-4 has-text-centered">
+            <a class=navigat href="#">Home</a>
+        </nav>
+  
+        <p id="currentDay" class="lead"></p>
   
     
-    <div class="cta content has-text-centered">
-        <h2 class="title is-size-6 ">Get current sports news at your fingertips!</h2>
-        <form id="user-form" class="box">
+    <div class="cta">
+        <br>
+        <h2 class="title is-2">From what country's sports news would you like to read?</h2><br>
+        <form id="user-form" class="form-group">
             <section>
-              <h3 class="cta-header title is-size-5">First pick a country and then submit!</h3><br>
-              <div class="field control">
-                <label for="country" class="title is-5">Enter a country:</label>
-                <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
-                <button class="button is-primary is-outlined">Submit</button><br><br>
-            </div>
+              <h3 class="cta-header title is-3">Enter a country for current news!</h3><br>
+              <label for="country" class="title is-5">Enter a country:</label>
+              <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
+              <button class="button is-primary is-outlined">Submit</button><br><br>
             </section><br>
 
         </form>
@@ -155,8 +145,8 @@
 
     <!-- world news container -->       
     <div id="newsContainer" class="hide">    
-        <!-- <h2 class="title is-3">Sports Around The Globe</h2> -->
-        <section id="newsFeed" class="container"></section>
+        <h2 class="title is-3">Sports Around The Globe</h2>
+        <section id="newsFeed" class="container">test</section>
     </div>
 
     <!-- daily dose of NFL -->
@@ -171,11 +161,11 @@
 
 
   
-    <!-- <div>    
+    <div>    
         <h2>
         Sports Around The Globe
-        </h2> -->
-    <section id="newsFeed" class="container-fluid"></section>
+        </h2>
+    <section id="newsFeed" class="container-fluid">News container</section>
     
 
     </div>
