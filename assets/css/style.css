@@ -2,23 +2,21 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #290F1D;
-    color: gray;
     font-weight: bold;
   }
 
 
 
-html,
+/* html,
 body,
 .wrapper {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: cornflowerblue;
-}
+} */
 
-
+/* 
 header{
     background-color: aqua;    
     display:flex;
@@ -30,7 +28,7 @@ header{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
+} */
 .headimg{
     display:flex;
     justify-content: left;
@@ -39,7 +37,7 @@ header{
 
 
 
-.cta p {
+/* .cta p {
     display: flex;
     flex-wrap: auto;
     justify-content: center;
@@ -53,7 +51,7 @@ header{
     background-color: white;
     
 
-}
+} */
 
 nav{
     margin-left: 30px;

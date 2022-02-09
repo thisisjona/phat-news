@@ -1,25 +1,72 @@
 
-// let countryBtn = $('#countryBtn');
 
-// countryBtn.empty();
+ let countryBtn = $('#countryBtn');
 
-// countryBtn.append('<option selected="true" disabled>Choose Country</option>');
-// countryBtn.prop('selectedIndex', 0);
-// // gets country info and flag images
-// $(function (){
+ countryBtn.empty();
 
-//   const $countryName = $('#countryName');
-//   $.ajax({
-//     type: 'GET',
-//     url: 'https://restcountries.com/v3.1/all',
-//     success: function(countryF) {
-//       console.log(countryF);
-//       $.each(countryF, function(i, countryF){
-//         $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
-//       });
-//     }
-//   });
-// });
+ countryBtn.append('<option selected="true" disabled>Choose Country</option>');
+
+ countryBtn.prop('selectedIndex', 0);
+
+ // gets country info and flag images
+$(function (){
+
+   const $countryName = $('#countryName');
+   $.ajax({
+     type: 'GET',
+     url: 'https://restcountries.com/v3.1/all',
+     success: function(countryF) {
+       console.log(countryF);
+       $.each(countryF, function(i, countryF){
+         $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
+       });
+     }
+   });
+ });
+
+ //Jonathan's Work
+ var ctaForm = $("#cta-form");
+ var ctaModal = $("#modal-cta");
+ var loginBtn = $("#loginBtn");
+ ctaForm.on("submit", nameSubmit)
+
+function nameSubmit (event){
+  event.preventDefault();
+  var duplicateBoolean = false;
+  var localUsers = JSON.parse(window.localStorage.getItem("users")) || [];
+  var userName = $(this).find("#userName").val().trim();
+  var countryName = $(this).find("#countryName").val();
+  //ensure there are no duplicate users and create local storage user info
+  localUsers.map(function(users){
+    if(userName === users.name && countryName === users.country){
+      duplicateBoolean = true;
+      return false;
+    };
+  })
+  // once a username is unique, create object for user info
+  if(!duplicateBoolean){
+    var newUserObj = {
+      name: userName,
+      country: countryName,
+    };
+    localUsers.push(newUserObj);
+    window.localStorage.setItem("users", JSON.stringify(localUsers));
+    //append users.name and users.country  to header  
+    let userCard = $("#user-card");   
+    userCard.append("<p> Welcome " + userName + ", we're glad you're visiting from " + countryName + "!</p>");
+    ctaModal.removeClass("is-active");
+    // after data appended, show div containing user info
+    //on submit, close modal  
+    };
+}
+  
+  
+
+
+
+
+
+
 
 
 
@@ -48,7 +95,7 @@ var newsFeedEl = document.querySelector("#newsFeed"); //news feed cards containe
 var newsContainEl = document.querySelector("#newsContainer")//news feed container
 let sportsArr=[];
 let NflArray = [];
-let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"australia ", id:"au"},{name:"austria", id:"at"},{name:"belgium", id:"be"},{name:"brazil", id:"br"},{name:"bulgaria", id:"bg"},{name:"canada", id:"ca"},{name:"china", id:"cn"},{name:"columbia", id:"co"},{name:"cuba", id:"cu"},{name:"czech republic", id:"cz"},{name:"egypt", id:"eg"},{name:"france", id:"fr"},{name:"germany", id:"de"},{name:"greece", id:"gr"},{name:"hong kong", id:"hk"},{name:"hungary", id:"hu"},{name:"india", id:"in"},{name:"indonesia", id:"id"},{name:"ireland", id:"ie"},{name:"israel", id:"il"},{name:"italy", id:"it"},{name:"japan", id:"jp"},{name:"latvia", id:"lv"},{name:"lithuania", id:"lt"},{name:"malaysia", id:"my"},{name:"mexico", id:"mx"},{name:"morocco", id:"ma"},{name:"netherlands", id:"nl"},{name:"new zealand", id:"nz"},{name:"nigeria", id:"ng"},{name:"norway", id:"no"},{name:"philippines", id:"ph"},{name:"poland", id:"pl"},{name:"portugal", id:"pt"},{name:"romania", id:"ro"},{name:"russia", id:"ru"},{name:"saudi arabia", id:"sa"},{name:"serbia", id:"rs"},{name:"singapore", id:"sg"},{name:"slovakia", id:"sk"},{name:"slovenia", id:"si"},{name:"south africa", id:"za"},{name:"south korea", id:"kr"},{name:"sweden", id:"se"},{name:"switzerland", id:"ch"},{name:"taiwan", id:"tw"},{name:"thailand", id:"th"},{name:"turkey", id:"tr"},{name:"uae", id:"ae"},{name:"ukraine", id:"ua"},{name:"united kingdom", id:"gb"},{name:"united states", id:"us"},{name:"venezuela", id:"ve"}]
+let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"australia", id:"au"},{name:"austria", id:"at"},{name:"belgium", id:"be"},{name:"brazil", id:"br"},{name:"bulgaria", id:"bg"},{name:"canada", id:"ca"},{name:"china", id:"cn"},{name:"columbia", id:"co"},{name:"cuba", id:"cu"},{name:"czech republic", id:"cz"},{name:"egypt", id:"eg"},{name:"france", id:"fr"},{name:"germany", id:"de"},{name:"greece", id:"gr"},{name:"hong kong", id:"hk"},{name:"hungary", id:"hu"},{name:"india", id:"in"},{name:"indonesia", id:"id"},{name:"ireland", id:"ie"},{name:"israel", id:"il"},{name:"italy", id:"it"},{name:"japan", id:"jp"},{name:"latvia", id:"lv"},{name:"lithuania", id:"lt"},{name:"malaysia", id:"my"},{name:"mexico", id:"mx"},{name:"morocco", id:"ma"},{name:"netherlands", id:"nl"},{name:"new zealand", id:"nz"},{name:"nigeria", id:"ng"},{name:"norway", id:"no"},{name:"philippines", id:"ph"},{name:"poland", id:"pl"},{name:"portugal", id:"pt"},{name:"romania", id:"ro"},{name:"russia", id:"ru"},{name:"saudi arabia", id:"sa"},{name:"serbia", id:"rs"},{name:"singapore", id:"sg"},{name:"slovakia", id:"sk"},{name:"slovenia", id:"si"},{name:"south africa", id:"za"},{name:"south korea", id:"kr"},{name:"sweden", id:"se"},{name:"switzerland", id:"ch"},{name:"taiwan", id:"tw"},{name:"thailand", id:"th"},{name:"turkey", id:"tr"},{name:"uae", id:"ae"},{name:"ukraine", id:"ua"},{name:"united kingdom", id:"gb"},{name:"united states", id:"us"},{name:"venezuela", id:"ve"}]
 
 
 
@@ -63,7 +110,7 @@ var formSubmitHandler = function(event) {
     // clear old content
     countryInputEl.value = "";
   } else {
-    alert("Please enter a country");
+    // alert("Please enter a country");
   }
 };
 
@@ -91,17 +138,7 @@ function getNFLnews(){
 
   }
 
-<<<<<<< HEAD
   getNFLnews();
-=======
-// const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
-// async function getNflNews() {
-//   const response = await fetch(NflApiUrl);
-//   const NflData = await response.json();
-//   NflArray = NflData;
-console.log(NflArray);
-// }
->>>>>>> 186fc90 (styled with bulma)
 
   // MLB news card
 
@@ -166,7 +203,7 @@ var getSportNews = function(country) {
     console.log(country)
     var countryId="";
     // for loop populates stories from API
-    for(var i=0;i<countryArr.length;i++){
+    for(var i=0;i < [5] ;i++){
       if(country.toLowerCase()===countryArr[i].name){
         countryId=countryArr[i].id;
         console.log("this is the countryId:"+countryId)
@@ -216,13 +253,7 @@ var getSportNews = function(country) {
         var newsTitle = sportsArr[i].title;
         //news Card creation
         var newsEl = document.createElement("card");
-<<<<<<< HEAD
         newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
-=======
-        var newsTitleEl = document.createElement("a");
-        newsEl.id = "newsCard";
-        newsEl.classList = "list-item container is-justify-space-between is-align-center news-story";
->>>>>>> 186fc90 (styled with bulma)
         //set url
         var newsTitleEl = document.createElement("a");
         newsTitleEl.classList = "title is-5";
