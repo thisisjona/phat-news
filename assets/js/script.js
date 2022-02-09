@@ -70,7 +70,9 @@ var formSubmitHandler = function(event) {
 // https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606
 // https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
 
+
 // NFL news card
+
 
 // fetches the NFL api data and loops through to create a set length of articles to choose from with links to source
 function getNFLnews(){
