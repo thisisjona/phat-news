@@ -70,337 +70,86 @@ var formSubmitHandler = function(event) {
 // https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606
 // https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
 
-// fetch('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606')
 
+// NFL news card
+
+
+// fetches the NFL api data and loops through to create a set length of articles to choose from with links to source
 function getNFLnews(){
   fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
   .then(res=> res.json())
   .then(data =>{
     console.log(data)
     let article1 = document.querySelector('#NFLNewsList');
-    let HTMLcode ="";
-    for (let i = 0; i<data.length; i++) {
-      HTMLcode += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+
+    let HTMLcode1 ="";
+    for (let i = 0; i < [10]; i++) {
+      HTMLcode1 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
     }
-    article1.innerHTML = HTMLcode; 
-    
-    
+    article1.innerHTML = HTMLcode1; 
+  
   });
-  
+
   }
+
+  getNFLnews();
+
+  // MLB news card
+
+  function getMLBnews(){
+    fetch('https://api.sportsdata.io/v3/mlb/scores/json/News?key=08a1cba147d5478bbe5c54797ddab4a6')
+    .then(res=> res.json())
+    .then(data =>{
+      console.log(data)
+      let article2 = document.querySelector('#MLBNewsList');
+      let HTMLcode2 ="";
+      for (let i = 0; i < [10]; i++) {
+        HTMLcode2 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+      }
+      article2.innerHTML = HTMLcode2; 
+    
+    });
   
-  getNFLnews()
+    }
+  
+    getMLBnews();
 
 
-// const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
-// async function getNflNews() {
-//   const response = await fetch(NflApiUrl);
-//   const NflData = await response.json();
-//   NflArray = NflData;
-//   // console.log(NflArray);
-// }
+    function getNBAnews(){
+      fetch('https://api.sportsdata.io/v3/nba/scores/json/News?key=0a630893821f48b795048de75b6ae458')
+      .then(res=> res.json())
+      .then(data =>{
+        console.log(data)
+        let article3 = document.querySelector('#NBANewsList');
+        let HTMLcode3 ="";
+        for (let i = 0; i < [10]; i++) {
+          HTMLcode3 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+        }
+        article3.innerHTML = HTMLcode3; 
+      
+      });
+    
+      }
+    
+      getNBAnews();
 
-// getNflNews();
-// let NflPic = document.createElement("img");
-// NflPic.src = "./assets/images/NFL.png"
-// first blurb
-// initial setup to attach the code to the article with id: first
-// =====================================================================
-// let article1 = document.querySelector('#first');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article1.innerHTML = '';
-// article1.id = 'card-team';
-// article1.class = 'card-team';
-
-// let linkTitle = data[0].Title
-// let linkURL = data[0].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[0].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// let article2 = document.querySelector('#second');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article2.innerHTML = '';
-// article2.id = 'card-team';
-// article2.class = 'card-team';
-
-// let linkTitle = data[1].Title
-// let linkURL = data[1].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[1].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// let article3 = document.querySelector('#third');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article3.innerHTML = '';
-// article3.id = 'card-team';
-// article3.class = 'card-team';
-
-// let linkTitle = data[2].Title
-// let linkURL = data[2].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[2].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// let article4 = document.querySelector('#fourth');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article4.innerHTML = '';
-// article4.id = 'card-team';
-// article4.class = 'card-team';
-
-// let linkTitle = data[3].Title
-// let linkURL = data[3].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[3].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// let article5 = document.querySelector('#fifth');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article5.innerHTML = '';
-// article5.id = 'card-team';
-// article5.class = 'card-team';
-
-// let linkTitle = data[4].Title
-// let linkURL = data[4].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[4].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// let article6 = document.querySelector('#sixth');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article6.innerHTML = '';
-// article6.id = 'card-team';
-// article6.class = 'card-team';
-
-// let linkTitle = data[5].Title
-// let linkURL = data[5].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[5].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// let article7 = document.querySelector('#seventh');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article7.innerHTML = '';
-// article7.id = 'card-team';
-// article7.class = 'card-team';
-
-// let linkTitle = data[6].Title
-// let linkURL = data[6].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[6].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// let article8 = document.querySelector('#eighth');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article8.innerHTML = '';
-// article8.id = 'card-team';
-// article8.class = 'card-team';
-
-// let linkTitle = data[7].Title
-// let linkURL = data[7].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[7].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// let article9 = document.querySelector('#ninth');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article9.innerHTML = '';
-// article9.id = 'card-team';
-// article9.class = 'card-team';
-
-// let linkTitle = data[8].Title
-// let linkURL = data[8].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[8].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// let article10 = document.querySelector('#tenth');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article10.innerHTML = '';
-// article10.id = 'card-team';
-// article10.class = 'card-team';
-
-// let linkTitle = data[9].Title
-// let linkURL = data[9].OriginalSourceUrl
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('li');
-// div.id = 'card-content';
-// div.classname = 'card-content';
-// document.getElementsByTagName('article')[9].appendChild(div);
-// div.innerHTML = linkTitle.link(linkURL);
-// });
-
-// =====================================================
-
-// let linkTitle = data[0].Title
-// let linkURL = data[0].OriginalSourceUrl
-// create dynamic element and assign data from API to it
-// let innerDiv = document.createElement('li');
-// innerDiv.id = 'card-content';
-// innerDiv.classname = 'card-content';
-// div.appendChild(innerDiv);
-// innerDiv.innerHTML = linkTitle.link(linkURL);
-
-// dynamic <br> element added
-// let newInnerDiv = document.createElement('p');
-// newInnerDiv.id = 'card-source';
-// newInnerDiv.classname = 'card-source';
-// innerDiv.appendChild(newInnerDiv);
-// newInnerDiv.innerHTML = '<br>';
-
-// variables to allow link to be added from API fetch daat
-
-
-//  dynamic button with link to source page
-// ---------------------------------------- would like to add a way to open in a new tab???
-// let newerInnerDiv = document.createElement('li');
-// newerInnerDiv.id = 'card-content';
-// newerInnerDiv.classname = 'card-content';
-// newInnerDiv.appendChild(newerInnerDiv);
-// newerInnerDiv.innerHTML = linkTitle.link(linkURL);
-
-
-// // second card
-// // initial setup to attach the code to the article with id: second
-// let article2 = document.querySelector('#second');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article2.innerText = data[1].Team;
-// article2.id = 'card-team';
-// article2.class = 'card-team';
-
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('div');
-// div.id = 'card-title';
-// div.classname = 'card-title';
-// document.getElementsByTagName('article')[1].appendChild(div);
-// div.innerText = data[1].Title;
-
-// // create dynamic element and assign data from API to it
-// let innerDiv = document.createElement('div');
-// innerDiv.id = 'card-content';
-// innerDiv.classname = 'card-content';
-// div.appendChild(innerDiv);
-// innerDiv.innerText = data[1].Content;
-
-// // dynamic <br> element added
-// let newInnerDiv = document.createElement('p');
-// newInnerDiv.id = 'card-source';
-// newInnerDiv.classname = 'card-source';
-// innerDiv.appendChild(newInnerDiv);
-// newInnerDiv.innerHTML = '<br>';
-
-// // vars to allow dynamic button to link
-// let linkText = 'Link to Source';
-// let linkURL = data[1].OriginalSourceUrl
-
-// // dynamic button with link created
-// let newerInnerDiv = document.createElement('button');
-// newerInnerDiv.id = 'card-button';
-// newerInnerDiv.classname = 'card-button';
-// newInnerDiv.appendChild(newerInnerDiv);
-// newerInnerDiv.innerHTML = '' + linkText.link(linkURL);
-// });
-
-// // third card
-// // initial setup to attach the code to the article with id: third
-// let article3 = document.querySelector('#third');
-// fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
-// .then(res => res.json())
-// .then(data => {
-// article3.innerText = data[2].Team;
-// article3.id = 'card-team';
-// article3.class = 'card-team';
-
-// // create dynamic element and assign data from API to it
-// let div = document.createElement('div');
-// div.id = 'card-title';
-// div.classname = 'card-title';
-// document.getElementsByTagName('article')[2].appendChild(div);
-// div.innerText = data[2].Title;
-
-// // create dynamic element and assign data from API to it
-// let innerDiv = document.createElement('div');
-// innerDiv.id = 'card-content';
-// innerDiv.classname = 'card-content';
-// div.appendChild(innerDiv);
-// innerDiv.innerText = data[2].Content;
-
-// // dynamic <br> element added
-// let newInnerDiv = document.createElement('p');
-// newInnerDiv.id = 'card-source';
-// newInnerDiv.classname = 'card-source';
-// innerDiv.appendChild(newInnerDiv);
-// newInnerDiv.innerHTML = '<br>';
-
-// // vars to allow link on dynamic button
-// let linkText = 'Link to Source';
-// let linkURL = data[2].OriginalSourceUrl
-
-// // dymanic button with link to source added
-// let newerInnerDiv = document.createElement('button');
-// newerInnerDiv.id = 'card-button';
-// newerInnerDiv.classname = 'card-button';
-// newInnerDiv.appendChild(newerInnerDiv);
-// newerInnerDiv.innerHTML = '' + linkText.link(linkURL);
-// });
+      function getNHLnews(){
+        fetch('https://api.sportsdata.io/v3/nhl/scores/json/News?key=dda38e7b64ec40808207644ce7c0ae61')
+        .then(res=> res.json())
+        .then(data =>{
+          console.log(data)
+          let article4 = document.querySelector('#NHLNewsList');
+          let HTMLcode4 ="";
+          for (let i = 0; i < [10]; i++) {
+            HTMLcode4 += `<li><a href="${data[i].Url}" target="blank">${data[i].Title}</a></li>`
+          }
+          article4.innerHTML = HTMLcode4; 
+        
+        });
+      
+        }
+      
+        getNHLnews()
 
 
 //Sports new API
