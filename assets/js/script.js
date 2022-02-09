@@ -81,7 +81,6 @@ function getNFLnews(){
   .then(data =>{
     console.log(data)
     let article1 = document.querySelector('#NFLNewsList');
-
     let HTMLcode1 ="";
     for (let i = 0; i < [10]; i++) {
       HTMLcode1 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
@@ -92,7 +91,17 @@ function getNFLnews(){
 
   }
 
+<<<<<<< HEAD
   getNFLnews();
+=======
+// const NflApiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c';
+// async function getNflNews() {
+//   const response = await fetch(NflApiUrl);
+//   const NflData = await response.json();
+//   NflArray = NflData;
+console.log(NflArray);
+// }
+>>>>>>> 186fc90 (styled with bulma)
 
   // MLB news card
 
@@ -207,7 +216,13 @@ var getSportNews = function(country) {
         var newsTitle = sportsArr[i].title;
         //news Card creation
         var newsEl = document.createElement("card");
+<<<<<<< HEAD
         newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
+=======
+        var newsTitleEl = document.createElement("a");
+        newsEl.id = "newsCard";
+        newsEl.classList = "list-item container is-justify-space-between is-align-center news-story";
+>>>>>>> 186fc90 (styled with bulma)
         //set url
         var newsTitleEl = document.createElement("a");
         newsTitleEl.classList = "title is-5";
@@ -229,7 +244,7 @@ var getSportNews = function(country) {
       }
     }
   }
-  
+  $('#newsCard').addClass('container box');
   //Display news
   var displayRepos = function(repos, searchTerm) {
 
