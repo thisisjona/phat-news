@@ -1,19 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-        <title>Phat News</title>
-    </head>
-<body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- <link rel="flags" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css" integrity="sha512-UwbBNAFoECXUPeDhlKR3zzWU3j8ddKIQQsDOsKhXQGdiB5i3IHEXr9kXx82+gaHigbNKbTDp3VY/G6gZqva6ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <title>Phat News</title>
+</head>
+<body class="has-navbar-fixed-top">
+
 
 <!-- start make header with nav to jarod sport cards -->
-
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="./assets/images/Phat.png" width="112" height="50">
+      </a>
+      
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
+        </a>
+        
+        <a class="navbar-item">
+          World's Sports
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            NFL Dose
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              About
+            </a>
+            <a class="navbar-item">
+              Jobs
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 
 
 <!-- end header nav-->
@@ -57,7 +119,7 @@
 
     <!-- country news search function -->
 
-    <div id="user-card" class="card box has-text-centered is-medium"></div>
+    <div id="user-card" class="card has-text-centered is-medium"></div>
 
     <h1 class="is-size-1 has-text-centered">Phat News!</h1>
        
@@ -70,7 +132,7 @@
             <section>
               <h3 class="cta-header title is-size-5">First pick a country and then submit!</h3><br>
               <div class="field control">
-                <label for="country" class="title is-5">Enter a country:</label>
+                <label for="country" class="title is-6">Enter a country:</label>
                 <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
                 <button class="button is-primary is-outlined">Submit</button><br><br>
             </div>
@@ -107,47 +169,46 @@
     </div>
  
         <div id="holder">
-            <div>
-                <section class="container2">
+            <div class="container has-text-centered">
+                <section class="card">
 
                     <h2 id="card-team"> 
                         Daily Dose of NFL!
                     </h2>  
 
                     <img src="./assets/images/NFL.png" style="width: 100%; height: 35%">
-
-                    <div class=" 'container2">
-                        <article id="NFLNewsList"></article> 
-                    </div>  <br>
+                    <article id="NFLNewsList"></article> 
+                    
                 </section>
-                <section class="container2">
+
+                <section class="container">
                     <h2 id="card-team"> 
                         MLB on Deck!
-                        </h2>
+                    </h2>
                     <img src="./assets/images/MLB.png" style="width: 100%; height: 35%">
-                    <div>       
+       
                     <article id="MLBNewsList"></article>  
-                    </div>
+                    
                 </section>
 
-                <section class="container2">
+                <section class="container">
                     <h2 id="card-team"> 
                         Centercourt NBA!
                     </h2>
                     <img src="./assets/images/NBA.png" style="width: 100%; height: 35%">
-                    <div>       
+                          
                         <article id="NBANewsList"></article>  
-                    </div>
+                    
                 </section>  
 
-                <section class="container2">
+                <section class="container">
                     <h2 id="card-team"> 
                         Hats off to the NHL!
                     </h2>
                     <img src="./assets/images/NHL.jpg" style="width: 100%; height: 35%">
-                    <div>       
+                          
                         <article id="NHLNewsList"></article>  
-                    </div>
+                    
                 </section> 
             </div>
         </div>

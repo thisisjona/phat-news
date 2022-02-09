@@ -5,8 +5,6 @@
     font-weight: bold;
   }
 
-
-
 /* html,
 body,
 .wrapper {
@@ -71,7 +69,7 @@ nav{
     padding: 20px;
     background-color: lightcyan;
 }
-
+/* 
 .container {
 
     flex-wrap: wrap;
@@ -85,9 +83,9 @@ nav{
     width: 28rem;
     word-wrap: break-word;
     border-radius: 1rem;
-}
+} */
 
-.container2 {
+/* .container2 {
 
     flex-wrap: wrap;
     justify-content: center;
@@ -100,7 +98,7 @@ nav{
     width: 40%;
     word-wrap: break-word;
     border-radius: 1rem;
-}
+} */
 
 .news-story{
     margin: 10px 10px;

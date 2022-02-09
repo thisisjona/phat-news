@@ -130,7 +130,7 @@ function getNFLnews(){
     let article1 = document.querySelector('#NFLNewsList');
     let HTMLcode1 ="";
     for (let i = 0; i < [10]; i++) {
-      HTMLcode1 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+      HTMLcode1 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
     }
     article1.innerHTML = HTMLcode1; 
   
@@ -150,7 +150,7 @@ function getNFLnews(){
       let article2 = document.querySelector('#MLBNewsList');
       let HTMLcode2 ="";
       for (let i = 0; i < [10]; i++) {
-        HTMLcode2 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+        HTMLcode2 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
       }
       article2.innerHTML = HTMLcode2; 
     
@@ -169,7 +169,7 @@ function getNFLnews(){
         let article3 = document.querySelector('#NBANewsList');
         let HTMLcode3 ="";
         for (let i = 0; i < [10]; i++) {
-          HTMLcode3 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+          HTMLcode3 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
         }
         article3.innerHTML = HTMLcode3; 
       
@@ -187,7 +187,7 @@ function getNFLnews(){
           let article4 = document.querySelector('#NHLNewsList');
           let HTMLcode4 ="";
           for (let i = 0; i < [10]; i++) {
-            HTMLcode4 += `<li><a href="${data[i].Url}" target="blank">${data[i].Title}</a></li>`
+            HTMLcode4 += `<p><a href="${data[i].Url}" target="blank">${data[i].Title}</a></p>`
           }
           article4.innerHTML = HTMLcode4; 
         
@@ -249,7 +249,7 @@ var getSportNews = function(country) {
       return;
     }else{
       console.log("else statement ran")
-      for(var i=0; i<sportsArr.length;i++){
+      for(var i=0; i < [5];i++){
         var newsTitle = sportsArr[i].title;
         //news Card creation
         var newsEl = document.createElement("card");
