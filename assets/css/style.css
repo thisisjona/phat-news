@@ -2,23 +2,22 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #290F1D;
     color: gray;
     font-weight: bold;
   }
 
 
 
-html,
+/* html,
 body,
 .wrapper {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: cornflowerblue;
-}
+} */
 
-
+/* 
 header{
     background-color: aqua;    
     display:flex;
@@ -30,7 +29,7 @@ header{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
+} */
 .headimg{
     display:flex;
     justify-content: left;

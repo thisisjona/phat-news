@@ -13,35 +13,24 @@
 </head>
 <body>
 
-    <header >
-       
-        
-    <center><h1 class="title is-1">Welcome to Phat News!</h1></center>
-       <div id="user-card" class="card box is-large"></div>
-        <nav class="navigation">
-            <a class="title is-2" href="./index.html">Home</a>
+<!-- start make header with nav to jarod sport cards -->
 
-        <h1 class="is-size-1 has-text-centered">Welcome to Phat News!</h1>
-       
-        <nav class="is-size-4 has-text-centered">
-            <a class=navigat href="#">Home</a>
-        </nav>
-  
-        <p id="currentDay" class="lead"></p>
-  
-  
 
-      </header>>
 
-    <jumbotron class="hero ">
+<!-- end header nav-->
+
+    <!-- start hero -->
+    <jumbotron class="hero">
             <img class="is-justify-content-center" src="./assets/images/ringshero.jpg" alt="2022 olympic rings">
         </div>
     </jumbotron>
+
+
     <!-- start modal CTA user enters name and selects country to view recent news -->
-     <div id="modal-cta" class="modal is-active">
+    <div id="modal-cta" class="modal is-active">
         <div class="modal-background"></div>
-        <div class="modal-content box ">
-            <h1 class="">Welcome to Phat News</h1>
+        <div class="modal-content notification is-paddingless has-text-centered is-marginless">
+            <h1 class="title is-size-1">Welcome to Phat News</h1>
             <form class="field" name="userInfo" id="cta-form"> 
 
                 <!--start field for user name -->
@@ -64,16 +53,29 @@
             </form> 
         </div>
         
-    </div> --> 
+    </div>
 
     <!-- country news search function -->
-    <center>
+
+        <div id="user-card" class="card box is-large"></div>
+        <nav class="navigation">
+            <a class="title is-2" href="./index.html">Home</a>
+
+        <h1 class="is-size-1 has-text-centered">Welcome to Phat News!</h1>
+       
+        <nav class="is-size-4 has-text-centered">
+            <a class=navigat href="#">Home</a>
+        </nav>
+  
+        <p id="currentDay" class="lead"></p>
+  
+    
     <div class="cta">
         <br>
         <h2 class="title is-2">From what country's sports news would you like to read?</h2><br>
         <form id="user-form" class="form-group">
             <section>
-              <h3 class="cta-header title is-3">Search for a Country you would like to see news from</h3><br>
+              <h3 class="cta-header title is-3">Enter a country for current news!</h3><br>
               <label for="country" class="title is-5">Enter a country:</label>
               <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
               <button class="button is-primary is-outlined">Submit</button><br><br>
@@ -82,13 +84,11 @@
         </form>
 
 
-    <!-- world news container -->
-    <center>       
+    <!-- world news container -->       
     <div id="newsContainer" class="hide">    
         <h2 class="title is-3">Sports Around The Globe</h2>
         <section id="newsFeed" class="container">test</section>
     </div>
-    </center>   
 
     <!-- daily dose of NFL -->
     
@@ -97,11 +97,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         </div> 
-        </center>
+      
 
 
 
-    <center>
+  
     <div>    
         <h2>
         Sports Around The Globe
@@ -110,9 +110,7 @@
     
 
     </div>
-    </center>    
-
-    <center>
+ 
         <div id="holder">
             <div>
                 <section class="container2">
@@ -150,7 +148,7 @@
                 <section class="container2">
                     <h2 id="card-team"> 
                         Hats off to the NHL!
-                        </h2>
+                    </h2>
                     <img src="./assets/images/NHL.jpg" style="width: 100%; height: 35%">
                     <div>       
                         <article id="NHLNewsList"></article>  
@@ -158,7 +156,6 @@
                 </section> 
             </div>
         </div>
-    </center>
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
