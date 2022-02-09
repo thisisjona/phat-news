@@ -2,7 +2,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-color: #290F1D;
+    color: gray;
+    font-weight: bold;
   }
+
+
 
 html,
 body,
@@ -84,15 +89,34 @@ nav{
     border-radius: 1rem;
 }
 
+.container2 {
+
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    color: black;
+    background-color: white;
+    box-shadow: 0 2px 6px 2px black;
+    margin: 1rem;
+    padding: 1rem;
+    width: 40%;
+    word-wrap: break-word;
+    border-radius: 1rem;
+}
 
 .news-story{
     margin: 10px 10px;
 }
 
 #card-team {
+
     color: black;
-    padding: 0 0 30px 0;
+    /* padding: 30px 0 0 0; */
     font-size: 3rem;
+    text-align: center;
+    /* color: black;
+    padding: 0 0 30px 0;
+    font-size: 3rem; */
 }
 
 #card-title{
@@ -103,8 +127,9 @@ nav{
 
 #card-content {
     color: black;
-    padding: 30px 0 0 0;
-    font-size: 1.1rem;
+    /* padding: 30px 0 0 0; */
+    font-size: 0.9rem;
+    text-align: left;
 }
 
 #card-source{
