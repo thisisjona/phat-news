@@ -13,39 +13,45 @@
 </head>
 <body>
 
-    <header>
+    <header >
        
         
     <center><h1 class="title is-1">Welcome to Phat News!</h1></center>
-       
+       <div id="user-card" class="card box is-large"></div>
         <nav class="navigation">
             <a class="title is-2" href="./index.html">Home</a>
         </nav>
-  
+        
     </header>
 
 
     <!-- start modal CTA user enters name and selects country to view recent news -->
-    <!-- <div id="modal-cta" class="modal is-large is-active">
-        <div class="container-fluid box">
+     <div id="modal-cta" class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-content box ">
             <h1 class="">Welcome to Phat News</h1>
-            <form class="field" name="userInfo"> -->
+            <form class="field" name="userInfo" id="cta-form"> 
 
                 <!--start field for user name -->
-                <!-- < <div class="field">
+                <div class="field" id="name-field">
                     <label class="label" for="userName">Enter your username!</label>
-                    <input class="input is-rounded" type="text" id="userName" placeholder="Enter username">
-                </div> -->
+                    <div class="control">
+                        <input class="input is-rounded" type="text" id="userName" placeholder="Enter username">
+                    </div>
+                </div> 
 
                 <!-- start dropdown for country -->
-                <!-- <div class="field">
+                <div class="field" id="country-field">
                     <label class="label" for="countryName">Please choose a Country!</label>
-                    <select name="countryName" id="countryName"></select>
-                </div> -->
+                    <div class="control">
+                        <select name="countryName" id="countryName"></select>
+                    </div>
 
-                <!-- <input id="loginBtn" type="submit" class="button is-primary is-outlined">
+                </div> 
+                <button id="loginBtn" type="submit" class="button is-primary is-outlined">Submit</button>
             </form> 
         </div>
+        
     </div> --> 
 
     <!-- country news search function -->
