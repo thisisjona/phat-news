@@ -70,14 +70,18 @@ var formSubmitHandler = function(event) {
 // https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606
 // https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
 
+
 // NFL news card
 
+
+// fetches the NFL api data and loops through to create a set length of articles to choose from with links to source
 function getNFLnews(){
   fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
   .then(res=> res.json())
   .then(data =>{
     console.log(data)
     let article1 = document.querySelector('#NFLNewsList');
+
     let HTMLcode1 ="";
     for (let i = 0; i < [10]; i++) {
       HTMLcode1 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
@@ -146,6 +150,7 @@ function getNFLnews(){
         }
       
         getNHLnews()
+
 
 //Sports new API
 var getSportNews = function(country) {
