@@ -70,23 +70,82 @@ var formSubmitHandler = function(event) {
 // https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606
 // https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
 
+// NFL news card
+
 function getNFLnews(){
   fetch('https://api.sportsdata.io/v3/nfl/scores/json/News?key=95bd4e03de4e4fe0916f0c77516e239c')
   .then(res=> res.json())
   .then(data =>{
     console.log(data)
     let article1 = document.querySelector('#NFLNewsList');
-    let HTMLcode ="";
+    let HTMLcode1 ="";
     for (let i = 0; i < [10]; i++) {
-      HTMLcode += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+      HTMLcode1 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
     }
-    article1.innerHTML = HTMLcode; 
+    article1.innerHTML = HTMLcode1; 
   
   });
 
   }
 
-  getNFLnews()
+  getNFLnews();
+
+  // MLB news card
+
+  function getMLBnews(){
+    fetch('https://api.sportsdata.io/v3/mlb/scores/json/News?key=08a1cba147d5478bbe5c54797ddab4a6')
+    .then(res=> res.json())
+    .then(data =>{
+      console.log(data)
+      let article2 = document.querySelector('#MLBNewsList');
+      let HTMLcode2 ="";
+      for (let i = 0; i < [10]; i++) {
+        HTMLcode2 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+      }
+      article2.innerHTML = HTMLcode2; 
+    
+    });
+  
+    }
+  
+    getMLBnews();
+
+
+    function getNBAnews(){
+      fetch('https://api.sportsdata.io/v3/nba/scores/json/News?key=0a630893821f48b795048de75b6ae458')
+      .then(res=> res.json())
+      .then(data =>{
+        console.log(data)
+        let article3 = document.querySelector('#NBANewsList');
+        let HTMLcode3 ="";
+        for (let i = 0; i < [10]; i++) {
+          HTMLcode3 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+        }
+        article3.innerHTML = HTMLcode3; 
+      
+      });
+    
+      }
+    
+      getNBAnews();
+
+      function getNHLnews(){
+        fetch('https://api.sportsdata.io/v3/nhl/scores/json/News?key=dda38e7b64ec40808207644ce7c0ae61')
+        .then(res=> res.json())
+        .then(data =>{
+          console.log(data)
+          let article4 = document.querySelector('#NHLNewsList');
+          let HTMLcode4 ="";
+          for (let i = 0; i < [10]; i++) {
+            HTMLcode4 += `<li><a href="${data[i].Url}" target="blank">${data[i].Title}</a></li>`
+          }
+          article4.innerHTML = HTMLcode4; 
+        
+        });
+      
+        }
+      
+        getNHLnews()
 
 //Sports new API
 var getSportNews = function(country) {
