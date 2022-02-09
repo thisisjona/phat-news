@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <!-- <link rel="flags" href="link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css" integrity="sha512-UwbBNAFoECXUPeDhlKR3zzWU3j8ddKIQQsDOsKhXQGdiB5i3IHEXr9kXx82+gaHigbNKbTDp3VY/G6gZqva6ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <!-- <link rel="flags" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css" integrity="sha512-UwbBNAFoECXUPeDhlKR3zzWU3j8ddKIQQsDOsKhXQGdiB5i3IHEXr9kXx82+gaHigbNKbTDp3VY/G6gZqva6ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <title>Phat News</title>
 </head>
 <body>
@@ -20,6 +20,17 @@
        <div id="user-card" class="card box is-large"></div>
         <nav class="navigation">
             <a class="title is-2" href="./index.html">Home</a>
+
+        <h1 class="is-size-1 has-text-centered">Welcome to Phat News!</h1>
+       
+        <nav class="is-size-4 has-text-centered">
+            <a class=navigat href="#">Home</a>
+        </nav>
+  
+        <p id="currentDay" class="lead"></p>
+  
+  
+
       </header>>
 
     <jumbotron class="hero ">
@@ -110,78 +121,48 @@
                         Daily Dose of NFL!
                     </h2>  
 
-                <img src="./assets/images/NFL.png" style="width: 100%; height: 35%">
+                    <img src="./assets/images/NFL.png" style="width: 100%; height: 35%">
 
-                <div class=" 'container2">
-                  <article id="NFLNewsList"></article> 
-                </div>  <br>
-            </section>
-            <section class="container2">
-                <h2 id="card-team"> 
-                    MLB on Deck!
+                    <div class=" 'container2">
+                        <article id="NFLNewsList"></article> 
+                    </div>  <br>
+                </section>
+                <section class="container2">
+                    <h2 id="card-team"> 
+                        MLB on Deck!
+                        </h2>
+                    <img src="./assets/images/MLB.png" style="width: 100%; height: 35%">
+                    <div>       
+                    <article id="MLBNewsList"></article>  
+                    </div>
+                </section>
+
+                <section class="container2">
+                    <h2 id="card-team"> 
+                        Centercourt NBA!
                     </h2>
-                <img src="./assets/images/MLB.png" style="width: 100%; height: 35%">
-                <div>       
-                  <article id="MLBNewsList"></article>  
-                </div>
-            </section>
+                    <img src="./assets/images/NBA.png" style="width: 100%; height: 35%">
+                    <div>       
+                        <article id="NBANewsList"></article>  
+                    </div>
+                </section>  
 
-            <section class="container2">
-                <h2 id="card-team"> 
-                    Centercourt NBA!
-                    </h2>
-                <img src="./assets/images/NBA.png" style="width: 100%; height: 35%">
-                <div>       
-                  <article id="NBANewsList"></article>  
-                </div>
-            </section>  
-
-            <section class="container2">
-                <h2 id="card-team"> 
-                    Hats off to the NHL!
-                    </h2>
-                <img src="./assets/images/NHL.jpg" style="width: 100%; height: 35%">
-                <div>       
-                  <article id="NHLNewsList"></article>  
-                </div>
-            </section> 
-
-                  <article id="fifth"></article> 
-
-                  <article id="sixth"></article> 
-
-                  <article id="seventh"></article> 
-
-                  <article id="eighth"></article> 
-
-                  <article id="ninth"></article> 
-
-                  <article id="tenth"></article> 
-                
-               
+                <section class="container2">
+                    <h2 id="card-team"> 
+                        Hats off to the NHL!
+                        </h2>
+                    <img src="./assets/images/NHL.jpg" style="width: 100%; height: 35%">
+                    <div>       
+                        <article id="NHLNewsList"></article>  
+                    </div>
+                </section> 
             </div>
-       </center>
-
-
-<!-- 
-    
-    <section class="current-news">
-
-
-        <card class="current-story">Story 1</card> -->
-        
-
-
-        <!-- <card class="current-story">Story 2</card>
-
-
-        <card class="current-story">Story 3</card> -->
-
+        </div>
+    </center>
 
     
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./assets/js/script.js"></script>
-    <!-- <script src="./assets/js/tutorHelp.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
