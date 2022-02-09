@@ -160,6 +160,7 @@ function getNFLnews(){
   
     getMLBnews();
 
+    // NBA news card
 
     function getNBAnews(){
       fetch('https://api.sportsdata.io/v3/nba/scores/json/News?key=0a630893821f48b795048de75b6ae458')
@@ -178,6 +179,8 @@ function getNFLnews(){
       }
     
       getNBAnews();
+
+      // NHL news card
 
       function getNHLnews(){
         fetch('https://api.sportsdata.io/v3/nhl/scores/json/News?key=dda38e7b64ec40808207644ce7c0ae61')
