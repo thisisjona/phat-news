@@ -4,6 +4,15 @@
     padding: 0;
     font-weight: bold;
   }
+select:hover{
+    border: 1px solid blue;
+    box-shadow: 2px 4px black;
+}
+
+#country:hover{
+    border: 1px solid blue;
+    box-shadow: 2px 4px black;
+}
 
 /* html,
 body,

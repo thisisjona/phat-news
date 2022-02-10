@@ -90,9 +90,9 @@
     <!-- start modal CTA user enters name and selects country to view recent news -->
     <div id="modal-cta" class="modal is-active">
         <div class="modal-background"></div>
-        <div class="modal-content notification is-paddingless has-text-centered is-marginless">
+        <div class="modal-content notification has-text-centered">
             <h1 class="title is-size-1">Phat News</h1>
-            <form class="field" name="userInfo" id="cta-form"> 
+            <form class="container is-small" name="userInfo" id="cta-form"> 
 
                 <!--start field for user name -->
                 <div class="field" id="name-field">
@@ -103,15 +103,15 @@
                 </div> 
 
                 <!-- start dropdown for country -->
-                <div class="dropdown" id="country-field">
+                <div class="dropdown level" id="country-field">
 
                     <p class="" for="countryName">Select your Country!</p>
                     <div class="dropdown">
-                        <select class="" name="countryName" id="countryName"></select>
+                        <select class="dropdown-trigger" name="countryName" id="countryName"></select>
                     </div>
-
+                    <button id="loginBtn" type="submit" class="button is-primary is-outlined m-1 ">Submit</button>
                 </div> 
-                <button id="loginBtn" type="submit" class="button is-primary is-outlined">Submit</button>
+                
             </form> 
         </div>
         
@@ -131,10 +131,10 @@
         <form id="user-form" class="box">
             <section>
               <h3 class="cta-header title is-size-5">First pick a country and then submit!</h3><br>
-              <div class="field control">
+              <div class="field">
                 <label for="country" class="title is-6">Enter a country:</label>
                 <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
-                <button class="button is-primary is-outlined">Submit</button><br><br>
+                <button class="button is-primary is-outlined">Submit</button>
             </div>
             </section><br>
 
