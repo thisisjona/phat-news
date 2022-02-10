@@ -130,7 +130,7 @@ function getNFLnews(){
     let article1 = document.querySelector('#NFLNewsList');
     let HTMLcode1 ="";
     for (let i = 0; i < [10]; i++) {
-      HTMLcode1 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+      HTMLcode1 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
     }
     article1.innerHTML = HTMLcode1; 
   
@@ -150,7 +150,7 @@ function getNFLnews(){
       let article2 = document.querySelector('#MLBNewsList');
       let HTMLcode2 ="";
       for (let i = 0; i < [10]; i++) {
-        HTMLcode2 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+        HTMLcode2 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
       }
       article2.innerHTML = HTMLcode2; 
     
@@ -160,6 +160,7 @@ function getNFLnews(){
   
     getMLBnews();
 
+    // NBA news card
 
     function getNBAnews(){
       fetch('https://api.sportsdata.io/v3/nba/scores/json/News?key=0a630893821f48b795048de75b6ae458')
@@ -169,7 +170,7 @@ function getNFLnews(){
         let article3 = document.querySelector('#NBANewsList');
         let HTMLcode3 ="";
         for (let i = 0; i < [10]; i++) {
-          HTMLcode3 += `<li><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></li>`
+          HTMLcode3 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
         }
         article3.innerHTML = HTMLcode3; 
       
@@ -179,6 +180,8 @@ function getNFLnews(){
     
       getNBAnews();
 
+      // NHL news card
+
       function getNHLnews(){
         fetch('https://api.sportsdata.io/v3/nhl/scores/json/News?key=dda38e7b64ec40808207644ce7c0ae61')
         .then(res=> res.json())
@@ -187,7 +190,7 @@ function getNFLnews(){
           let article4 = document.querySelector('#NHLNewsList');
           let HTMLcode4 ="";
           for (let i = 0; i < [10]; i++) {
-            HTMLcode4 += `<li><a href="${data[i].Url}" target="blank">${data[i].Title}</a></li>`
+            HTMLcode4 += `<p><a href="${data[i].Url}" target="blank">${data[i].Title}</a></p>`
           }
           article4.innerHTML = HTMLcode4; 
         
@@ -249,14 +252,14 @@ var getSportNews = function(country) {
       return;
     }else{
       console.log("else statement ran")
-      for(var i=0; i<sportsArr.length;i++){
+      for(var i=0; i < [5];i++){
         var newsTitle = sportsArr[i].title;
         //news Card creation
-        var newsEl = document.createElement("card");
-        newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
+        var newsEl = document.createElement("div");
+        newsEl.classList = "card news-story";
         //set url
         var newsTitleEl = document.createElement("a");
-        newsTitleEl.classList = "title is-5";
+        newsTitleEl.classList = "";
         newsTitleEl.setAttribute("href", sportsArr[i].url);
         var newsImg = document.createElement("div")
         newsImg.innerHTML = "<a href='"+sportsArr[i].url+"'><img src='"+sportsArr[i].urlToImage+"' class='countryImg' alt='sports image' /></a>"
