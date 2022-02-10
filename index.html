@@ -17,7 +17,7 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="#">
-        <img src="./assets/images/Phat.png" width="112" height="50">
+        <img src="./assets/images/Phat.png" class="is-32x32">
       </a>
   
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -33,7 +33,7 @@
           Home
         </a>
   
-        <a class="navbar-item">
+        <a class="navbar-item" href="#country-search">
           World's Sports
         </a>
   
@@ -59,7 +59,9 @@
         </div>
       </div>
   <!-- left navbar end element  -->
-      <div class="navbar-end"></div>
+      <div class="navbar-end">
+        <div id="user-card" class="card has-text-centered is-medium is-warning"></div>
+      </div>
         </div>
       </div>
     </div>
@@ -120,7 +122,7 @@
     
     <div class="cta">
         <br>
-        <h2 class="title is-2">From what country's sports news would you like to read?</h2><br>
+        <h2 class="title is-2" id="country-search">From what country's sports news would you like to read?</h2><br>
         <form id="user-form" class="form-group">
             <section>
               <h3 class="cta-header title is-3">Enter a country for current news!</h3><br>
@@ -173,7 +175,7 @@
                         <article id="NFLNewsList"></article> 
                     </div>  <br>
                 </section>
-                <section class="container2">
+                <section class="container2" id="mlb-container">
                     <h2 id="card-team"> 
                         MLB on Deck!
                         </h2>
@@ -183,7 +185,7 @@
                     </div>
                 </section>
 
-                <section class="container2">
+                <section class="container2" id="nba-container">
                     <h2 id="card-team"> 
                         Centercourt NBA!
                     </h2>
@@ -193,7 +195,7 @@
                     </div>
                 </section>  
 
-                <section class="container2">
+                <section class="container2" id="nhl-container">
                     <h2 id="card-team"> 
                         Hats off to the NHL!
                     </h2>
