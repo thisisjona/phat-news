@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: gray;
     font-weight: bold;
   }
 select:hover{
@@ -44,7 +45,7 @@ header{
 
 
 
-/* .cta p {
+.cta p {
     display: flex;
     flex-wrap: auto;
     justify-content: center;
@@ -58,8 +59,9 @@ header{
     background-color: white;
     
 
-} */
-/* 
+}
+
+
 nav{
     margin-left: 30px;
     

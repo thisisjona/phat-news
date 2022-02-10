@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +13,11 @@
 </head>
 <body class="has-navbar-fixed-top">
 
-
 <!-- start make header with nav to jarod sport cards -->
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="./assets/images/Phat.png" width="112" height="50">
+      <a class="navbar-item" href="#">
+        <img src="./assets/images/Phat.png" class="is-32x32">
       </a>
       
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -29,49 +27,43 @@
       </a>
     </div>
   
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarBasicExample" class="navbar-menu is-active">
       <div class="navbar-start">
         <a class="navbar-item">
           Home
         </a>
-        
-        <a class="navbar-item">
+
+  
+        <a class="navbar-item" href="#country-search">
+
           World's Sports
         </a>
   
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            NFL Dose
+            U.S. Sports
           </a>
   
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
+            <a class="navbar-item" href="#nfl-container">
+              NFL 
             </a>
-            <a class="navbar-item">
-              Jobs
+            <a class="navbar-item" href="#mlb-container">
+              MLB
             </a>
-            <a class="navbar-item">
-              Contact
+            <a class="navbar-item" href="#nba-container">
+              NBA
             </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
+            <a class="navbar-item" href="#nhl-container">
+              NHL
             </a>
           </div>
         </div>
       </div>
-  
+  <!-- left navbar end element  -->
       <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-          </div>
+        <div id="user-card" class="card has-text-centered is-medium is-warning"></div>
+      </div>
         </div>
       </div>
     </div>
@@ -90,9 +82,11 @@
     <!-- start modal CTA user enters name and selects country to view recent news -->
     <div id="modal-cta" class="modal is-active">
         <div class="modal-background"></div>
+
         <div class="modal-content notification has-text-centered">
             <h1 class="title is-size-1">Phat News</h1>
             <form class="container is-small" name="userInfo" id="cta-form"> 
+
 
                 <!--start field for user name -->
                 <div class="field" id="name-field">
@@ -103,11 +97,13 @@
                 </div> 
 
                 <!-- start dropdown for country -->
+
                 <div class="dropdown level" id="country-field">
 
                     <p class="" for="countryName">Select your Country!</p>
                     <div class="dropdown">
                         <select class="dropdown-trigger" name="countryName" id="countryName"></select>
+
                     </div>
                     <button id="loginBtn" type="submit" class="button is-primary is-outlined m-1 ">Submit</button>
                 </div> 
@@ -118,24 +114,36 @@
     </div>
 
     <!-- country news search function -->
+        
+        <nav class="navigation">
+            <a class="title is-2" href="./index.html">Home</a>
+
 
     <div id="user-card" class="card has-text-centered is-medium"></div>
 
     <h1 class="is-size-1 has-text-centered">Phat News!</h1>
+
        
-    <p id="currentDay" class="lead"></p>
+        <nav class="is-size-4 has-text-centered">
+            <a class=navigat href="#">Home</a>
+        </nav>
+  
+        <p id="currentDay" class="lead"></p>
   
     
-    <div class="cta content has-text-centered">
-        <h2 class="title is-size-6 ">Get current sports news at your fingertips!</h2>
-        <form id="user-form" class="box">
+    <div class="cta">
+        <br>
+        <h2 class="title is-2" id="country-search">From what country's sports news would you like to read?</h2><br>
+        <form id="user-form" class="form-group">
             <section>
+
               <h3 class="cta-header title is-size-5">First pick a country and then submit!</h3><br>
               <div class="field">
                 <label for="country" class="title is-6">Enter a country:</label>
                 <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
                 <button class="button is-primary is-outlined">Submit</button>
             </div>
+
             </section><br>
 
         </form>
@@ -143,8 +151,8 @@
 
     <!-- world news container -->       
     <div id="newsContainer" class="hide">    
-        <!-- <h2 class="title is-3">Sports Around The Globe</h2> -->
-        <section id="newsFeed" class="container"></section>
+        <h2 class="title is-3">Sports Around The Globe</h2>
+        <section id="newsFeed" class="container">test</section>
     </div>
 
     <!-- daily dose of NFL -->
@@ -159,18 +167,22 @@
 
 
   
-    <!-- <div>    
+    <div>    
         <h2>
         Sports Around The Globe
+
         </h2> -->
     <section id="newsFeed" class="container"></section>
+
     
 
     </div>
  
         <div id="holder">
+
             <div class="container has-text-centered  mx-2">
-                <section class="card has-background-grey-light">
+                <section class="card has-background-grey-light id="nfl-container">
+
 
                     <h2 id="card-team"> 
                         Daily Dose of NFL!
@@ -181,7 +193,13 @@
                     
                 </section><br>
 
-                <section class="card has-background-grey-light">
+
+                    <div class=" 'container2">
+                        <article id="NFLNewsList"></article> 
+                    </div>  <br>
+                </section>
+                <section class="card has-background-grey-light" id="mlb-container">
+
                     <h2 id="card-team"> 
                         MLB on Deck!
                     </h2>
@@ -191,7 +209,9 @@
                     
                 </section><br>
 
-                <section class="card has-background-grey-light">
+
+                <section class="card has-background-grey-light" id="nba-container">
+
                     <h2 id="card-team"> 
                         Centercourt NBA!
                     </h2>
@@ -201,7 +221,9 @@
                     
                 </section><br>  
 
-                <section class="card has-background-grey-light">
+
+                <section class="card has-background-grey-light" id="nhl-container">
+
                     <h2 id="card-team"> 
                         Hats off to the NHL!
                     </h2>
