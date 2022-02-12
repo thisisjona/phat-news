@@ -16,7 +16,7 @@
 
 
 <!-- start make header with nav to jarod sport cards -->
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top ml-0" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
         <img src="./assets/images/Phat.png" width="112" height="50">
@@ -35,35 +35,36 @@
           Home
         </a>
         
-        <a class="navbar-item">
+        <a class="navbar-item" href="#country-search">
           World's Sports
         </a>
   
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            NFL Dose
+          <a class="navbar-link" href="#country-search">
+            U.S. Sports
           </a>
   
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
+            <a class="navbar-item" href="#nfl-container">
+              NFL
             </a>
-            <a class="navbar-item">
-              Jobs
+            <a class="navbar-item" href="#mlb-container">
+              MLB
             </a>
-            <a class="navbar-item">
-              Contact
+            <a class="navbar-item" href="#nba-container">
+              NBA
             </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
+            <a class="navbar-item" href="#nhl-container">
+              NHL
             </a>
           </div>
         </div>
       </div>
   
       <div class="navbar-end">
-        <div class="navbar-item"></div>
+        <div class="navbar-item">
+          <div id="user-card" class="card has-text-centered is-medium"></div>
+        </div>
       </div>
     </div>
   </nav>
@@ -110,14 +111,14 @@
 
     <!-- country news search function -->
 
-    <div id="user-card" class="card has-text-centered is-medium"></div>
+    
 
     <h1 class="is-size-1 has-text-centered">Phat News!</h1>
        
     <p id="currentDay" class="lead"></p>
   
     
-    <div class="cta content has-text-centered">
+    <div class="cta content has-text-centered" id="country-search">
         <h2 class="title is-size-6 ">Get current sports news at your fingertips!</h2>
         <form id="user-form" class="box">
             <section>
@@ -160,7 +161,7 @@
     </div>
  
         <div id="holder">
-            <div class="container has-text-centered">
+            <div class="container has-text-centered mt-10" id="nfl-container">
                 <section class="card">
 
                     <h2 id="card-team"> 
@@ -172,7 +173,7 @@
                     
                 </section>
 
-                <section class="container">
+                <section class="container" id="mlb-container">
                     <h2 id="card-team"> 
                         MLB on Deck!
                     </h2>
@@ -182,7 +183,7 @@
                     
                 </section>
 
-                <section class="container">
+                <section class="container" id="nba-container">
                     <h2 id="card-team"> 
                         Centercourt NBA!
                     </h2>
@@ -192,7 +193,7 @@
                     
                 </section>  
 
-                <section class="container">
+                <section class="container" id="nhl-container">
                     <h2 id="card-team"> 
                         Hats off to the NHL!
                     </h2>
