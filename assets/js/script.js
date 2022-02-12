@@ -58,8 +58,16 @@ function nameSubmit (event){
     // after data appended, show div containing user info
     //on submit, close modal  
     };
+
+   
 }
-  
+$("#burger-icon").click(function(){
+  $("#nav-menu").toggleClass("is-active");
+})
+
+
+
+
   
 
 
