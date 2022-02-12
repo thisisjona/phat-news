@@ -2,8 +2,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: gray;
     font-weight: bold;
   }
+select:hover{
+    border: 1px solid blue;
+    box-shadow: 2px 4px black;
+}
+
+#country:hover{
+    border: 1px solid blue;
+    box-shadow: 2px 4px black;
+}
 
 /* html,
 body,
@@ -27,15 +37,15 @@ header{
     justify-content: space-between;
     flex-wrap: wrap;
 } */
-.headimg{
+/* .headimg{
     display:flex;
     justify-content: left;
     width: 300px;
-}
+} */
 
 
 
-/* .cta p {
+.cta p {
     display: flex;
     flex-wrap: auto;
     justify-content: center;
@@ -49,18 +59,19 @@ header{
     background-color: white;
     
 
-} */
+}
+
 
 nav{
     margin-left: 30px;
     
-}
-.navigat{
+} */
+/* .navigat{
     margin-right: 20px;
     text-decoration:30px;
-}
+} */
 
-.current-news{
+/* .current-news{
     margin-top: 30px;
 }
 
@@ -68,7 +79,7 @@ nav{
     margin:  30px;
     padding: 20px;
     background-color: lightcyan;
-}
+} */
 /* 
 .container {
 
@@ -100,9 +111,9 @@ nav{
     border-radius: 1rem;
 } */
 
-.news-story{
+/* .news-story{
     margin: 10px 10px;
-}
+} */
 
 #card-team {
 
