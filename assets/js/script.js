@@ -118,7 +118,7 @@ var formSubmitHandler = function(event) {
     // clear old content
     countryInputEl.value = "";
   } else {
-    // alert("Please enter a country");
+    alert("Please enter a country");
   }
 };
 
@@ -168,6 +168,7 @@ function getNFLnews(){
   
     getMLBnews();
 
+    // NBA news card
 
     function getNBAnews(){
       fetch('https://api.sportsdata.io/v3/nba/scores/json/News?key=0a630893821f48b795048de75b6ae458')
@@ -186,6 +187,8 @@ function getNFLnews(){
       }
     
       getNBAnews();
+
+      // NHL news card
 
       function getNHLnews(){
         fetch('https://api.sportsdata.io/v3/nhl/scores/json/News?key=dda38e7b64ec40808207644ce7c0ae61')
@@ -260,11 +263,11 @@ var getSportNews = function(country) {
       for(var i=0; i < [5];i++){
         var newsTitle = sportsArr[i].title;
         //news Card creation
-        var newsEl = document.createElement("card");
-        newsEl.classList = "list-item flex-row justify-space-between align-center news-story";
+        var newsEl = document.createElement("div");
+        newsEl.classList = "card news-story";
         //set url
         var newsTitleEl = document.createElement("a");
-        newsTitleEl.classList = "title is-5";
+        newsTitleEl.classList = "";
         newsTitleEl.setAttribute("href", sportsArr[i].url);
         var newsImg = document.createElement("div")
         newsImg.innerHTML = "<a href='"+sportsArr[i].url+"'><img src='"+sportsArr[i].urlToImage+"' class='countryImg' alt='sports image' /></a>"
