@@ -1,13 +1,25 @@
+var userFormEl = document.querySelector("#user-form");
+var countryInputEl = document.querySelector("#country");//country
+var NFLinputEl = document.querySelector("nflNews")
+var newsFeedEl = document.querySelector("#newsFeed"); //news feed cards container
+var newsContainEl = document.querySelector("#newsContainer")//news feed container
+let sportsArr=[];
+let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"australia", id:"au"},{name:"austria", id:"at"},{name:"belgium", id:"be"},{name:"brazil", id:"br"},{name:"bulgaria", id:"bg"},{name:"canada", id:"ca"},{name:"china", id:"cn"},{name:"columbia", id:"co"},{name:"cuba", id:"cu"},{name:"czech republic", id:"cz"},{name:"egypt", id:"eg"},{name:"france", id:"fr"},{name:"germany", id:"de"},{name:"greece", id:"gr"},{name:"hong kong", id:"hk"},{name:"hungary", id:"hu"},{name:"india", id:"in"},{name:"indonesia", id:"id"},{name:"ireland", id:"ie"},{name:"israel", id:"il"},{name:"italy", id:"it"},{name:"japan", id:"jp"},{name:"latvia", id:"lv"},{name:"lithuania", id:"lt"},{name:"malaysia", id:"my"},{name:"mexico", id:"mx"},{name:"morocco", id:"ma"},{name:"netherlands", id:"nl"},{name:"new zealand", id:"nz"},{name:"nigeria", id:"ng"},{name:"norway", id:"no"},{name:"philippines", id:"ph"},{name:"poland", id:"pl"},{name:"portugal", id:"pt"},{name:"romania", id:"ro"},{name:"russia", id:"ru"},{name:"saudi arabia", id:"sa"},{name:"serbia", id:"rs"},{name:"singapore", id:"sg"},{name:"slovakia", id:"sk"},{name:"slovenia", id:"si"},{name:"south africa", id:"za"},{name:"south korea", id:"kr"},{name:"sweden", id:"se"},{name:"switzerland", id:"ch"},{name:"taiwan", id:"tw"},{name:"thailand", id:"th"},{name:"turkey", id:"tr"},{name:"uae", id:"ae"},{name:"ukraine", id:"ua"},{name:"united kingdom", id:"gb"},{name:"united states", id:"us"},{name:"venezuela", id:"ve"}];
+let countryBtn = $('#countryBtn');
+let settingBtn = $('#check-in');
+let userCard = $('#user-card');
+var initialCountry=""
+
+//Jonathan's Work
+var ctaForm = $("#cta-form");
+var ctaModal = $("#modal-cta");
+var loginBtn = $("#loginBtn");
 
 
- let countryBtn = $('#countryBtn');
- let settingBtn = $('#check-in');
- let userCard = $('#user-card');
- countryBtn.empty();
+countryBtn.empty();
+countryBtn.append('<option selected="true" disabled>Choose Country</option>');
 
- countryBtn.append('<option selected="true" disabled>Choose Country</option>');
-
- countryBtn.prop('selectedIndex', 0);
+countryBtn.prop('selectedIndex', 0);
 
  // gets country info and flag images
 $(function (){
@@ -18,11 +30,14 @@ $(function (){
      url: 'https://restcountries.com/v3.1/all',
      success: function(countryF) {
        console.log(countryF);
+       
        $.each(countryF, function(i, countryF){
          $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
        });
-     }
-   });
+       
+      }
+      
+    });
  });
 
 $(function() {
@@ -36,14 +51,11 @@ $(function() {
   }
 })
 
+
+
+
+
  //Jonathan's Work
- var ctaForm = $("#cta-form");
- var ctaModal = $("#modal-cta");
- var loginBtn = $("#loginBtn");
- ctaForm.on("submit", nameSubmit)
-
-
-
 function nameSubmit (event){
   event.preventDefault();
   var duplicateBoolean = false;
@@ -80,13 +92,6 @@ settingBtn.click(function(){
   ctaModal.toggleClass('is-hidden is-active');
 })
   
-var userFormEl = document.querySelector("#user-form");
-var countryInputEl = document.querySelector("#country");//country
-var NFLinputEl = document.querySelector("nflNews")
-var newsFeedEl = document.querySelector("#newsFeed"); //news feed cards container
-var newsContainEl = document.querySelector("#newsContainer")//news feed container
-let sportsArr=[];
-let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"australia", id:"au"},{name:"austria", id:"at"},{name:"belgium", id:"be"},{name:"brazil", id:"br"},{name:"bulgaria", id:"bg"},{name:"canada", id:"ca"},{name:"china", id:"cn"},{name:"columbia", id:"co"},{name:"cuba", id:"cu"},{name:"czech republic", id:"cz"},{name:"egypt", id:"eg"},{name:"france", id:"fr"},{name:"germany", id:"de"},{name:"greece", id:"gr"},{name:"hong kong", id:"hk"},{name:"hungary", id:"hu"},{name:"india", id:"in"},{name:"indonesia", id:"id"},{name:"ireland", id:"ie"},{name:"israel", id:"il"},{name:"italy", id:"it"},{name:"japan", id:"jp"},{name:"latvia", id:"lv"},{name:"lithuania", id:"lt"},{name:"malaysia", id:"my"},{name:"mexico", id:"mx"},{name:"morocco", id:"ma"},{name:"netherlands", id:"nl"},{name:"new zealand", id:"nz"},{name:"nigeria", id:"ng"},{name:"norway", id:"no"},{name:"philippines", id:"ph"},{name:"poland", id:"pl"},{name:"portugal", id:"pt"},{name:"romania", id:"ro"},{name:"russia", id:"ru"},{name:"saudi arabia", id:"sa"},{name:"serbia", id:"rs"},{name:"singapore", id:"sg"},{name:"slovakia", id:"sk"},{name:"slovenia", id:"si"},{name:"south africa", id:"za"},{name:"south korea", id:"kr"},{name:"sweden", id:"se"},{name:"switzerland", id:"ch"},{name:"taiwan", id:"tw"},{name:"thailand", id:"th"},{name:"turkey", id:"tr"},{name:"uae", id:"ae"},{name:"ukraine", id:"ua"},{name:"united kingdom", id:"gb"},{name:"united states", id:"us"},{name:"venezuela", id:"ve"}];
 
 //get form data
 var formSubmitHandler = function(event) {
@@ -119,7 +124,7 @@ function getNFLnews(){
     article1.innerHTML = HTMLcode1; 
  });
 }
-getNFLnews();
+
 
 // MLB news card
 
@@ -137,7 +142,7 @@ function getMLBnews(){
   });  
 }
   
-getMLBnews();
+
 
 // NBA news card
 
@@ -155,8 +160,6 @@ function getNBAnews(){
   });
 }
 
-getNBAnews();
-
 // NHL news card
 
 function getNHLnews(){
@@ -173,9 +176,49 @@ function getNHLnews(){
   });
 }
 
-getNHLnews()
 
 
+
+//Initial load screen news
+var getInitialNews = function(country) {
+
+  // for loop populates stories from API
+  for(var i = 0; i < countryArr.length ;i++){
+    if(country.toLowerCase()===countryArr[i].name){
+      countryId=countryArr[i].id;
+      
+    };
+  }
+  // error handling if no countryId
+  if(!countryId){
+    return false
+  }
+  // API call 
+  else{
+    // format the github api url
+    var apiUrl = "https://newsapi.org/v2/top-headlines?country="+countryId+"&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
+    // make a get request to url
+    fetch(apiUrl)
+      .then(function(response) {
+        //request was successful
+        if(response.ok){
+          response.json().then(function(data) {
+          sportsArr=data.articles;
+          console.log("sports array ", sportsArr)
+          userFormEl.classList.add('hide');
+          newsContainEl.classList.remove('hide');
+          displayNews();
+
+        });
+        }else {
+          alert("Error: " + response.statusText);
+        }
+      })
+      .catch(function(error) {
+        alert("Unable to connect to server");
+      });
+  }
+};
 //Sports new API Ethan's Code
 var getSportNews = function(country) {
     console.log(country)
@@ -201,6 +244,7 @@ var getSportNews = function(country) {
           //request was successful
           if(response.ok){
             response.json().then(function(data) {
+            sportsArr=[];
             sportsArr=data.articles;
             console.log("sports array ", sportsArr)
             userFormEl.classList.add('hide');
@@ -220,13 +264,49 @@ var getSportNews = function(country) {
   
   var displayNews = function() {
     console.log("displayNews function run")
-    
+    newsFeedEl.textContent = "";
     if (sportsArr.length === 0) {
       newsFeedEl.textContent = "no news found";
       return;
     }else{
       console.log("else statement ran")
-      for(var i=0; i < [5];i++){
+      for(var i=0; i < sportsArr.length;i++){
+        var newsTitle = sportsArr[i].title;
+        //news Card creation
+        var newsEl = document.createElement("div");
+        newsEl.classList = "card news-story";
+        //set url
+        var newsTitleEl = document.createElement("a");
+        newsTitleEl.classList = "";
+        newsTitleEl.setAttribute("href", sportsArr[i].url);
+        var newsImg = document.createElement("div")
+        newsImg.innerHTML = "<a href='"+sportsArr[i].url+"'><img src='"+sportsArr[i].urlToImage+"' class='countryImg' alt='sports image' /></a>"
+        
+
+        
+        if(newsTitle){
+          newsTitleEl.innerHTML = newsTitle;
+        }else {
+          statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
+        }
+        // append container to the dom
+        newsEl.appendChild(newsTitleEl)
+        newsEl.appendChild(newsImg)
+        newsFeedEl.appendChild(newsEl);
+      }
+    }
+  }
+
+  var initialNews = function() {
+    console.log("displayNews function run")
+    
+    if (sportsArr.length === 0) {
+      newsFeedEl.textContent = "no news found";
+      return;
+    }
+    else{
+      console.log("else statement ran")
+      for(var i=0; i < sportsArr.length;i++){
         var newsTitle = sportsArr[i].title;
         //news Card creation
         var newsEl = document.createElement("div");
@@ -253,51 +333,17 @@ var getSportNews = function(country) {
     }
   }
   $('#newsCard').addClass('container box');
-  //Display news
-  var displayRepos = function(repos, searchTerm) {
-
-    // loop over repos
-    for (var i = 0; i < repos.length; i++) {
-      // format repo name
-      var repoName = repos[i].owner.login + "/" + repos[i].name;
   
-      // create a link for each repo
-      var repoEl = document.createElement("a");
-      repoEl.classList = "list-item flex-row justify-space-between align-center";
-      //figure this part out
-      repoEl.setAttribute("href", "./countrynews.html?repo=" + repoName);
-  
-      // create a span element to hold repository name
-      var titleEl = document.createElement("span");
-      titleEl.textContent = repoName;
-  
-      // append to container
-      repoEl.appendChild(titleEl);
-  
-      // create a status element
-      var statusEl = document.createElement("span");
-      statusEl.classList = "flex-row align-center";
-  
-      // check if current repo has issues or not
-      if (repos[i].open_issues_count > 0) {
-        statusEl.innerHTML =
-          "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-      } else {
-        statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-      }
-  
-      // append to container
-      repoEl.appendChild(statusEl);
-  
-      // append container to the dom
-      repoContainerEl.appendChild(repoEl);
-    }
-
-
-    
-  };
-
 // add event listeners to forms
 userFormEl.addEventListener("submit", formSubmitHandler);
 
 
+//Jonathan's Work
+ctaForm.on("submit", nameSubmit)
+
+// USA pro leagues function calls
+getNFLnews();
+getMLBnews();
+getNBAnews();
+getNHLnews();
+getInitialNews();
