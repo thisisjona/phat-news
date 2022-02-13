@@ -51,11 +51,7 @@ $(function() {
   }
 })
 
-
-
-
-
- //Jonathan's Work
+ //Name submit 
 function nameSubmit (event){
   event.preventDefault();
   var duplicateBoolean = false;
@@ -144,7 +140,6 @@ function getMLBnews(){
 }
   
 
-
 // NBA news card
 
 function getNBAnews(){
@@ -178,49 +173,7 @@ function getNHLnews(){
 }
 
 
-
-
-//Initial load screen news
-var getInitialNews = function(country) {
-
-  // for loop populates stories from API
-  for(var i = 0; i < countryArr.length ;i++){
-    if(country.toLowerCase()===countryArr[i].name){
-      countryId=countryArr[i].id;
-      
-    };
-  }
-  // error handling if no countryId
-  if(!countryId){
-    return false
-  }
-  // API call 
-  else{
-    // format the github api url
-    var apiUrl = "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
-    // make a get request to url
-    fetch(apiUrl)
-      .then(function(response) {
-        //request was successful
-        if(response.ok){
-          response.json().then(function(data) {
-          sportsArr=data.articles;
-          console.log("sports array ", sportsArr)
-          userFormEl.classList.add('hide');
-          newsContainEl.classList.remove('hide');
-          displayNews();
-
-        });
-        }else {
-          alert("Error: " + response.statusText);
-        }
-      })
-      .catch(function(error) {
-        alert("Unable to connect to server");
-      });
-  }
-};
-//Sports new API Ethan's Code
+//Sports new API fetch
 var getSportNews = function(country) {
     console.log(country)
     var countryId="";
@@ -303,41 +256,6 @@ var getSportNews = function(country) {
     }
   }
 
-  // var initialNews = function() {
-  //   console.log("displayNews function run")
-    
-  //   if (sportsArr.length === 0) {
-  //     newsFeedEl.textContent = "no news found";
-  //     return;
-  //   }
-  //   else{
-  //     console.log("else statement ran")
-  //     for(var i=0; i < sportsArr.length;i++){
-  //       var newsTitle = sportsArr[i].title;
-  //       //news Card creation
-  //       var newsEl = document.createElement("div");
-  //       newsEl.classList = "card news-story";
-  //       //set url
-  //       var newsTitleEl = document.createElement("a");
-  //       newsTitleEl.classList = "";
-  //       newsTitleEl.setAttribute("href", sportsArr[i].url);
-  //       var newsImg = document.createElement("div")
-  //       newsImg.innerHTML = "<a href='"+sportsArr[i].url+"'><img src='"+sportsArr[i].urlToImage+"' class='countryImg' alt='sports image' /></a>"
-        
-
-        
-  //       if(newsTitle){
-  //         newsTitleEl.innerHTML = newsTitle;
-  //       }else {
-  //         statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-  //       }
-  //       // append container to the dom
-  //       newsEl.appendChild(newsTitleEl)
-  //       newsEl.appendChild(newsImg)
-  //       newsFeedEl.appendChild(newsEl);
-  //     }
-  //   }
-  // }
   $('#newsCard').addClass('container box');
   
 // add event listeners to forms
@@ -352,4 +270,3 @@ getNFLnews();
 getMLBnews();
 getNBAnews();
 getNHLnews();
-getInitialNews();
