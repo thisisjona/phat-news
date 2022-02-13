@@ -214,7 +214,7 @@ var getSportNews = function(country) {
     console.log(country)
     var countryId="";
     // for loop populates stories from API
-    for(var i=0;i < [5] ;i++){
+    for(var i=0;i < countryArr.length ;i++){
       if(country.toLowerCase()===countryArr[i].name){
         countryId=countryArr[i].id;
         console.log("this is the countryId:"+countryId)
