@@ -1,8 +1,8 @@
 
 
  let countryBtn = $('#countryBtn');
- let settingBtn = $('#check-in');
- let userCard = $('#user-card');
+ let settingBtn = $('#userCard');
+
  countryBtn.empty();
 
  countryBtn.append('<option selected="true" disabled>Choose Country</option>');
@@ -25,24 +25,11 @@ $(function (){
    });
  });
 
-$(function() {
-  let localUsers = JSON.parse(window.localStorage.getItem("users")) || [];
-  if (localUsers.length == 0){
-    return undefined;
-  }else{
-  recentUser = localUsers.pop("name");
-  userCard.append("<p>Welcome back: " + recentUser.name +"  !`</p>");
-  settingBtn.addClass('is-hidden');
-  }
-})
-
  //Jonathan's Work
  var ctaForm = $("#cta-form");
  var ctaModal = $("#modal-cta");
  var loginBtn = $("#loginBtn");
  ctaForm.on("submit", nameSubmit)
-
-
 
 function nameSubmit (event){
   event.preventDefault();
@@ -67,26 +54,70 @@ function nameSubmit (event){
     window.localStorage.setItem("users", JSON.stringify(localUsers));
     //append users.name and users.country  to header  
     let userCard = $("#user-card");   
-    userCard.append("<p>" + userName + countryName + "<p>");
+    userCard.append("<button>" + userName + countryName + "<button>");
     ctaModal.removeClass("is-active");
-  };
-}
+    
+    // after data appended, show div containing user info
+    //on submit, close modal  
+    };
 
+   
+}
 $("#burger-icon").click(function(){
   $("#nav-menu").toggleClass("is-active");
 })
 
+
+
+// check persistent user input if none, display modal
+// check if theres local storage with user info
+// if true display most recent from array
+// if false then modal on popup
+const openM 
 settingBtn.click(function(){
   ctaModal.toggleClass('is-hidden is-active');
 })
   
+// display none for user info card
+// display sign up button to open user settings
+// when user changes button changes to settings and user card is displayed top right
+// when user refreshes page their data is still in the nav
+
+
+
+
+
+
+
+
+
+// const countryData = 'https://restcountries.com/v3.1'
+
+// $.getJSON(countryData, function(name) {
+//   $.each(name, );
+// });
+
+// // submit user info
+// let userInfo ="";
+
+// // let submitUserInfo = function(){
+//   $('#loginBtn').click(function(){
+//     let user = $('#userName').val('text');
+//     return user;
+//   })
+//  console.log(userName);
+  
+
 var userFormEl = document.querySelector("#user-form");
 var countryInputEl = document.querySelector("#country");//country
 var NFLinputEl = document.querySelector("nflNews")
 var newsFeedEl = document.querySelector("#newsFeed"); //news feed cards container
 var newsContainEl = document.querySelector("#newsContainer")//news feed container
 let sportsArr=[];
-let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"australia", id:"au"},{name:"austria", id:"at"},{name:"belgium", id:"be"},{name:"brazil", id:"br"},{name:"bulgaria", id:"bg"},{name:"canada", id:"ca"},{name:"china", id:"cn"},{name:"columbia", id:"co"},{name:"cuba", id:"cu"},{name:"czech republic", id:"cz"},{name:"egypt", id:"eg"},{name:"france", id:"fr"},{name:"germany", id:"de"},{name:"greece", id:"gr"},{name:"hong kong", id:"hk"},{name:"hungary", id:"hu"},{name:"india", id:"in"},{name:"indonesia", id:"id"},{name:"ireland", id:"ie"},{name:"israel", id:"il"},{name:"italy", id:"it"},{name:"japan", id:"jp"},{name:"latvia", id:"lv"},{name:"lithuania", id:"lt"},{name:"malaysia", id:"my"},{name:"mexico", id:"mx"},{name:"morocco", id:"ma"},{name:"netherlands", id:"nl"},{name:"new zealand", id:"nz"},{name:"nigeria", id:"ng"},{name:"norway", id:"no"},{name:"philippines", id:"ph"},{name:"poland", id:"pl"},{name:"portugal", id:"pt"},{name:"romania", id:"ro"},{name:"russia", id:"ru"},{name:"saudi arabia", id:"sa"},{name:"serbia", id:"rs"},{name:"singapore", id:"sg"},{name:"slovakia", id:"sk"},{name:"slovenia", id:"si"},{name:"south africa", id:"za"},{name:"south korea", id:"kr"},{name:"sweden", id:"se"},{name:"switzerland", id:"ch"},{name:"taiwan", id:"tw"},{name:"thailand", id:"th"},{name:"turkey", id:"tr"},{name:"uae", id:"ae"},{name:"ukraine", id:"ua"},{name:"united kingdom", id:"gb"},{name:"united states", id:"us"},{name:"venezuela", id:"ve"}];
+let NflArray = [];
+let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"australia", id:"au"},{name:"austria", id:"at"},{name:"belgium", id:"be"},{name:"brazil", id:"br"},{name:"bulgaria", id:"bg"},{name:"canada", id:"ca"},{name:"china", id:"cn"},{name:"columbia", id:"co"},{name:"cuba", id:"cu"},{name:"czech republic", id:"cz"},{name:"egypt", id:"eg"},{name:"france", id:"fr"},{name:"germany", id:"de"},{name:"greece", id:"gr"},{name:"hong kong", id:"hk"},{name:"hungary", id:"hu"},{name:"india", id:"in"},{name:"indonesia", id:"id"},{name:"ireland", id:"ie"},{name:"israel", id:"il"},{name:"italy", id:"it"},{name:"japan", id:"jp"},{name:"latvia", id:"lv"},{name:"lithuania", id:"lt"},{name:"malaysia", id:"my"},{name:"mexico", id:"mx"},{name:"morocco", id:"ma"},{name:"netherlands", id:"nl"},{name:"new zealand", id:"nz"},{name:"nigeria", id:"ng"},{name:"norway", id:"no"},{name:"philippines", id:"ph"},{name:"poland", id:"pl"},{name:"portugal", id:"pt"},{name:"romania", id:"ro"},{name:"russia", id:"ru"},{name:"saudi arabia", id:"sa"},{name:"serbia", id:"rs"},{name:"singapore", id:"sg"},{name:"slovakia", id:"sk"},{name:"slovenia", id:"si"},{name:"south africa", id:"za"},{name:"south korea", id:"kr"},{name:"sweden", id:"se"},{name:"switzerland", id:"ch"},{name:"taiwan", id:"tw"},{name:"thailand", id:"th"},{name:"turkey", id:"tr"},{name:"uae", id:"ae"},{name:"ukraine", id:"ua"},{name:"united kingdom", id:"gb"},{name:"united states", id:"us"},{name:"venezuela", id:"ve"}]
+
+
 
 //get form data
 var formSubmitHandler = function(event) {
@@ -103,7 +134,12 @@ var formSubmitHandler = function(event) {
   }
 };
 
+// https://newsapi.org/v2/everything?q=tesla&from=2022-01-04&sortBy=publishedAt&apiKey=ade84378e67548e5b4ed1e45d4c09606
+// https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606
+
+
 // NFL news card
+
 
 // fetches the NFL api data and loops through to create a set length of articles to choose from with links to source
 function getNFLnews(){
@@ -117,71 +153,80 @@ function getNFLnews(){
       HTMLcode1 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
     }
     article1.innerHTML = HTMLcode1; 
- });
-}
-getNFLnews();
-
-// MLB news card
-
-function getMLBnews(){
-  fetch('https://api.sportsdata.io/v3/mlb/scores/json/News?key=08a1cba147d5478bbe5c54797ddab4a6')
-  .then(res=> res.json())
-  .then(data =>{
-    console.log(data)
-    let article2 = document.querySelector('#MLBNewsList');
-    let HTMLcode2 ="";
-    for (let i = 0; i < [10]; i++) {
-      HTMLcode2 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
-    }
-    article2.innerHTML = HTMLcode2;   
-  });  
-}
   
-getMLBnews();
-
-// NBA news card
-
-function getNBAnews(){
-  fetch('https://api.sportsdata.io/v3/nba/scores/json/News?key=0a630893821f48b795048de75b6ae458')
-  .then(res=> res.json())
-  .then(data =>{
-    console.log(data)
-    let article3 = document.querySelector('#NBANewsList');
-    let HTMLcode3 ="";
-    for (let i = 0; i < [10]; i++) {
-      HTMLcode3 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
-    }
-    article3.innerHTML = HTMLcode3; 
   });
-}
 
-getNBAnews();
+  }
 
-// NHL news card
+  getNFLnews();
 
-function getNHLnews(){
-  fetch('https://api.sportsdata.io/v3/nhl/scores/json/News?key=dda38e7b64ec40808207644ce7c0ae61')
-  .then(res=> res.json())
-  .then(data =>{
-    console.log(data)
-    let article4 = document.querySelector('#NHLNewsList');
-    let HTMLcode4 ="";
-    for (let i = 0; i < [10]; i++) {
-      HTMLcode4 += `<p><a href="${data[i].Url}" target="blank">${data[i].Title}</a></p>`
+  // MLB news card
+
+  function getMLBnews(){
+    fetch('https://api.sportsdata.io/v3/mlb/scores/json/News?key=08a1cba147d5478bbe5c54797ddab4a6')
+    .then(res=> res.json())
+    .then(data =>{
+      console.log(data)
+      let article2 = document.querySelector('#MLBNewsList');
+      let HTMLcode2 ="";
+      for (let i = 0; i < [10]; i++) {
+        HTMLcode2 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
+      }
+      article2.innerHTML = HTMLcode2; 
+    
+    });
+  
     }
-    article4.innerHTML = HTMLcode4; 
-  });
-}
+  
+    getMLBnews();
 
-getNHLnews()
+    // NBA news card
+
+    function getNBAnews(){
+      fetch('https://api.sportsdata.io/v3/nba/scores/json/News?key=0a630893821f48b795048de75b6ae458')
+      .then(res=> res.json())
+      .then(data =>{
+        console.log(data)
+        let article3 = document.querySelector('#NBANewsList');
+        let HTMLcode3 ="";
+        for (let i = 0; i < [10]; i++) {
+          HTMLcode3 += `<p><a href="${data[i].OriginalSourceUrl}" target="blank">${data[i].Title}</a></p>`
+        }
+        article3.innerHTML = HTMLcode3; 
+      
+      });
+    
+      }
+    
+      getNBAnews();
+
+      // NHL news card
+
+      function getNHLnews(){
+        fetch('https://api.sportsdata.io/v3/nhl/scores/json/News?key=dda38e7b64ec40808207644ce7c0ae61')
+        .then(res=> res.json())
+        .then(data =>{
+          console.log(data)
+          let article4 = document.querySelector('#NHLNewsList');
+          let HTMLcode4 ="";
+          for (let i = 0; i < [10]; i++) {
+            HTMLcode4 += `<p><a href="${data[i].Url}" target="blank">${data[i].Title}</a></p>`
+          }
+          article4.innerHTML = HTMLcode4; 
+        
+        });
+      
+        }
+      
+        getNHLnews()
 
 
-//Sports new API Ethan's Code
+//Sports new API
 var getSportNews = function(country) {
     console.log(country)
     var countryId="";
     // for loop populates stories from API
-    for(var i = 0; i < countryArr.length ;i++){
+    for(var i=0;i < [5] ;i++){
       if(country.toLowerCase()===countryArr[i].name){
         countryId=countryArr[i].id;
         console.log("this is the countryId:"+countryId)
@@ -189,7 +234,8 @@ var getSportNews = function(country) {
     }
     // error handling if no countryId
     if(!countryId){
-      return false
+      console.log("no country found")
+      window.alert("Country is not found")
     }
     // API call 
     else{
@@ -297,7 +343,28 @@ var getSportNews = function(country) {
     
   };
 
+
+
+
+
+
+// let loginBtn = $('loginBtn');
+
+// $('dropdown-menu').hide();
+
+
+// // function that allows a user to save their name and country to display on page
+// function signIn(){
+// // listens for event to toggle modal for page
+// $('countries').selectMenu();
+
+// }
+// $('loginBtn').click(function(){
+//   $('#modal-cta').removeClass('is-active');
+// });
+
 // add event listeners to forms
 userFormEl.addEventListener("submit", formSubmitHandler);
 
+// userFormEl.addEventListener("submit2",  NFLNews);
 

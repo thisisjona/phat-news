@@ -8,80 +8,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <!-- <link rel="flags" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css" integrity="sha512-UwbBNAFoECXUPeDhlKR3zzWU3j8ddKIQQsDOsKhXQGdiB5i3IHEXr9kXx82+gaHigbNKbTDp3VY/G6gZqva6ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <title>Phat News</title>
 </head>
 <body class="has-navbar-fixed-top">
 
 <!-- start make header with nav to jarod sport cards -->
-<nav class="navbar is-fixed-top ml-0" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/index.html">
-        <figure class="image">
-        <img src="./assets/images/Phat.png">
-      </figure>
+    <header>
+        <nav class="navbar is-fixed-top ml-0" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/index.html">
+                    <figure class="image">
+                        <img src="./assets/images/Phat.png">
+                    </figure>
+                </a>
+            
+                <div class="navbar-item">
+                    <button id="check-in" class="button is-link"> Check In!</button>
+                </div>
 
-      </a>
-      
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" id="burger-icon">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-
-    <div id="nav-menu" class="navbar-menu">
-
-      <div class="navbar-start">
-        <a class="navbar-item">
-          Home
-        </a>
-
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" id="burger-icon">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
         
-        <a class="navbar-item" href="#country-search">
+            <div id="nav-menu" class="navbar-menu">
 
-          World's Sports
-        </a>
-  
-        <div class="navbar-item has-dropdown is-hoverable">
+                <div class="navbar-start">
+                    <a class="navbar-item">
+                        Home
+                    </a>
+                    <a class="navbar-item" href="#country-search">
+                        World's Sports
+                    </a>
+        
+                        <div class="navbar-item has-dropdown is-hoverable">
 
-          <a class="navbar-link" href="#country-search">
+                    <a class="navbar-link" href="#country-search">
+                        U.S. Sports
+                    </a>
+        
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="#nfl-container">
+                            NFL
+                        </a>
+                        <a class="navbar-item" href="#mlb-container">
+                            MLB
+                        </a>
+                        <a class="navbar-item" href="#nba-container">
+                            NBA
+                        </a>
+                        <a class="navbar-item" href="#nhl-container">
+                            NHL
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- left navbar end element  -->
+            <div id="" class="navbar-end">
+                <div class="navbar-item">
+                    <div id="user-card" class="card has-text-centered is-medium"></div>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
 
-            U.S. Sports
-          </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#nfl-container">
-
-              NFL
-
-            </a>
-            <a class="navbar-item" href="#mlb-container">
-              MLB
-            </a>
-            <a class="navbar-item" href="#nba-container">
-              NBA
-            </a>
-            <a class="navbar-item" href="#nhl-container">
-              NHL
-            </a>
-          </div>
-        </div>
-      </div>
-  <!-- left navbar end element  -->
-      <div class="navbar-end">
-
-        <div class="navbar-item">
-          <div id="user-card" class="card has-text-centered is-medium"></div>
-
-        </div>
-      </div>
-    </div>
-  </nav>
-
-
-<!-- end header nav-->
+    <!-- end header nav-->
 
     <!-- start hero -->
     <jumbotron class="hero">
@@ -91,7 +85,7 @@
 
 
     <!-- start modal CTA user enters name and selects country to view recent news -->
-    <div id="modal-cta" class="modal is-active">
+    <div id="modal-cta" class="modal is-hidden">
         <div class="modal-background"></div>
 
         <div class="modal-content notification has-text-centered">
@@ -109,40 +103,27 @@
 
                 <!-- start dropdown for country -->
 
-                <div class="dropdown level" id="country-field">
+                <div class="dropdown" id="country-field">
 
                     <p class="" for="countryName">Select your Country!</p>
                     <div class="dropdown">
                         <select class="dropdown-trigger" name="countryName" id="countryName"></select>
 
                     </div>
-                    <button id="loginBtn" type="submit" class="button is-primary is-outlined m-1 ">Submit</button>
+
+                   
+
                 </div> 
-                
+                <button id="loginBtn" type="submit" class="button is-primary is-outlined m-1 ">Submit</button>
             </form> 
         </div>
         
     </div>
 
     <!-- country news search function -->
-        
-        <nav class="navigation">
-            <a class="title is-2" href="./index.html">Home</a>
 
-
-    
-
-    <h1 class="is-size-1 has-text-centered">Phat News!</h1>
-
-       
-        <nav class="is-size-4 has-text-centered">
-            <a class=navigat href="#">Home</a>
-        </nav>
+    <h1 class="title is-size-1 has-text-centered">Phat News!</h1>
   
-        <p id="currentDay" class="lead"></p>
-  
-    
-
     <div class="cta content has-text-centered" id="country-search">
         <h2 class="title is-size-6 ">Get current sports news at your fingertips!</h2>
         <form id="user-form" class="box">
@@ -150,11 +131,11 @@
             <section>
 
               <h3 class="cta-header title is-size-5">First pick a country and then submit!</h3><br>
-              <div class="field">
-                <label for="country" class="title is-6">Enter a country:</label>
-                <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
-                <button class="button is-primary is-outlined">Submit</button>
-            </div>
+                <div class="field">
+                    <label for="country" class="title is-6">Enter a country:</label>
+                    <input name="country" type="text"  id="country" class="form-input" autofocus="true" placeholder="Country name"/>
+                    <button class="button is-primary is-outlined">Submit</button>
+                </div>
 
             </section><br>
 
@@ -175,21 +156,7 @@
 
         </div> 
       
-
-
-
-  
-    <div>    
-        <h2>
-        Sports Around The Globe
-
-        </h2>
-
     <section id="newsFeed" class="container"></section>
-
-    
-
-    </div>
  
         <div id="holder">
 
