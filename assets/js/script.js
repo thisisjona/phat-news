@@ -22,22 +22,18 @@ countryBtn.prop('selectedIndex', 0);
 
  // gets country info and flag images
 $(function (){
-
-   const $countryName = $('#countryName');
-   $.ajax({
-     type: 'GET',
-     url: 'https://restcountries.com/v3.1/all',
-     success: function(countryF) {
-       console.log(countryF);
-       
-       $.each(countryF, function(i, countryF){
-         $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
-       });
-       
-      }
-      
-    });
- });
+  const $countryName = $('#countryName');
+  $.ajax({
+    type: 'GET',
+    url: 'https://restcountries.com/v3.1/all',
+    success: function(countryF) {
+      console.log(countryF);
+      $.each(countryF, function(i, countryF){
+        $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
+      });
+    }
+  });
+});
 
 
 $(function() {
@@ -45,9 +41,9 @@ $(function() {
   if (localUsers.length == 0){
     return undefined;
   }else{
-  recentUser = localUsers.pop("name");
-  userCard.append("<p>Welcome back: " + recentUser.name +"  !`</p>");
-  settingBtn.addClass('is-hidden');
+    recentUser = localUsers.pop("name");
+    userCard.append("<p>Welcome back: " + recentUser.name +"  !`</p>");
+    settingBtn.addClass('is-hidden');
   }
 })
 
@@ -87,7 +83,7 @@ $("#burger-icon").click(function(){
 // hides the check in button and modal
 settingBtn.click(function(){
   ctaModal.toggleClass('is-hidden is-active');
-  settingBtn.addClass('is-hidden');
+  // settingBtn.addClass('is-hidden');
 })
   
 
