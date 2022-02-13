@@ -8,7 +8,7 @@ let countryArr=[{name:"america", id:"us"},{name:"argentina", id:"ar"},{name:"aus
 let countryBtn = $('#countryBtn');
 let settingBtn = $('#check-in');
 let userCard = $('#user-card');
-var initialCountry=""
+var userCountry=""
 
 //Jonathan's Work
 var ctaForm = $("#cta-form");
@@ -46,7 +46,7 @@ $(function() {
     return undefined;
   }else{
   recentUser = localUsers.pop("name");
-  userCard.replaceWith("<button>Welcome back, " + recentUser.name + "!<br>"  + recentUser.country + "   </>");
+  userCard.append("<p>Welcome back: " + recentUser.name +"  !`</p>");
   settingBtn.addClass('is-hidden');
   }
 })
@@ -79,9 +79,8 @@ function nameSubmit (event){
     window.localStorage.setItem("users", JSON.stringify(localUsers));
     //append users.name and users.country  to header  
     let userCard = $("#user-card");   
-    userCard.replaceWith("<div>Hey " + userName + ", <br>from "  + countryName + "</div>");
+    userCard.append("<p>" + userName + countryName + "<p>");
     ctaModal.removeClass("is-active");
-    userCard.addClass('button');
   };
 }
 
@@ -90,11 +89,6 @@ $("#burger-icon").click(function(){
 })
 
 settingBtn.click(function(){
-  ctaModal.toggleClass('is-hidden is-active');
-  
-})
-
-userCard.click(function(){
   ctaModal.toggleClass('is-hidden is-active');
 })
   
@@ -105,6 +99,7 @@ var formSubmitHandler = function(event) {
   event.preventDefault();
   // get value from input element
   var country = countryInputEl.value.trim();
+  userCountry=country;
   if (country) {
     getSportNews(country);
     // clear old content
@@ -202,7 +197,7 @@ var getInitialNews = function(country) {
   // API call 
   else{
     // format the github api url
-    var apiUrl = "https://newsapi.org/v2/top-headlines?country="+countryId+"&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
+    var apiUrl = "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ade84378e67548e5b4ed1e45d4c09606";
     // make a get request to url
     fetch(apiUrl)
       .then(function(response) {
@@ -274,49 +269,18 @@ var getSportNews = function(country) {
     if (sportsArr.length === 0) {
       newsFeedEl.textContent = "no news found";
       return;
-    }else{
-      console.log("else statement ran")
-      for(var i=0; i < sportsArr.length;i++){
-        var newsTitle = sportsArr[i].title;
-        //news Card creation
-        var newsEl = document.createElement("div");
-        newsEl.classList = "card news-story";
-        //set url
-        var newsTitleEl = document.createElement("a");
-        newsTitleEl.classList = "";
-        newsTitleEl.setAttribute("href", sportsArr[i].url);
-        var newsImg = document.createElement("div")
-        newsImg.innerHTML = "<a href='"+sportsArr[i].url+"'><img src='"+sportsArr[i].urlToImage+"' class='countryImg' alt='sports image' /></a>"
-        
-
-        
-        if(newsTitle){
-          newsTitleEl.innerHTML = newsTitle;
-        }else {
-          statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-        }
-        // append container to the dom
-        newsEl.appendChild(newsTitleEl)
-        newsEl.appendChild(newsImg)
-        newsFeedEl.appendChild(newsEl);
-      }
-    }
-  }
-
-  var initialNews = function() {
-    console.log("displayNews function run")
-    
-    if (sportsArr.length === 0) {
-      newsFeedEl.textContent = "no news found";
-      return;
     }
     else{
       console.log("else statement ran")
+      var countryNameEl = document.createElement("h2")
+      countryNameEl.classList="title is-size-1"
+      countryNameEl.textContent=userCountry;
+      newsFeedEl.append(countryNameEl)
       for(var i=0; i < sportsArr.length;i++){
         var newsTitle = sportsArr[i].title;
         //news Card creation
         var newsEl = document.createElement("div");
-        newsEl.classList = "card news-story";
+        newsEl.classList = "card news-story mb-3";
         //set url
         var newsTitleEl = document.createElement("a");
         newsTitleEl.classList = "";
@@ -338,6 +302,42 @@ var getSportNews = function(country) {
       }
     }
   }
+
+  // var initialNews = function() {
+  //   console.log("displayNews function run")
+    
+  //   if (sportsArr.length === 0) {
+  //     newsFeedEl.textContent = "no news found";
+  //     return;
+  //   }
+  //   else{
+  //     console.log("else statement ran")
+  //     for(var i=0; i < sportsArr.length;i++){
+  //       var newsTitle = sportsArr[i].title;
+  //       //news Card creation
+  //       var newsEl = document.createElement("div");
+  //       newsEl.classList = "card news-story";
+  //       //set url
+  //       var newsTitleEl = document.createElement("a");
+  //       newsTitleEl.classList = "";
+  //       newsTitleEl.setAttribute("href", sportsArr[i].url);
+  //       var newsImg = document.createElement("div")
+  //       newsImg.innerHTML = "<a href='"+sportsArr[i].url+"'><img src='"+sportsArr[i].urlToImage+"' class='countryImg' alt='sports image' /></a>"
+        
+
+        
+  //       if(newsTitle){
+  //         newsTitleEl.innerHTML = newsTitle;
+  //       }else {
+  //         statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
+  //       }
+  //       // append container to the dom
+  //       newsEl.appendChild(newsTitleEl)
+  //       newsEl.appendChild(newsImg)
+  //       newsFeedEl.appendChild(newsEl);
+  //     }
+  //   }
+  // }
   $('#newsCard').addClass('container box');
   
 // add event listeners to forms
