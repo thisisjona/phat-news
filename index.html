@@ -62,7 +62,7 @@
       </div>
   <!-- left navbar end element  -->
       <div class="navbar-end">
-        <div id="user-card" class="card has-text-centered is-medium is-warning"></div>
+        <div id="user-card" class="card has-text-centered is-mobile is-warning"></div>
       </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
     <div id="modal-cta" class="modal is-active">
         <div class="modal-background"></div>
 
-        <div class="modal-content notification has-text-centered">
+        <div class="modal-content notification has-text-centered is-mobile">
             <h1 class="title is-size-1">Phat News</h1>
             <form class="container is-small" name="userInfo" id="cta-form"> 
 
@@ -97,17 +97,19 @@
                 </div> 
 
                 <!-- start dropdown for country -->
+                <p class="" for="countryName">Select your Country!</p>
+                <div class="dropdown field level" id="country-field">
 
-                <div class="dropdown level" id="country-field">
-
-                    <p class="" for="countryName">Select your Country!</p>
+                    
                     <div class="dropdown">
                         <select class="dropdown-trigger" name="countryName" id="countryName"></select>
-
+                        
                     </div>
-                    <button id="loginBtn" type="submit" class="button is-primary is-outlined m-1 ">Submit</button>
+                    
                 </div> 
-                
+                <div class="column">
+                    <button id="loginBtn" type="submit" class="button is-primary is-outlined m-1 ">Submit</button>
+                    </div>
             </form> 
         </div>
         
@@ -115,8 +117,8 @@
 
     <!-- country news search function -->
         
-        <nav class="navigation">
-            <a class="title is-2" href="./index.html">Home</a>
+        <!-- <nav class="navigation">
+            <a class="title is-2" href="./index.html">Home</a> -->
 
 
     <div id="user-card" class="card has-text-centered is-medium"></div>
@@ -124,18 +126,18 @@
     <h1 class="is-size-1 has-text-centered">Phat News!</h1>
 
        
-        <nav class="is-size-4 has-text-centered">
-            <a class=navigat href="#">Home</a>
-        </nav>
+        <!-- <nav class="is-size-4 has-text-centered">
+            <a class=navigat href="/index.html"></a>
+        </nav> -->
   
         <p id="currentDay" class="lead"></p>
   
     
     <div class="cta">
         <br>
-        <h2 class="title is-2" id="country-search">From what country's sports news would you like to read?</h2><br>
-        <form id="user-form" class="form-group">
-            <section>
+        <!-- <h2 class="title is-2" id="country-search">From what country's sports news would you like to read?</h2><br>-->
+        <form id="user-form" class="form-group"> 
+            <section class="container has-text-centered">
 
               <h3 class="cta-header title is-size-5">First pick a country and then submit!</h3><br>
               <div class="field">
@@ -151,8 +153,8 @@
 
     <!-- world news container -->       
     <div id="newsContainer" class="hide">    
-        <h2 class="title is-3">Sports Around The Globe</h2>
-        <section id="newsFeed" class="container">test</section>
+        <!-- <h2 class="title is-3">Sports Around The Globe</h2> -->
+        <section id="newsFeed" class="container"></section>
     </div>
 
     <!-- daily dose of NFL -->
@@ -168,10 +170,10 @@
 
   
     <div>    
-        <h2>
+        <!-- <h2>
         Sports Around The Globe
 
-        </h2> -->
+        </h2> --> 
     <section id="newsFeed" class="container"></section>
 
     

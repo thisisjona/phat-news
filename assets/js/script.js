@@ -53,7 +53,7 @@ function nameSubmit (event){
     window.localStorage.setItem("users", JSON.stringify(localUsers));
     //append users.name and users.country  to header  
     let userCard = $("#user-card");   
-    userCard.append("<p> Welcome " + userName + ", we're glad you're visiting from " + countryName + "!</p>");
+    userCard.append("<p> Welcome " + userName + ", we're glad you're visiting from " + countryName + "   !</p>");
     ctaModal.removeClass("is-active");
     // after data appended, show div containing user info
     //on submit, close modal  
@@ -63,7 +63,10 @@ function nameSubmit (event){
   
 
 
+// navDrop = $('#navbarBasicExample')
+// navDrop.click()=>{
 
+// }
 
 
 
