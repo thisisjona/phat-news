@@ -143,12 +143,12 @@
 
 
     <!-- world news container -->       
-    <div id="newsContainer" class="hide">    
+    <!-- <div id="newsContainer" class="hide">    
         <h2 class="title is-3">Sports Around The Globe</h2>
         <section id="newsFeed" class="container"></section>
-    </div>
+    </div> -->
 
-    <!-- daily dose of NFL -->
+    
     
 
     
@@ -156,13 +156,24 @@
 
         </div> 
       
-    <section id="newsFeed" class="container"></section>
+    <!-- <section id="newsFeed" class="container"></section> -->
  
         <div id="holder">
 
 
-            <div class="container has-text-centered  mx-2">
-                <section class="card has-background-grey-light" id="nfl-container">
+
+                  <!-- daily dose of NFL -->
+          <div class="columns">
+
+            <div id="newsContainer" class="hide has-text-centered has-background-grey-light column is-mobile is-two-thirds mx-2">    
+              <h2 class="title is-3">Sports Around The Globe</h2>
+              <section id="newsFeed" class="column"></section>
+              
+          </div>
+
+            <div class="column is-mobile has-text-centered mx-2">
+              
+                <section class="column has-background-grey-light" id="nfl-container">
 
 
 
@@ -175,14 +186,13 @@
                 </section><br>
 
 
-                    <!-- <div class=" 'container2"> -->
                         <article id="NFLNewsList"></article> 
-                    <!-- </div>  <br> -->
-                <!-- </section><br> -->
-                <section class="card has-background-grey-light" id="mlb-container">
+
+                  <!-- <section class="container" id="mlb-container"> -->
+
+                <section class="column has-background-grey-light" id="mlb-container">
 
 
-                <!-- <section class="container" id="mlb-container"> -->
 
                     <h2 id="card-team"> 
                         MLB on Deck!
@@ -194,7 +204,7 @@
                 </section><br>
 
 
-                <section class="card has-background-grey-light" id="nba-container">
+                <section class="column has-background-grey-light" id="nba-container">
 
 
                 <!-- <section class="container" id="nba-container"> -->
@@ -209,7 +219,7 @@
                 </section><br>  
 
 
-                <section class="card has-background-grey-light" id="nhl-container">
+                <section class="column has-background-grey-light" id="nhl-container">
 
 
                 <!-- <section class="container" id="nhl-container"> -->
@@ -223,6 +233,7 @@
                     
                 </section><br> 
             </div>
+          </div>  
         </div>
 
     
