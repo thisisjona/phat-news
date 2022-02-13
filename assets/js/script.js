@@ -15,7 +15,6 @@ var ctaForm = $("#cta-form");
 var ctaModal = $("#modal-cta");
 var loginBtn = $("#loginBtn");
 
-
 countryBtn.empty();
 countryBtn.append('<option selected="true" disabled>Choose Country</option>');
 
@@ -39,6 +38,7 @@ $(function (){
       
     });
  });
+
 
 $(function() {
   let localUsers = JSON.parse(window.localStorage.getItem("users")) || [];
@@ -73,19 +73,21 @@ function nameSubmit (event){
     };
     localUsers.push(newUserObj);
     window.localStorage.setItem("users", JSON.stringify(localUsers));
-    //append users.name and users.country  to header  
+    //append users.name and users.country  to nav and hides modal
     let userCard = $("#user-card");   
-    userCard.append("<p>" + userName + countryName + "<p>");
-    ctaModal.removeClass("is-active");
+    userCard.replaceWith("<button>Hey " + userName + ", <br>from "  + countryName + "</button>");
+    ctaModal.toggleClass("is-hidden is-active");
+    
   };
 }
 
 $("#burger-icon").click(function(){
   $("#nav-menu").toggleClass("is-active");
 })
-
+// hides the check in button and modal
 settingBtn.click(function(){
   ctaModal.toggleClass('is-hidden is-active');
+  settingBtn.addClass('is-hidden');
 })
   
 
