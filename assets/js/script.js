@@ -31,7 +31,7 @@ $(function() {
     return undefined;
   }else{
   recentUser = localUsers.pop("name");
-  userCard.append("<p>Welcome back: " + recentUser.name +"  !`</p>");
+  userCard.replaceWith("<button>Welcome back, " + recentUser.name + "!<br>"  + recentUser.country + "   </>");
   settingBtn.addClass('is-hidden');
   }
 })
@@ -67,8 +67,9 @@ function nameSubmit (event){
     window.localStorage.setItem("users", JSON.stringify(localUsers));
     //append users.name and users.country  to header  
     let userCard = $("#user-card");   
-    userCard.append("<p>" + userName + countryName + "<p>");
+    userCard.replaceWith("<div>Hey " + userName + ", <br>from "  + countryName + "</div>");
     ctaModal.removeClass("is-active");
+    userCard.addClass('button');
   };
 }
 
@@ -77,6 +78,11 @@ $("#burger-icon").click(function(){
 })
 
 settingBtn.click(function(){
+  ctaModal.toggleClass('is-hidden is-active');
+  
+})
+
+userCard.click(function(){
   ctaModal.toggleClass('is-hidden is-active');
 })
   
