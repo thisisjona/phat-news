@@ -17,35 +17,37 @@
         <nav class="navbar is-fixed-top ml-0 has-background-grey" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/index.html">
-                    <figure class="image">
-                        <img src="./assets/images/Phat.png">
-                    </figure>
+                  <img class="images is-64x64" src="./assets/images/phat-logo.jpeg">
                 </a>
-            
-                <div class="navbar-item ">
-                    <button id="check-in" class="button is-link"> Check In!</button>
-                </div>
-
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" id="burger-icon">
+                
+                <!-- <div class="navbar-item">
+                    <button id="user-card" class="is-hidden"></div>
+                </div> -->
+                <a role="button" class="navbar-burger has-background-grey-light" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" id="burger-icon">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-        
+            <div class="navbar-item">
+                <button id="check-in" class="button is-link is-hidden">Check In!</div>
+            </div>
             <div id="nav-menu" class="navbar-menu ">
 
-                <div class="navbar-start has-text-success-light">
-                    <a class="navbar-item has-text-success-light">
+                <div class="navbar-start">
+                    
+                    <a class="navbar-item">
                         Home
                     </a>
-                    <a class="navbar-item has-text-success-light" href="#country-search">
+                    <a class="navbar-item" href="#country-search">
                         World's Sports
                     </a>
+
+                    
         
                         <div class="navbar-item has-dropdown is-hoverable">
 
-                    <a class="navbar-link has-text-success-light" href="#country-search">
+                    <a class="navbar-link" href="#country-search">
                         U.S. Sports
                     </a>
         
@@ -67,62 +69,58 @@
             </div>
             <!-- left navbar end element  -->
             <div id="" class="navbar-end">
-                <div class="navbar-item">
-                    <div id="user-card" class=""></div>
-                </div>
+                
                 
             </div>
         </nav>
+        
     </header>
 
     <!-- end header nav-->
 
     <!-- start hero -->
     <jumbotron class="hero">
-            <img class="is-justify-content-center" src="./assets/images/ringshero.jpg" alt="2022 olympic rings">
+            <img class="is-justify-content-center " src="./assets/images/phat-logo.jpeg" alt="Phat News Logo">
         </div>
     </jumbotron>
 
 
     <!-- start modal CTA user enters name and selects country to view recent news -->
-    <div id="modal-cta" class="modal is-hidden">
+    <div id="modal-cta" class="modal is-small is-hidden level is-justify-content-center">
         <div class="modal-background"></div>
 
-        <div class="modal-content notification has-text-centered">
-            <h1 class="title is-size-1">Phat News</h1>
-            <form class="container is-small" name="userInfo" id="cta-form"> 
-
-
+        <div class="modal-card">
+            <div class="modal-card-head">
+                <h1 class="modal-card-title">Check in here!</h1>
+                <!-- <button id="closeSettingBtn" class="delete" aria-label="close"></button> -->
+            </div>  
+            <div class="modal-card-body">
                 <!--start field for user name -->
-                <div class="field" id="name-field">
-                    <label class="label" for="userName">Enter your username!</label>
-                    <div class="control">
-                        <input class="input is-rounded" type="text" id="userName" placeholder="Enter username">
-                    </div>
-                </div> 
+                <form class="container is-small" name="userInfo" id="cta-form"> 
 
-                <!-- start dropdown for country -->
+                    <div class="field" id="name-field">
+                        <label class="label" for="userName">Enter your username!</label>
+                        <div class="control">
+                            <input class="input is-rounded is-small" type="text" id="userName" placeholder="Enter username">
+                        </div>
+                    </div> 
 
-                <div class="dropdown" id="country-field">
-
-                    <p class="" for="countryName">Select your Country!</p>
-                    <div class="dropdown">
-                        <select class="dropdown-trigger" name="countryName" id="countryName"></select>
-
-                    </div>
-
-                   
-
-                </div> 
-                <button id="loginBtn" type="submit" class="button is-primary is-outlined m-1 ">Submit</button>
-            </form> 
+                    <!-- start dropdown for country -->
+                    <p class="title is-size-6" for="countryName">Select your Country!</p>
+                    <div class="dropdown" id="country-field">
+                        <div class="dropdown">
+                            <select class="dropdown-triggers" name="countryName" id="countryName"></select>
+                        </div>
+                    </div> 
+                    <button id="loginBtn" type="submit" class="button is-primary is-outlined m-1 ">Submit</button>
+                </form> 
+            </div>
         </div>
-        
     </div>
 
     <!-- country news search function -->
 
-    <h1 class="title is-size-1 has-text-centered">Phat News!</h1>
+
   
     <div class="cta content has-text-centered" id="country-search">
         <h2 class="title is-size-4 ">Get current sports news at your fingertips!</h2>
@@ -156,12 +154,15 @@
 
         </div> 
       
+
+    <!-- <section id="newsFeed" class="container"></section> -->
+
     <!-- <section id="newsFeed" class="container"></section> -->
  
         <div id="holder">
 
 
-
+          <!-- add a change -->
                   <!-- daily dose of NFL -->
           <div class="columns">
 
@@ -174,6 +175,7 @@
             <div class="column is-mobile has-text-centered mx-2">
               
                 <section class="column has-background-grey-light" id="nfl-container">
+
 
 
 

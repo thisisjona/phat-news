@@ -26,7 +26,7 @@ There will also be an aside of sports news cards from the 4 major sports here in
 ## **Phat News**
 [Have a look!](https://thisisjona.github.io/phat-news/)
 
-[![README screenshot](https://user-images.githubusercontent.com/88595179/153732420-8ec3bfa6-6f85-4855-ac50-1d9922b30ba4.png)](https://thisisjona.github.io/phat-news/)
+[![landing-page](https://user-images.githubusercontent.com/63801322/153802213-25f3187c-3199-4170-abbe-2a11e84aa5c5.png)](https://thisisjona.github.io/phat-news/)
 
 ## Contributions:
 * Ethan Pfeiffer
