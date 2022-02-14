@@ -66,6 +66,14 @@ $("#burger-icon").click(function(){
 })
 
 
+var localUsers = JSON.stringify(window.localStorage.getItem("users"));
+// for(var i = 0; i < localUsers.length; i ++){
+//   if(localUsers[i] === localUsers.length){
+//     console.log(localUsers[i]);
+//   }
+
+var lastEntry = localUsers.pop();
+window.alert(lastEntry);
 
 
   
