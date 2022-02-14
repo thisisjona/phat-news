@@ -29,7 +29,7 @@ $(function (){
     success: function(countryF) {
       console.log(countryF);
       $.each(countryF, function(i, countryF){
-        $countryName.append('<option>' + countryF.name.common + countryF.flag +'</option>');
+        $countryName.append('<option>' + countryF.name.common + " " + countryF.flag +'</option>');
       });
     }
   });
@@ -39,10 +39,11 @@ $(function (){
 $(function() {
   let localUsers = JSON.parse(window.localStorage.getItem("users")) || [];
   if (localUsers.length == 0){
+    settingBtn.toggleClass('is-hidden');
     return undefined;
   }else{
     recentUser = localUsers.pop("name");
-    userCard.append("<p>Welcome back: " + recentUser.name +"  !`</p>");
+    settingBtn.replaceWith("<button>Welcome back, " + recentUser.name + "<br>" + recentUser.country +"</button>");
     settingBtn.addClass('is-hidden');
   }
 })
@@ -71,9 +72,9 @@ function nameSubmit (event){
     window.localStorage.setItem("users", JSON.stringify(localUsers));
     //append users.name and users.country  to nav and hides modal
     let userCard = $("#user-card");   
-    userCard.replaceWith("<button>Hey " + userName + ", <br>from "  + countryName + "</button>");
+    settingBtn.replaceWith("<button>Hey " + userName + "<br>"  + countryName + "</button>");
     ctaModal.toggleClass("is-hidden is-active");
-    
+    // settingBtn.toggleClass('is-hidden');
   };
 }
 
@@ -85,7 +86,7 @@ settingBtn.click(function(){
   ctaModal.toggleClass('is-hidden is-active');
   // settingBtn.addClass('is-hidden');
 })
-  
+
 
 //get form data
 var formSubmitHandler = function(event) {
