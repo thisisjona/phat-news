@@ -1,6 +1,6 @@
 # **Phat News!**
 
-## **Project 1:**  Create a website that solves a real world problem.  This website build should follow the created user story to reach the desired outcome.  The project should include a CSS framework other than Bootstrap, should be deployed to GitHub pages, should be interactive for the user, should have at least 2 server-side API's, should use client-side storage to store persistant data, should be responsive in design, and should have a polished UI.  It should also opt to use modals in place of prompts, alerts or confirms.
+## **Project 1:**  Create a website that solves a real world problem.  This website build should follow the created user story to reach the desired outcome.  The project should include a CSS framework other than Bootstrap, should be deployed to GitHub pages, should be interactive for the user, should have at least 2 server-side API's, should use client-side storage to store persistent data, should be responsive in design, and should have a polished UI.  It should also opt to use modals in place of prompts, alerts or confirms.
 
 ## Built using:
 * HTML
@@ -15,7 +15,7 @@
 * API.sportsdata.io
 * Microsoft PowerPoint
 
-### This project began with no provided code.  It was bulit from the ground up starting wioth a wireframe model and a collaboration of ideas among team memebers. 
+### This project began with no provided code.  It was built from the ground up starting with a wire-frame model and a collaboration of ideas among team members. 
 
 Our job on this project is to create a working reference page for sports news both within the country and around the globe.  Our site will log a user's name and country of origin and save the data for future website visits.  
 
