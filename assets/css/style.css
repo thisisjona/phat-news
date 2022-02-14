@@ -50,7 +50,7 @@ header{
 
 
 
-.cta p {
+/* .cta p {
     display: flex;
     flex-wrap: auto;
     justify-content: center;
@@ -64,13 +64,13 @@ header{
     background-color: white;
     
 
-}
+} */
 
 
-nav{
+/* nav{
     margin-left: 30px;
     
-} 
+}  */
 
 
 #country{
@@ -83,7 +83,7 @@ nav{
 margin-bottom:1px;
 }
 
-@media screen and (max-width: 821px) {
+/* @media screen and (max-width: 821px) {
     #country{
         margin-top: 10px;
         
@@ -95,7 +95,7 @@ margin-bottom:1px;
         margin-top:20px;
     }
 
-}
+} */
 /* .navigat{
     margin-right: 20px;
     text-decoration:30px;
